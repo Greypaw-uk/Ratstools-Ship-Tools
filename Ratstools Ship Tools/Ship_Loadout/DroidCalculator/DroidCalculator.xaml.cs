@@ -62,6 +62,7 @@ namespace Ship_Loadout
                 ChangeProgressBarColour();
 
                 ProgressBar.Maximum = max;
+                tb_max.Text = max.ToString();
             }
         }
 
@@ -267,9 +268,10 @@ namespace Ship_Loadout
             CalculateTotalLoad();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ClearOtherChips_OnClick(object sender, RoutedEventArgs e)
         {
             dg_otherChips.SelectedIndex = -1;
+            CalculateTotalLoad();
         }
     }
 
