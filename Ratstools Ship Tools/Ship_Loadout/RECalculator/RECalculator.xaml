@@ -1,0 +1,655 @@
+﻿<Page x:Class="Ship_Loadout.RECalculator"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="RECalculator">
+
+    <Grid Background="White">
+        <TabControl>
+            <!-- Reactor -->
+            <TabItem Header="Reactor">
+                <Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
+                                   Grid.Column="0" />
+                        <ComboBox x:Name="cb_reactorLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
+                                  Grid.Row="0" Grid.Column="1">
+                            <ComboBoxItem>One</ComboBoxItem>
+                            <ComboBoxItem>Two - Three</ComboBoxItem>
+                            <ComboBoxItem>Four - Five</ComboBoxItem>
+                            <ComboBoxItem>Six - Seven</ComboBoxItem>
+                            <ComboBoxItem>Eight</ComboBoxItem>
+                            <ComboBoxItem>Nine - Ten</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="0" />
+                        <TextBox x:Name="tb_reactorArmourInput" Grid.Row="1" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="2" />
+                        <TextBlock Name="tb_reactorArmourOutput" Grid.Row="1" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="0" />
+                        <TextBox x:Name="tb_reactorMassInput" Grid.Row="2" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="2" />
+                        <TextBlock Name="tb_reactorMassOutput" Grid.Row="2" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Generation:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="0" />
+                        <TextBox x:Name="tb_reactorGenerationInput" Grid.Row="3" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Generation:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="2" />
+                        <TextBlock Name="tb_reactorGenerationOutput" Grid.Row="3" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                                Margin="20">
+                        <Button Name="btnArmourCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
+                                Click="BtnArmourCalculate_OnClick" />
+                        <Button Name="btnArmourCancel" Content="Clear" Height="24" Width="100" Margin="20"
+                                Click="BtnArmourCancel_OnClick" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Engine -->
+            <TabItem Header="Engine">
+                <Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
+                                   Grid.Column="0" />
+                        <ComboBox x:Name="cb_engineLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
+                                  Grid.Row="0" Grid.Column="1">
+                            <ComboBoxItem>One</ComboBoxItem>
+                            <ComboBoxItem>Two - Three</ComboBoxItem>
+                            <ComboBoxItem>Four - Five</ComboBoxItem>
+                            <ComboBoxItem>Six - Seven</ComboBoxItem>
+                            <ComboBoxItem>Eight</ComboBoxItem>
+                            <ComboBoxItem>Nine - Ten</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="0" />
+                        <TextBox x:Name="tb_engineArmourInput" Grid.Row="1" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="2" />
+                        <TextBlock Name="tb_engineArmourOutput" Grid.Row="1" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="0" />
+                        <TextBox x:Name="tb_engineDrainInput" Grid.Row="2" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="2" />
+                        <TextBlock Name="tb_engineDrainOutput" Grid.Row="2" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="0" />
+                        <TextBox x:Name="tb_engineMassInput" Grid.Row="3" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="2" />
+                        <TextBlock Name="tb_engineMassOutput" Grid.Row="3" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Pitch:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="0" />
+                        <TextBox x:Name="tb_enginePitchInput" Grid.Row="4" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Pitch:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="2" />
+                        <TextBlock Name="tb_enginePitchOutput" Grid.Row="4" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Yaw:" Style="{DynamicResource tb_label}" Grid.Row="5" Grid.Column="0" />
+                        <TextBox x:Name="tb_engineYawInput" Grid.Row="5" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Yaw:" Style="{DynamicResource tb_label}" Grid.Row="5" Grid.Column="2" />
+                        <TextBlock Name="tb_engineYawOutput" Grid.Row="5" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Roll:" Style="{DynamicResource tb_label}" Grid.Row="6" Grid.Column="0" />
+                        <TextBox x:Name="tb_engineRollInput" Grid.Row="6" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Roll:" Style="{DynamicResource tb_label}" Grid.Row="6" Grid.Column="2" />
+                        <TextBlock Name="tb_engineRollOutput" Grid.Row="6" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Speed:" Style="{DynamicResource tb_label}" Grid.Row="7" Grid.Column="0" />
+                        <TextBox x:Name="tb_engineSpeedInput" Grid.Row="7" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Speed:" Style="{DynamicResource tb_label}" Grid.Row="7" Grid.Column="2" />
+                        <TextBlock Name="tb_engineSpeedOutput" Grid.Row="7" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <Button Name="btnEngineCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
+                                Click="BtnEngineCalculate_OnClick" />
+                        <Button Name="btnEngineCancel" Content="Clear" Height="24" Width="100" Margin="20"
+                                Click="BtnEngineCancel_OnClick" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Booster -->
+            <TabItem Header="Booster">
+                <Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
+                                   Grid.Column="0" />
+                        <ComboBox x:Name="cb_boosterLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
+                                  Grid.Row="0" Grid.Column="1">
+                            <ComboBoxItem>One</ComboBoxItem>
+                            <ComboBoxItem>Two - Three</ComboBoxItem>
+                            <ComboBoxItem>Four - Five</ComboBoxItem>
+                            <ComboBoxItem>Six - Seven</ComboBoxItem>
+                            <ComboBoxItem>Eight</ComboBoxItem>
+                            <ComboBoxItem>Nine - Ten</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="0" />
+                        <TextBox x:Name="tb_boosterArmourInput" Grid.Row="1" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="2" />
+                        <TextBlock Name="tb_boosterArmourOutput" Grid.Row="1" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="0" />
+                        <TextBox x:Name="tb_boosterDrainInput" Grid.Row="2" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="2" />
+                        <TextBlock Name="tb_boosterDrainOutput" Grid.Row="2" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="0" />
+                        <TextBox x:Name="tb_boosterMassInput" Grid.Row="3" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="2" />
+                        <TextBlock Name="tb_boosterMassOutput" Grid.Row="3" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Energy:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="0" />
+                        <TextBox x:Name="tb_boosterEnergyInput" Grid.Row="4" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Energy:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="2" />
+                        <TextBlock Name="tb_boosterEnergyOutput" Grid.Row="4" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Recharge:" Style="{DynamicResource tb_label}" Grid.Row="5" Grid.Column="0" />
+                        <TextBox x:Name="tb_boosterRechargeInput" Grid.Row="5" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Recharge:" Style="{DynamicResource tb_label}" Grid.Row="5" Grid.Column="2" />
+                        <TextBlock Name="tb_boosterRechargeOutput" Grid.Row="5" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Consumption:" Style="{DynamicResource tb_label}" Grid.Row="6" Grid.Column="0" />
+                        <TextBox x:Name="tb_boosterConsumptionInput" Grid.Row="6" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Consumption:" Style="{DynamicResource tb_label}" Grid.Row="6" Grid.Column="2" />
+                        <TextBlock Name="tb_boosterConsumptionOutput" Grid.Row="6" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Acceleration:" Style="{DynamicResource tb_label}" Grid.Row="7" Grid.Column="0" />
+                        <TextBox x:Name="tb_boosterAccelerationInput" Grid.Row="7" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Acceleration:" Style="{DynamicResource tb_label}" Grid.Row="7" Grid.Column="2" />
+                        <TextBlock Name="tb_boosterAccelerationOutput" Grid.Row="7" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Speed:" Style="{DynamicResource tb_label}" Grid.Row="7" Grid.Column="0" />
+                        <TextBox x:Name="tb_boosterSpeedInput" Grid.Row="7" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Speed:" Style="{DynamicResource tb_label}" Grid.Row="7" Grid.Column="2" />
+                        <TextBlock Name="tb_boosterSpeedOutput" Grid.Row="7" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <Button Name="btnBoosterCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
+                                Click="BtnBoosterCalculate_OnClick" />
+                        <Button Name="btnBoosterCancel" Content="Clear" Height="24" Width="100" Margin="20"
+                                Click="BtnBoosterCancel_OnClick" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Shield -->
+            <TabItem Header="Shield">
+                <Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
+                                   Grid.Column="0" />
+                        <ComboBox x:Name="cb_shieldLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
+                                  Grid.Row="0" Grid.Column="1">
+                            <ComboBoxItem>One</ComboBoxItem>
+                            <ComboBoxItem>Two - Three</ComboBoxItem>
+                            <ComboBoxItem>Four - Five</ComboBoxItem>
+                            <ComboBoxItem>Six - Seven</ComboBoxItem>
+                            <ComboBoxItem>Eight</ComboBoxItem>
+                            <ComboBoxItem>Nine - Ten</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="0" />
+                        <TextBox x:Name="tb_shieldArmourInput" Grid.Row="1" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="2" />
+                        <TextBlock Name="tb_shieldArmourOutput" Grid.Row="1" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="0" />
+                        <TextBox x:Name="tb_shieldDrainInput" Grid.Row="2" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="2" />
+                        <TextBlock Name="tb_shieldDrainOutput" Grid.Row="2" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="0" />
+                        <TextBox x:Name="tb_shieldMassInput" Grid.Row="3" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="2" />
+                        <TextBlock Name="tb_shieldMassOutput" Grid.Row="3" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Front HP:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="0" />
+                        <TextBox x:Name="tb_shieldFrontHPInput" Grid.Row="4" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Front HP:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="2" />
+                        <TextBlock Name="tb_shieldFrontHPOutput" Grid.Row="4" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Rear HP:" Style="{DynamicResource tb_label}" Grid.Row="5" Grid.Column="0" />
+                        <TextBox x:Name="tb_shieldRearHPInput" Grid.Row="5" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Rear HP:" Style="{DynamicResource tb_label}" Grid.Row="5" Grid.Column="2" />
+                        <TextBlock Name="tb_shieldRearHPOutput" Grid.Row="5" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Recharge:" Style="{DynamicResource tb_label}" Grid.Row="6" Grid.Column="0" />
+                        <TextBox x:Name="tb_shieldRechargeInput" Grid.Row="6" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Recharge:" Style="{DynamicResource tb_label}" Grid.Row="6" Grid.Column="2" />
+                        <TextBlock Name="tb_shieldRechargeOutput" Grid.Row="6" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <Button Name="btnShieldCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
+                                Click="BtnShieldCalculate_OnClick" />
+                        <Button Name="btnShieldCancel" Content="Clear" Height="24" Width="100" Margin="20"
+                                Click="BtnShieldCancel_OnClick" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Armour -->
+            <TabItem Header="Armor">
+                <Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
+                                   Grid.Column="0" />
+                        <ComboBox x:Name="cb_armourLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
+                                  Grid.Row="0" Grid.Column="1">
+                            <ComboBoxItem>One</ComboBoxItem>
+                            <ComboBoxItem>Two - Three</ComboBoxItem>
+                            <ComboBoxItem>Four - Five</ComboBoxItem>
+                            <ComboBoxItem>Six - Seven</ComboBoxItem>
+                            <ComboBoxItem>Eight</ComboBoxItem>
+                            <ComboBoxItem>Nine - Ten</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="0" />
+                        <TextBox x:Name="tb_armourArmourInput" Grid.Row="1" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="2" />
+                        <TextBlock Name="tb_armourArmourOutput" Grid.Row="1" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="0" />
+                        <TextBox x:Name="tb_armourMassInput" Grid.Row="2" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="2" />
+                        <TextBlock Name="tb_armourMassOutput" Grid.Row="2" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <Button Name="btnarmourCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
+                                Click="BtnarmourCalculate_OnClick" />
+                        <Button Name="btnarmourCancel" Content="Clear" Height="24" Width="100" Margin="20"
+                                Click="BtnarmourCancel_OnClick" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Droid Interface -->
+            <TabItem Header="Droid Interface">
+                <Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
+                                   Grid.Column="0" />
+                        <ComboBox x:Name="cb_diLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
+                                  Grid.Row="0" Grid.Column="1">
+                            <ComboBoxItem>One</ComboBoxItem>
+                            <ComboBoxItem>Two - Three</ComboBoxItem>
+                            <ComboBoxItem>Four - Five</ComboBoxItem>
+                            <ComboBoxItem>Six - Seven</ComboBoxItem>
+                            <ComboBoxItem>Eight</ComboBoxItem>
+                            <ComboBoxItem>Nine - Ten</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="0" />
+                        <TextBox x:Name="tb_diArmourInput" Grid.Row="1" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="2" />
+                        <TextBlock Name="tb_diArmourOutput" Grid.Row="1" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="0" />
+                        <TextBox x:Name="tb_diDrainInput" Grid.Row="2" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="2" />
+                        <TextBlock Name="tb_diDrainOutput" Grid.Row="2" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="0" />
+                        <TextBox x:Name="tb_diMassInput" Grid.Row="3" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="2" />
+                        <TextBlock Name="tb_diMassOutput" Grid.Row="3" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Speed:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="0" />
+                        <TextBox x:Name="tb_diSpeedInput" Grid.Row="4" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Speed:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="2" />
+                        <TextBlock Name="tb_diSpeedOutput" Grid.Row="4" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <Button Name="btndiCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
+                                Click="BtndiCalculate_OnClick" />
+                        <Button Name="btndiCancel" Content="Clear" Height="24" Width="100" Margin="20"
+                                Click="BtndiCancel_OnClick" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Capacitor -->
+            <TabItem Header="Capacitor">
+                <Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
+                                   Grid.Column="0" />
+                        <ComboBox x:Name="cb_capLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
+                                  Grid.Row="0" Grid.Column="1">
+                            <ComboBoxItem>One</ComboBoxItem>
+                            <ComboBoxItem>Two - Three</ComboBoxItem>
+                            <ComboBoxItem>Four - Five</ComboBoxItem>
+                            <ComboBoxItem>Six - Seven</ComboBoxItem>
+                            <ComboBoxItem>Eight</ComboBoxItem>
+                            <ComboBoxItem>Nine - Ten</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="0" />
+                        <TextBox x:Name="tb_capArmourInput" Grid.Row="1" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="2" />
+                        <TextBlock Name="tb_capArmourOutput" Grid.Row="1" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="0" />
+                        <TextBox x:Name="tb_capDrainInput" Grid.Row="2" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="2" />
+                        <TextBlock Name="tb_capDrainOutput" Grid.Row="2" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="0" />
+                        <TextBox x:Name="tb_capMassInput" Grid.Row="3" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="2" />
+                        <TextBlock Name="tb_capMassOutput" Grid.Row="3" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Energy:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="0" />
+                        <TextBox x:Name="tb_capEnergyInput" Grid.Row="4" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Energy:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="2" />
+                        <TextBlock Name="tb_capEnergyOutput" Grid.Row="4" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Recharge:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="0" />
+                        <TextBox x:Name="tb_capRechargeInput" Grid.Row="4" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Recharge:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="2" />
+                        <TextBlock Name="tb_capRechargeOutput" Grid.Row="4" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <Button Name="btncapCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
+                                Click="BtncapCalculate_OnClick" />
+                        <Button Name="btncapCancel" Content="Clear" Height="24" Width="100" Margin="20"
+                                Click="BtncapCancel_OnClick" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Weapon">
+                <Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
+                                   Grid.Column="0" />
+                        <ComboBox x:Name="cb_wepLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
+                                  Grid.Row="0" Grid.Column="1">
+                            <ComboBoxItem>One</ComboBoxItem>
+                            <ComboBoxItem>Two - Three</ComboBoxItem>
+                            <ComboBoxItem>Four - Five</ComboBoxItem>
+                            <ComboBoxItem>Six - Seven</ComboBoxItem>
+                            <ComboBoxItem>Eight</ComboBoxItem>
+                            <ComboBoxItem>Nine - Ten</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="0" />
+                        <TextBox x:Name="tb_wepArmourInput" Grid.Row="1" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Armor:" Style="{DynamicResource tb_label}" Grid.Row="1" Grid.Column="2" />
+                        <TextBlock Name="tb_wepArmourOutput" Grid.Row="1" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="0" />
+                        <TextBox x:Name="tb_wepDrainInput" Grid.Row="2" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Drain:" Style="{DynamicResource tb_label}" Grid.Row="2" Grid.Column="2" />
+                        <TextBlock Name="tb_wepDrainOutput" Grid.Row="2" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="0" />
+                        <TextBox x:Name="tb_wepMassInput" Grid.Row="3" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Mass:" Style="{DynamicResource tb_label}" Grid.Row="3" Grid.Column="2" />
+                        <TextBlock Name="tb_wepMassOutput" Grid.Row="3" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Min. Damage:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="0" />
+                        <TextBox x:Name="tb_wepMinInput" Grid.Row="4" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Min. Damage:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="2" />
+                        <TextBlock Name="tb_wepMinOutput" Grid.Row="4" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Max. Damage:" Style="{DynamicResource tb_label}" Grid.Row="5" Grid.Column="0" />
+                        <TextBox x:Name="tb_wepMaxInput" Grid.Row="5" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Max. Damage:" Style="{DynamicResource tb_label}" Grid.Row="5" Grid.Column="2" />
+                        <TextBlock Name="tb_wepMaxOutput" Grid.Row="5" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="vs Shields:" Style="{DynamicResource tb_label}" Grid.Row="6" Grid.Column="0" />
+                        <TextBox x:Name="tb_wepVShieldInput" Grid.Row="6" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Max. Damage:" Style="{DynamicResource tb_label}" Grid.Row="6" Grid.Column="2" />
+                        <TextBlock Name="tb_wepVShieldOutput" Grid.Row="6" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="vs Armor:" Style="{DynamicResource tb_label}" Grid.Row="7" Grid.Column="0" />
+                        <TextBox x:Name="tb_wepVArmourInput" Grid.Row="7" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="vs Armor:" Style="{DynamicResource tb_label}" Grid.Row="7" Grid.Column="2" />
+                        <TextBlock Name="tb_wepVArmourOutput" Grid.Row="7" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Energy/Shot:" Style="{DynamicResource tb_label}" Grid.Row="8" Grid.Column="0" />
+                        <TextBox x:Name="tb_wepEPSInput" Grid.Row="8" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Energy/Shot:" Style="{DynamicResource tb_label}" Grid.Row="8" Grid.Column="2" />
+                        <TextBlock Name="tb_wepEPSOutput" Grid.Row="8" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+
+                        <TextBlock Text="Refire:" Style="{DynamicResource tb_label}" Grid.Row="9" Grid.Column="0" />
+                        <TextBox x:Name="tb_wepRefireInput" Grid.Row="9" Grid.Column="1"
+                                 Style="{DynamicResource tb_input}" />
+                        <TextBlock Text="Refire:" Style="{DynamicResource tb_label}" Grid.Row="9" Grid.Column="2" />
+                        <TextBlock Name="tb_wepRefireOutput" Grid.Row="9" Grid.Column="3"
+                                   Style="{DynamicResource tb_label}" />
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <Button Name="btnwepCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
+                                Click="BtnwepCalculate_OnClick" />
+                        <Button Name="btnwepCancel" Content="Clear" Height="24" Width="100" Margin="20"
+                                Click="BtnwepCancel_OnClick" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

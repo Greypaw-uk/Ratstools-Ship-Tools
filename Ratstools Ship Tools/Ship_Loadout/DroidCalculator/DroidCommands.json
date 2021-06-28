@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Mute",
+    "size": 1
+  },
+  {
+    "name": "Reactor Stabilization",
+    "size": 1
+  },
+  {
+    "name": "Weapon Normalization",
+    "size": 1
+  },
+  {
+    "name": "Shield Normalization",
+    "size": 1
+  },
+  {
+    "name": "Engine Normalization",
+    "size": 1
+  },
+  {
+    "name": "Kessel Jump",
+    "size": 1
+  },
+  {
+    "name": "Deepspace Jump",
+    "size": 1
+  },
+  {
+    "name": "Emergency Shield Front",
+    "size": 35
+  },
+  {
+    "name": "Emergency Shield Rear",
+    "size": 35
+  }
+]
