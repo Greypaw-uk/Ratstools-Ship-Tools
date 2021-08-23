@@ -11,28 +11,29 @@ namespace Ship_Loadout
             InitializeComponent();
         }
 
+        //Multiplier is the RE bonus awarded via expertise parts and varies by the level of the parts being REed
         float GetMultiplier(float selectedIndex)
         {
             var multiplier = 0f;
 
             switch (selectedIndex)
             {
-                case 0:
+                case 0: //Level One
                     multiplier = 1.02f;
                     break;
-                case 1:
+                case 1: //Level Two/Three
                     multiplier = 1.03f;
                     break;
-                case 2:
+                case 2: //Level Four/Five
                     multiplier = 1.04f;
                     break;
-                case 3:
+                case 3: //Level Six/Seven
                     multiplier = 1.05f;
                     break;
-                case 4:
+                case 4: //Level Eight
                     multiplier = 1.06f;
                     break;
-                case 5:
+                case 5: //Level Nine/Ten
                     multiplier = 1.07f;
                     break;
             }

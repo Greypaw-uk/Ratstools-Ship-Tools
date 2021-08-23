@@ -3,9 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Ship_Loadout"
         mc:Ignorable="d"
-        Title="" Height="600" Width="800" ResizeMode="NoResize">
+        Title="" Height="600" Width="800" ResizeMode="NoResize" KeyDown="DragonCheat">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120" />
@@ -15,7 +14,10 @@
         <StackPanel Grid.Column="0" Orientation="Vertical">
             <Button Height="24" Width="100" Content="Droid Calculator" Margin="10" Click="BtnDroidCalculator_OnClick"/>
 
-            <Button Height="24" Width="100" Content="RE Calculator" Margin="10" Click="BtnRECalculator_OnClick"></Button>
+            <Button Height="24" Width="100" Content="RE Calculator" Margin="10" Click="BtnRECalculator_OnClick" />
+
+            <Button Height="24" Width="100" Content="Components" Margin="10" Click="BtnComponent_OnClick" />
+
         </StackPanel>
 
         <Frame Name="mainFrame" Grid.Column="1" Margin="10" NavigationUIVisibility="Hidden"/>

@@ -1,0 +1,66 @@
+﻿<Page x:Class="Ship_Loadout.Components.DroidInterfacePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" >
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <!-- DataGrid -->
+            <RowDefinition/>
+            <!--Details -->
+            <RowDefinition Height="45"/>
+            <!-- Bottom Bar -->
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="dg_de" Margin="0 10 0 0" SelectionMode="Single" CanUserAddRows="False"
+                  SelectionChanged="Dg_armour_OnSelectionChanged"  AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Path = Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="1" Margin="0 10 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0"/>
+            <TextBox Name="tb_name" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="1"/>
+
+            <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"/>
+            <TextBox Name="tb_armour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"/>
+
+            <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="0"/>
+            <TextBox Name="tb_mass" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"/>
+
+            <TextBlock Text="Speed" Height="24" Grid.Row="3" Grid.Column="0"/>
+            <TextBox Name="tb_speed" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"/>
+        </Grid>
+
+        <Grid Grid.Row="2" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Name="btn_add" Content="Add" Click="Btn_add_OnClick" Height="24" Width="60"
+                        HorizontalAlignment="Left" Margin="10" />
+
+                <Button Name="btn_delete" Content="Delete" Click="Btn_delete_OnClick"  Height="24" Width="60"
+                        HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="btn_save" Content="Save" Click="Btn_save_OnClick" Height="24" Width="60" Margin="10" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

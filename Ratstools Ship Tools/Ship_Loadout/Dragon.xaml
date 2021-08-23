@@ -1,0 +1,11 @@
+﻿<Window x:Class="Ship_Loadout.Dragon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Height="200" Width="200" KeyDown="Dragon_OnKeyDown" ResizeMode="NoResize">
+    <Grid>
+        <MediaElement Source="Images/dancing-penis.gif" LoadedBehavior="Play" Stretch="Fill" SpeedRatio="1" IsMuted="False" Visibility="Visible" Margin="0,0,0,10"/>
+        <TextBlock Text="DRAGON IS A COCK" HorizontalAlignment="Center" Margin="10"/>
+    </Grid>
+</Window>

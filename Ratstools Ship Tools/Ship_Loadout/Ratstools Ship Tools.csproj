@@ -35,8 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Images\xwing.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>Ship_Loadout.App</StartupObject>
@@ -65,10 +64,102 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Components\ArmourPage.xaml.cs">
+      <DependentUpon>ArmourPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\BoosterPage.xaml.cs">
+      <DependentUpon>BoosterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CapacitorPage.xaml.cs">
+      <DependentUpon>CapacitorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CargobayPage.xaml.cs">
+      <DependentUpon>CargobayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Components.cs" />
+    <Compile Include="Components\ComponentsPage.xaml.cs">
+      <DependentUpon>ComponentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CountermeasuresPage.xaml.cs">
+      <DependentUpon>CountermeasuresPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\DroidInterfacePage.xaml.cs">
+      <DependentUpon>DroidInterfacePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\EnginePage.xaml.cs">
+      <DependentUpon>EnginePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\OrdinancePage.xaml.cs">
+      <DependentUpon>OrdinancePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ReactorPage.xaml.cs">
+      <DependentUpon>ReactorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ShieldPage.xaml.cs">
+      <DependentUpon>ShieldPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\WeaponPage.xaml.cs">
+      <DependentUpon>WeaponPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dragon.xaml.cs">
+      <DependentUpon>Dragon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RECalculator\RECalculator.xaml.cs">
       <DependentUpon>RECalculator.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppDataContext.cs" />
+    <Page Include="Components\ArmourPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\BoosterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\CapacitorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\CargobayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ComponentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\CountermeasuresPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\DroidInterfacePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\EnginePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\OrdinancePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ReactorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ShieldPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\WeaponPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dragon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RECalculator\RECalculator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +227,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Astromech.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\dancing-penis.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\xwing.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
