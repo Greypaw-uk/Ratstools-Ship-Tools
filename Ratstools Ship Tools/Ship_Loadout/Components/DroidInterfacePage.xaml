@@ -40,13 +40,16 @@
             <TextBox Name="tb_name" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="1"/>
 
             <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"/>
-            <TextBox Name="tb_armour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"/>
+            <TextBox Name="tb_armour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="0"/>
-            <TextBox Name="tb_mass" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"/>
+            <TextBox Name="tb_mass" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <TextBlock Text="Speed" Height="24" Grid.Row="3" Grid.Column="0"/>
-            <TextBox Name="tb_speed" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"/>
+            <TextBox Name="tb_speed" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
         </Grid>
 
         <Grid Grid.Row="2" VerticalAlignment="Bottom">

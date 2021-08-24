@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="" Height="600" Width="800" ResizeMode="NoResize" KeyDown="DragonCheat">
+        Title="" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120" />
@@ -17,8 +17,10 @@
             <Button Height="24" Width="100" Content="RE Calculator" Margin="10" Click="BtnRECalculator_OnClick" />
 
             <Button Height="24" Width="100" Content="Components" Margin="10" Click="BtnComponent_OnClick" />
-
         </StackPanel>
+
+        <Rectangle Name="Rectangle" Height="10" Width="10" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Fill="AliceBlue" MouseLeftButtonDown="Rectangle_OnMouseLeftButtonDown"/>
 
         <Frame Name="mainFrame" Grid.Column="1" Margin="10" NavigationUIVisibility="Hidden"/>
     </Grid>

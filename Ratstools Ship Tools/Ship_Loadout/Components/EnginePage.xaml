@@ -45,29 +45,36 @@
 
             <!-- Armour -->
             <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"/>
-            <TextBox Name="tb_armour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"/>
+            <TextBox Name="tb_armour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
 
             <!-- Drain/Mass -->
             <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0"/>
-            <TextBox Name="tb_drain" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"/>
+            <TextBox Name="tb_drain" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="2"/>
-            <TextBox Name="tb_Mass" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="3"/>
+            <TextBox Name="tb_Mass" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <!-- Pitch/Yaw -->
             <TextBlock Text="Pitch" Height="24" Grid.Row="3" Grid.Column="0"/>
-            <TextBox Name="tb_pitch" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"/>
+            <TextBox Name="tb_pitch" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <TextBlock Text="Yaw" Height="24" Grid.Row="3" Grid.Column="2"/>
-            <TextBox Name="tb_yaw" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="3"/>
+            <TextBox Name="tb_yaw" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <!-- Roll/Speed -->
             <TextBlock Text="Roll" Height="24" Grid.Row="4" Grid.Column="0"/>
-            <TextBox Name="tb_roll" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="1"/>
+            <TextBox Name="tb_roll" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <TextBlock Text="Speed" Height="24" Grid.Row="4" Grid.Column="2"/>
-            <TextBox Name="tb_speed" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="3"/>
+            <TextBox Name="tb_speed" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
         </Grid>
 

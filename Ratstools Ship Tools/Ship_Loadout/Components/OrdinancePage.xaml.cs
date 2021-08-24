@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Newtonsoft.Json;
 
 namespace Ship_Loadout.Components
@@ -107,6 +109,12 @@ namespace Ship_Loadout.Components
 
                 dg_ordinance.Items.Refresh();
             }
+        }
+
+        private void OnPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

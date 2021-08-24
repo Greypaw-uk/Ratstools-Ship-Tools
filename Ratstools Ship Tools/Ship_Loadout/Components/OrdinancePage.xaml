@@ -46,33 +46,41 @@
 
             <!-- Armour -->
             <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"/>
-            <TextBox Name="tb_armour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"/>
+            <TextBox Name="tb_armour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
 
             <!-- Drain/Mass -->
             <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0"/>
-            <TextBox Name="tb_drain" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"/>
+            <TextBox Name="tb_drain" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="2"/>
-            <TextBox Name="tb_Mass" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="3"/>
+            <TextBox Name="tb_Mass" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <!-- Min/Max Damage -->
             <TextBlock Text="Min. Damage" Height="24" Grid.Row="3" Grid.Column="0"/>
-            <TextBox Name="tb_minDam" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"/>
+            <TextBox Name="tb_minDam" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <TextBlock Text="Max. Damage" Height="24" Grid.Row="3" Grid.Column="2"/>
-            <TextBox Name="tb_maxDam" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="3"/>
+            <TextBox Name="tb_maxDam" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <!-- Vs Shield/Armour -->
             <TextBlock Text="Vs. Shield" Height="24" Grid.Row="4" Grid.Column="0"/>
-            <TextBox Name="tb_vShield" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="1"/>
+            <TextBox Name="tb_vShield" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <TextBlock Text="Vs Armour" Height="24" Grid.Row="4" Grid.Column="2"/>
-            <TextBox Name="tb_vArmour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="3"/>
+            <TextBox Name="tb_vArmour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <!-- Ammo -->
             <TextBlock Text="Ammo" Height="24" Grid.Row="5" Grid.Column="0"/>
-            <TextBox Name="tb_ammo" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="5" Grid.Column="1"/>
+            <TextBox Name="tb_ammo" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="5" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
         </Grid>
 
         <Grid Grid.Row="2" VerticalAlignment="Bottom">

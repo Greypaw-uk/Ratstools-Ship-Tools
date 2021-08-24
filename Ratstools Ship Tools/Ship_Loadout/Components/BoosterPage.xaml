@@ -46,39 +46,39 @@
                 <!-- Armour -->
                 <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0" />
                 <TextBox Name="tb_BoosterArmour" Height="24" Width="190" HorizontalAlignment="Left" 
-                         Grid.Row="1" Grid.Column="1" />
+                         Grid.Row="1" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Drain/Mass -->
                 <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0" />
                 <TextBox Name="tb_BoosterDrain" Height="24" Width="190" HorizontalAlignment="Left" 
-                         Grid.Row="2" Grid.Column="1" />
+                         Grid.Row="2" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
                 <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="2" />
                 <TextBox Name="tb_BoosterMass" Height="24" Width="190" HorizontalAlignment="Left" 
-                         Grid.Row="2" Grid.Column="3" />
+                         Grid.Row="2" Grid.Column="3" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Energy/Recharge -->
                 <TextBlock Text="Energy" Height="24" Grid.Row="3" Grid.Column="0" />
                 <TextBox Name="tb_BoosterEnergy" Height="24" Width="190" HorizontalAlignment="Left" 
-                         Grid.Row="3" Grid.Column="1" />
+                         Grid.Row="3" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
                 <TextBlock Text="Recharge" Height="24" Grid.Row="3" Grid.Column="2" />
                 <TextBox Name="tb_BoosterRecharge" Height="24" Width="190" HorizontalAlignment="Left" 
-                         Grid.Row="3" Grid.Column="3" />
+                         Grid.Row="3" Grid.Column="3" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Consumption/Acceleration -->
                 <TextBlock Text="Consumption" Height="24" Grid.Row="4" Grid.Column="0" />
                 <TextBox Name="tb_BoosterConsumption" Height="24" Width="190" HorizontalAlignment="Left" 
-                         Grid.Row="4" Grid.Column="1" />
+                         Grid.Row="4" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
                 <TextBlock Text="Acceleration" Height="24" Grid.Row="4" Grid.Column="2" />
                 <TextBox Name="tb_BoosterAcceleration" Height="24" Width="190" HorizontalAlignment="Left" 
-                         Grid.Row="4" Grid.Column="3" />
+                         Grid.Row="4" Grid.Column="3" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Speed -->
                 <TextBlock Text="Speed" Height="24" Grid.Row="5" Grid.Column="0" />
                 <TextBox Name="tb_BoosterSpeed" Height="24" Width="190" HorizontalAlignment="Left" 
-                         Grid.Row="5" Grid.Column="1" />
+                         Grid.Row="5" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
             </Grid>
         </Grid>
 

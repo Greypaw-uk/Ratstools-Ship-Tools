@@ -42,21 +42,10 @@ namespace Ship_Loadout
             mainFrame.Content = new Components.ComponentsPage();
         }
 
-        //Show a dancing cock if the user types in 'Dragon'
-        private void DragonCheat(object sender, KeyEventArgs e)
+        private void Rectangle_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            phrase.Append(e.Key);
-
-            if (phrase.ToString().ToLowerInvariant().Equals("dragon"))
-            {
-                Dragon dragon = new Dragon();
-                dragon.Show();
-
-                phrase.Clear();
-            }
-
-            if (phrase.Length > 6)
-                phrase.Clear();
+            Dragon dragon = new Dragon();
+            dragon.Show();
         }
     }
 }

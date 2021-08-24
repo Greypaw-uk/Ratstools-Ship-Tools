@@ -43,16 +43,19 @@
 
             <!-- Armour -->
             <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"/>
-            <TextBox Name="tb_armour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"/>
+            <TextBox Name="tb_armour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
 
             <!-- Mass -->
             <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="0"/>
-            <TextBox Name="tb_mass" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"/>
+            <TextBox Name="tb_mass" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
             <!-- Generation -->
             <TextBlock Text="Generation Rate" Height="24" Grid.Row="3" Grid.Column="0"/>
-            <TextBox Name="tb_generation" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"/>
+            <TextBox Name="tb_generation" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
         </Grid>
 
