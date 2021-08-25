@@ -48,6 +48,12 @@ namespace Ship_Loadout.Components
 
         private void Btn_save_OnClick(object sender, RoutedEventArgs e)
         {
+            if (!IsValidated())
+            {
+                MessageBox.Show("Please ensure all attributes have a value.");
+                return;
+            }
+
             DroidInterface de = new DroidInterface
             {
                 Name = tb_name.Text,
@@ -100,6 +106,16 @@ namespace Ship_Loadout.Components
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private bool IsValidated()
+        {
+            if (string.IsNullOrEmpty(tb_name.Text)) return false;
+            if (string.IsNullOrEmpty(tb_mass.Text)) return false;
+            if (string.IsNullOrEmpty(tb_armour.Text)) return false;
+            if (string.IsNullOrEmpty(tb_speed.Text)) return false;
+
+            return true;
         }
     }
 }

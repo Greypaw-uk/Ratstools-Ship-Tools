@@ -58,6 +58,12 @@ namespace Ship_Loadout.Components
 
         private void Btn_save_OnClick(object sender, RoutedEventArgs e)
         {
+            if (!IsValidated())
+            {
+                MessageBox.Show("Please ensure all attributes have a value.");
+                return;
+            }
+
             Booster booster = new Booster
             {
                 Name = tb_BoosterName.Text,
@@ -115,6 +121,21 @@ namespace Ship_Loadout.Components
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private bool IsValidated()
+        {
+            if (string.IsNullOrEmpty(tb_BoosterName.Text)) return false;
+            if (string.IsNullOrEmpty(tb_BoosterArmour.Text)) return false;
+            if (string.IsNullOrEmpty(tb_BoosterDrain.Text)) return false;
+            if (string.IsNullOrEmpty(tb_BoosterMass.Text)) return false;
+            if (string.IsNullOrEmpty(tb_BoosterEnergy.Text)) return false;
+            if (string.IsNullOrEmpty(tb_BoosterRecharge.Text)) return false;
+            if (string.IsNullOrEmpty(tb_BoosterConsumption.Text)) return false;
+            if (string.IsNullOrEmpty(tb_BoosterAcceleration.Text)) return false;
+            if (string.IsNullOrEmpty(tb_BoosterSpeed.Text)) return false;
+
+            return true;
         }
     }
 }

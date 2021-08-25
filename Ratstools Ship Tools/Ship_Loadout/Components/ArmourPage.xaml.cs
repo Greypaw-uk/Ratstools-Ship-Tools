@@ -46,6 +46,12 @@ namespace Ship_Loadout.Components
 
         private void Btn_save_OnClick(object sender, RoutedEventArgs e)
         {
+            if (!IsValidated())
+            {
+                MessageBox.Show("Please ensure all attributes have a value.");
+                return;
+            }
+
             Armour armour = new Armour
             {
                 Name = tb_armourName.Text,
@@ -97,6 +103,15 @@ namespace Ship_Loadout.Components
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private bool IsValidated()
+        {
+            if (string.IsNullOrEmpty(tb_armourName.Text)) return false;
+            if (string.IsNullOrEmpty(tb_armourArmour.Text)) return false;
+            if (string.IsNullOrEmpty(tb_armourMass.Text)) return false;
+
+            return true;
         }
     }
 }

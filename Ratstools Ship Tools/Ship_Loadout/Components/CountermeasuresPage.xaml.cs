@@ -46,6 +46,12 @@ namespace Ship_Loadout.Components
 
         private void Btn_save_OnClick(object sender, RoutedEventArgs e)
         {
+            if (!IsValidated())
+            {
+                MessageBox.Show("Please ensure all attributes have a value.");
+                return;
+            }
+
             CounterMeasure cm = new CounterMeasure()
             {
                 Name = tb_Name.Text,
@@ -97,6 +103,15 @@ namespace Ship_Loadout.Components
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private bool IsValidated()
+        {
+            if (string.IsNullOrEmpty(tb_Name.Text)) return false;
+            if (string.IsNullOrEmpty(tb_Armour.Text)) return false;
+            if (string.IsNullOrEmpty(tb_Mass.Text)) return false;
+
+            return true;
         }
     }
 }

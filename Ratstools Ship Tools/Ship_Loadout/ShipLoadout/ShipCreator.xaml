@@ -23,12 +23,13 @@
             <DataGrid Name="dg_ships" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="Dg_ships_OnSelectionChanged"
                       Grid.Row="1" Margin="10">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 
         <Grid Grid.Row="2" Margin="10">
             <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
@@ -45,50 +46,72 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Name" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
-            <TextBox Name="tb_name" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1"/>
-
-            <TextBlock Text="Max Mass" VerticalAlignment="Center" Grid.Row="0" Grid.Column="2"/>
-            <TextBox Name="tb_mass" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="3"/>
-
-
-            <TextBlock Text="Acceleration" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
-            <TextBox Name="tb_acceleration" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
-
-            <TextBlock Text="Deceleration" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2"/>
-            <TextBox Name="tb_deceleration" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3"/>
+            <TextBlock Text="Faction" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+            <ComboBox Name="cb_faction" Grid.Row="0" Grid.Column="1" Height="24" Width="200" 
+                      VerticalAlignment="Center" HorizontalAlignment="Left">
+                <ComboBoxItem>Rebel</ComboBoxItem>
+                <ComboBoxItem>Imperial</ComboBoxItem>
+                <ComboBoxItem>Freelance</ComboBoxItem>
+                <ComboBoxItem>Special</ComboBoxItem>
+            </ComboBox>
 
 
-            <TextBlock Text="Yaw Rate" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-            <TextBox Name="tb_yaw" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1"/>
+            <TextBlock Text="Name" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+            <TextBox Name="tb_name" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
 
-            <TextBlock Text="Pitch" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2"/>
-            <TextBox Name="tb_pitch" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="3"/>
-
-
-            <TextBlock Text="Roll" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
-            <TextBox Name="tb_roll" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1"/>
+            <TextBlock Text="Max Mass" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+            <TextBox Name="tb_mass" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
 
-            <TextBlock Text="Speed High" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
-            <TextBox Name="tb_speedHigh" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1"/>
+            <TextBlock Text="Acceleration" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+            <TextBox Name="tb_acceleration" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Speed Low" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2"/>
-            <TextBox Name="tb_speedLow" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="3"/>
-
-
-            <TextBlock Text="Weapon Slots" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
-            <TextBox Name="tb_weapons" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1"/>
-
-            <TextBlock Text="Turret Slots" VerticalAlignment="Center" Grid.Row="5" Grid.Column="2"/>
-            <TextBox Name="tb_turrets" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="3"/>
+            <TextBlock Text="Deceleration" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+            <TextBox Name="tb_deceleration" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
 
-            <TextBlock Text="Ordinance Slots" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
-            <TextBox Name="tb_ordinance" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1"/>
+            <TextBlock Text="Yaw Rate" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+            <TextBox Name="tb_yaw" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Countermeasures" VerticalAlignment="Center" Grid.Row="6" Grid.Column="2"/>
-            <TextBox Name="tb_counters" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="3"/>
+            <TextBlock Text="Pitch" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2"/>
+            <TextBox Name="tb_pitch" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
+
+
+            <TextBlock Text="Roll" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
+            <TextBox Name="tb_roll" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
+
+
+            <TextBlock Text="Speed High" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
+            <TextBox Name="tb_speedHigh" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
+
+            <TextBlock Text="Speed Low" VerticalAlignment="Center" Grid.Row="5" Grid.Column="2"/>
+            <TextBox Name="tb_speedLow" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
+
+
+            <TextBlock Text="Weapon Slots" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
+            <TextBox Name="tb_weapons" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
+
+            <TextBlock Text="Turret Slots" VerticalAlignment="Center" Grid.Row="6" Grid.Column="2"/>
+            <TextBox Name="tb_turrets" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
+
+
+            <TextBlock Text="Ordinance Slots" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"/>
+            <TextBox Name="tb_ordinance" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
+
+            <TextBlock Text="Countermeasures" VerticalAlignment="Center" Grid.Row="7" Grid.Column="2"/>
+            <TextBox Name="tb_counters" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="3"
+                     PreviewTextInput="OnPreviewTextInput"/>
         </Grid>
     </Grid>
 </Page>

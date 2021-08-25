@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Newtonsoft.Json;
 
 namespace Ship_Loadout.ShipLoadout
@@ -21,6 +23,8 @@ namespace Ship_Loadout.ShipLoadout
 
         private void ClearControls()
         {
+            cb_faction.SelectedIndex = -1;
+
             tb_name.Text = "";
             tb_mass.Text = "";
             tb_acceleration.Text = "";
@@ -44,6 +48,8 @@ namespace Ship_Loadout.ShipLoadout
             {
                 var ship = ShipList[dg_ships.SelectedIndex];
 
+                cb_faction.SelectedIndex = ship.Faction;
+
                 tb_name.Text = ship.Name;
                 tb_mass.Text = ship.Mass.ToString();
                 tb_acceleration.Text = ship.Acceleration.ToString();
@@ -62,8 +68,16 @@ namespace Ship_Loadout.ShipLoadout
 
         private void Btn_save_OnClick(object sender, RoutedEventArgs e)
         {
+            if (!IsValidated())
+            {
+                MessageBox.Show("Please ensure all attributes have a value.");
+                return;
+            }
+
             var ship = new Ship
             {
+                Faction = cb_faction.SelectedIndex,
+
                 Name = tb_name.Text,
                 Mass = int.Parse(tb_mass.Text),
                 Acceleration = int.Parse(tb_acceleration.Text),
@@ -120,6 +134,31 @@ namespace Ship_Loadout.ShipLoadout
             dg_ships.SelectedIndex = -1;
 
             ClearControls();
+        }
+
+        private void OnPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private bool IsValidated()
+        {
+            if (string.IsNullOrEmpty(tb_name.Text)) return false;
+            if (string.IsNullOrEmpty(tb_mass.Text)) return false;
+            if (string.IsNullOrEmpty(tb_acceleration.Text)) return false;
+            if (string.IsNullOrEmpty(tb_deceleration.Text)) return false;
+            if (string.IsNullOrEmpty(tb_yaw.Text)) return false;
+            if (string.IsNullOrEmpty(tb_pitch.Text))  return false;
+            if (string.IsNullOrEmpty(tb_roll.Text)) return false;
+            if (string.IsNullOrEmpty(tb_speedHigh.Text)) return false;
+            if (string.IsNullOrEmpty(tb_speedLow.Text)) return false;
+            if (string.IsNullOrEmpty(tb_weapons.Text)) return false;
+            if (string.IsNullOrEmpty(tb_turrets.Text)) return false;
+            if (string.IsNullOrEmpty(tb_ordinance.Text)) return false;
+            if (string.IsNullOrEmpty(tb_counters.Text)) return false;
+
+            return true;
         }
     }
 }

@@ -5,6 +5,8 @@ namespace Ship_Loadout.ShipLoadout
     public class Ship
     {
         public string ID { get; set; }
+        public int Faction { get; set; }
+
         public string Name { get; set; }
         public int Mass { get; set; }
 

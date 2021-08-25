@@ -61,6 +61,12 @@ namespace Ship_Loadout.Components
 
         private void Btn_save_OnClick(object sender, RoutedEventArgs e)
         {
+            if (!IsValidated())
+            {
+                MessageBox.Show("Please ensure all attributes have a value.");
+                return;
+            }
+
             Weapon weapon = new Weapon
             {
                 Name = tb_name.Text,
@@ -118,6 +124,22 @@ namespace Ship_Loadout.Components
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private bool IsValidated()
+        {
+            if (string.IsNullOrEmpty(tb_name.Text)) return false;
+            if (string.IsNullOrEmpty(tb_armour.Text)) return false;
+            if (string.IsNullOrEmpty(tb_drain.Text)) return false;
+            if (string.IsNullOrEmpty(tb_Mass.Text)) return false;
+            if (string.IsNullOrEmpty(tb_minDam.Text)) return false;
+            if (string.IsNullOrEmpty(tb_maxDam.Text)) return false;
+            if (string.IsNullOrEmpty(tb_vShield.Text)) return false;
+            if (string.IsNullOrEmpty(tb_vArmour.Text)) return false;
+            if (string.IsNullOrEmpty(tb_eps.Text)) return false;
+            if (string.IsNullOrEmpty(tb_refire.Text)) return false;
+
+            return true;
         }
     }
 }
