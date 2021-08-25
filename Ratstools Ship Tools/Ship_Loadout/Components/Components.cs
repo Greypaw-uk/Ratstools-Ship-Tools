@@ -268,5 +268,20 @@ namespace Ship_Loadout.Components
         public float RR { get; set; }
     }
 
+    public class Turret
+    {
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public float Armour { get; set; }
+        public float Drain { get; set; }
+        public float Mass { get; set; }
+        public float MinD { get; set; }
+        public float MaxD { get; set; }
+        public float VS { get; set; }
+        public float VA { get; set; }
+        public float EPS { get; set; }
+        public float RR { get; set; }
+    }
+
     #endregion
 }

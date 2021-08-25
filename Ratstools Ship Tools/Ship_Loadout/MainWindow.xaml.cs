@@ -47,5 +47,15 @@ namespace Ship_Loadout
             Dragon dragon = new Dragon();
             dragon.Show();
         }
+
+        private void BtnShipLoadouts_OnClick(object sender, RoutedEventArgs e)
+        {
+            //throw new System.NotImplementedException();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new ShipLoadout.ShipCreator();
+        }
     }
 }

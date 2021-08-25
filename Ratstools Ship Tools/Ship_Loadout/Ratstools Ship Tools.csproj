@@ -108,6 +108,10 @@
       <DependentUpon>RECalculator.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppDataContext.cs" />
+    <Compile Include="ShipLoadout\Ship.cs" />
+    <Compile Include="ShipLoadout\ShipCreator.xaml.cs">
+      <DependentUpon>ShipCreator.xaml</DependentUpon>
+    </Compile>
     <Page Include="Components\ArmourPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RECalculator\RECalculator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShipLoadout\ShipCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
