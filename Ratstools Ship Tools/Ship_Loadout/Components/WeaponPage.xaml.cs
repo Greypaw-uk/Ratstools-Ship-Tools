@@ -101,7 +101,7 @@ namespace Ship_Loadout.Components
 
         private void SaveJSON()
         {
-            using (StreamWriter file = File.CreateText("Weapons.json"))
+            using (StreamWriter file = File.CreateText("Components/Weapons.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, Components.Weapons);

@@ -98,7 +98,7 @@ namespace Ship_Loadout.Components
 
         private void SaveJSON()
         {
-            using (StreamWriter file = File.CreateText("Ordinance.json"))
+            using (StreamWriter file = File.CreateText("Components/Ordinance.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, Components.Ordinances);

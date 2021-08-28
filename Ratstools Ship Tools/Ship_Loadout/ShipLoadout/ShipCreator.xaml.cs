@@ -84,11 +84,11 @@ namespace Ship_Loadout.ShipLoadout
                 Deceleration = int.Parse(tb_deceleration.Text),
                 Yaw = int.Parse(tb_yaw.Text),
                 Pitch = int.Parse(tb_pitch.Text),
-                Roll = int.Parse(tb_roll.Text),
+                Roll = float.Parse(tb_roll.Text),
                 SpeedTop = float.Parse(tb_speedHigh.Text),
                 SpeedLow = float.Parse(tb_speedLow.Text),
                 Weapons = int.Parse(tb_weapons.Text),
-                Turrets = int.Parse(tb_weapons.Text),
+                Turrets = int.Parse(tb_turrets.Text),
                 Ordinance = int.Parse(tb_ordinance.Text),
                 Countermeasures = int.Parse(tb_counters.Text)
             };
@@ -98,7 +98,6 @@ namespace Ship_Loadout.ShipLoadout
                 ship.ID = ShipList[dg_ships.SelectedIndex].ID;
                 ShipList[dg_ships.SelectedIndex] = ship;
             }
-
             else
             {
                 ship.ID = Guid.NewGuid().ToString();
@@ -108,12 +107,14 @@ namespace Ship_Loadout.ShipLoadout
             SaveJSON();
 
             dg_ships.Items.Refresh();
+
+            ClearControls();
         }
 
         //Serialise JSON directly into Filestream
         private void SaveJSON()
         {
-            using (StreamWriter file = File.CreateText("Ships.json"))
+            using (StreamWriter file = File.CreateText("Ship_Data/Ships.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, ShipList);
@@ -122,9 +123,9 @@ namespace Ship_Loadout.ShipLoadout
 
         private void PopulateShipList()
         {
-            if (File.Exists("Ships.json"))
+            if (File.Exists("Ship_Data/Ships.json"))
             {
-                var json = new StreamReader("Ships.json").ReadToEnd();
+                var json = new StreamReader("Ship_Data/Ships.json").ReadToEnd();
                 ShipList = JsonConvert.DeserializeObject<List<Ship>>(json);
             }
         }
@@ -159,6 +160,37 @@ namespace Ship_Loadout.ShipLoadout
             if (string.IsNullOrEmpty(tb_counters.Text)) return false;
 
             return true;
+        }
+
+        private void Tb_speedHigh_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_speedHigh.Text))
+                if (!tb_speedHigh.Text.Contains("."))
+                {
+                    if (tb_speedHigh.Text.Equals("1"))
+                        tb_speedHigh.Text = "1.0";
+                    else
+                        tb_speedHigh.Text = "0." + tb_speedHigh.Text;
+                }
+        }
+
+        private void Tb_speedLow_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_speedLow.Text))
+                if (!tb_speedLow.Text.Contains("."))
+                {
+                    if (tb_speedLow.Text.Equals("1"))
+                        tb_speedLow.Text = "1.0";
+                    else
+                        tb_speedLow.Text = "0." + tb_speedLow.Text;
+                }
+        }
+
+        private void Tb_roll_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_roll.Text))
+                if (tb_roll.Text.Equals("375"))
+                    tb_roll.Text = "37.5";
         }
     }
 }

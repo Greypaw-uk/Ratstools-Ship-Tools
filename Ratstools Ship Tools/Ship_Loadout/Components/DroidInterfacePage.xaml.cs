@@ -83,7 +83,7 @@ namespace Ship_Loadout.Components
         //Serialise JSON directly into Filestream
         private void SaveJSON()
         {
-            using (StreamWriter file = File.CreateText("DroidInterfaces.json"))
+            using (StreamWriter file = File.CreateText("Components/DroidInterfaces.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, Components.DroidInterfaces);

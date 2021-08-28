@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,10 +28,18 @@ namespace Ship_Loadout
 
         private void PopulateCommandsList()
         {
-            var json = new StreamReader("DroidCommands.json").ReadToEnd();
-            commandList = JsonConvert.DeserializeObject<List<DroidCommand>>(json);
+            if (!File.Exists("DroidCommands.json"))
+            {
+                MessageBox.Show(
+                    "DroidCommands.json is missing.  Please replace it, or the Droid Calculator will not work correctly");
+            }
+            else
+            {
+                var json = new StreamReader("DroidCommands.json").ReadToEnd();
+                commandList = JsonConvert.DeserializeObject<List<DroidCommand>>(json);
 
-            dg_otherChips.ItemsSource = commandList;
+                dg_otherChips.ItemsSource = commandList;
+            }
         }
 
         private void Cb_AstroMechLevel_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

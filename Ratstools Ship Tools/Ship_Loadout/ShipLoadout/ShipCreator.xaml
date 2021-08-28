@@ -52,10 +52,11 @@
                 <ComboBoxItem>Rebel</ComboBoxItem>
                 <ComboBoxItem>Imperial</ComboBoxItem>
                 <ComboBoxItem>Freelance</ComboBoxItem>
-                <ComboBoxItem>Special</ComboBoxItem>
+                <ComboBoxItem>Neutral</ComboBoxItem>
             </ComboBox>
 
 
+            <!-- Name/Mass -->
             <TextBlock Text="Name" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
             <TextBox Name="tb_name" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
 
@@ -64,6 +65,7 @@
                      PreviewTextInput="OnPreviewTextInput"/>
 
 
+            <!-- Acceleration/Deceleration -->
             <TextBlock Text="Acceleration" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
             <TextBox Name="tb_acceleration" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
@@ -73,6 +75,7 @@
                      PreviewTextInput="OnPreviewTextInput"/>
 
 
+            <!-- Yew/Pitch -->
             <TextBlock Text="Yaw Rate" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
             <TextBox Name="tb_yaw" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
@@ -82,20 +85,26 @@
                      PreviewTextInput="OnPreviewTextInput"/>
 
 
+            <!-- Roll -->
             <TextBlock Text="Roll" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
             <TextBox Name="tb_roll" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1"
-                     PreviewTextInput="OnPreviewTextInput"/>
+                     PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_roll_OnLostFocus"
+                     ToolTip="If the value is a decimal, enter is as a normal number.  e.g. 37.5 is entered as 375"/>
 
 
+            <!-- Speed High/Low -->
             <TextBlock Text="Speed High" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
             <TextBox Name="tb_speedHigh" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1"
-                     PreviewTextInput="OnPreviewTextInput"/>
+                     PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_speedHigh_OnLostFocus"
+                     ToolTip="This represents a decimal.  For 0.99 enter only 99"/>
 
             <TextBlock Text="Speed Low" VerticalAlignment="Center" Grid.Row="5" Grid.Column="2"/>
             <TextBox Name="tb_speedLow" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="3"
-                     PreviewTextInput="OnPreviewTextInput"/>
+                     PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_speedLow_OnLostFocus"
+                     ToolTip="This represents a decimal.  For 0.99 enter only 99"/>
 
 
+            <!-- Weapon/Turret Slots -->
             <TextBlock Text="Weapon Slots" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
             <TextBox Name="tb_weapons" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
@@ -105,6 +114,7 @@
                      PreviewTextInput="OnPreviewTextInput"/>
 
 
+            <!-- Ordinance/Counter Measures -->
             <TextBlock Text="Ordinance Slots" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"/>
             <TextBox Name="tb_ordinance" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>

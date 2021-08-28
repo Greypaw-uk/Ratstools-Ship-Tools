@@ -83,7 +83,7 @@ namespace Ship_Loadout.Components
 
         private void SaveJSON()
         {
-            using (StreamWriter file = File.CreateText("Reactors.json"))
+            using (StreamWriter file = File.CreateText("Components/Reactors.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, Components.Reactors);

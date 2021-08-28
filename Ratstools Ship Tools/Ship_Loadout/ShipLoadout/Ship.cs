@@ -37,7 +37,7 @@ namespace Ship_Loadout.ShipLoadout
         public int Deceleration { get; set; }
         public int Yaw { get; set; }
         public int Pitch { get; set; }
-        public int Roll { get; set; }
+        public float Roll { get; set; }
         public float SpeedTop { get; set; }
         public float SpeedLow { get; set; }
     }

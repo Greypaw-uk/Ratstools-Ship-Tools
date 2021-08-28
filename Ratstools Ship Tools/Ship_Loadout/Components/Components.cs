@@ -42,99 +42,99 @@ namespace Ship_Loadout.Components
 
         public static void PopulateArmourList()
         {
-            if (File.Exists("Armour.json"))
+            if (File.Exists("Components/Armour.json"))
             {
-                var json = new StreamReader("Armour.json").ReadToEnd();
+                var json = new StreamReader("Components/Armour.json").ReadToEnd();
                 Armours = JsonConvert.DeserializeObject<List<Armour>>(json);
             }
         }
 
         public static void PopulateBoosterList()
         {
-            if (File.Exists("Boosters.json"))
+            if (File.Exists("Components/Boosters.json"))
             {
-                var json = new StreamReader("Boosters.json").ReadToEnd();
+                var json = new StreamReader("Components/Boosters.json").ReadToEnd();
                 Boosters = JsonConvert.DeserializeObject<List<Booster>>(json);
             }
         }
 
         public static void PopulateCapacitorList()
         {
-            if (File.Exists("Capacitors.json"))
+            if (File.Exists("Components/Capacitors.json"))
             {
-                var json = new StreamReader("Capacitors.json").ReadToEnd();
+                var json = new StreamReader("Components/Capacitors.json").ReadToEnd();
                 Capacitors = JsonConvert.DeserializeObject<List<Capacitor>>(json);
             }
         }
 
         public static void PopulateCargoList()
         {
-            if (File.Exists("Cargobays.json"))
+            if (File.Exists("Components/Cargobays.json"))
             {
-                var json = new StreamReader("Cargobays.json").ReadToEnd();
+                var json = new StreamReader("Components/Cargobays.json").ReadToEnd();
                 CargoBays = JsonConvert.DeserializeObject<List<CargoBay>>(json);
             }
         }
 
         public static void PopulateCounterMeasureList()
         {
-            if (File.Exists("CMeasures.json"))
+            if (File.Exists("Components/CMeasures.json"))
             {
-                var json = new StreamReader("CMeasures.json").ReadToEnd();
+                var json = new StreamReader("Components/CMeasures.json").ReadToEnd();
                 CounterMeasures = JsonConvert.DeserializeObject<List<CounterMeasure>>(json);
             }
         }
 
         public static void PopulateDroidInterfaces()
         {
-            if (File.Exists("DroidInterfaces.json"))
+            if (File.Exists("Components/DroidInterfaces.json"))
             {
-                var json = new StreamReader("DroidInterfaces.json").ReadToEnd();
+                var json = new StreamReader("Components/DroidInterfaces.json").ReadToEnd();
                 DroidInterfaces = JsonConvert.DeserializeObject<List<DroidInterface>>(json);
             }
         }
 
         public static void PopulateEngines()
         {
-            if (File.Exists("Engines.json"))
+            if (File.Exists("Components/Engines.json"))
             {
-                var json = new StreamReader("Engines.json").ReadToEnd();
+                var json = new StreamReader("Components/Engines.json").ReadToEnd();
                 Engines = JsonConvert.DeserializeObject<List<Engine>>(json);
             }
         }
 
         public static void PopulateOrdinance()
         {
-            if (File.Exists("Ordinance.json"))
+            if (File.Exists("Components/Ordinance.json"))
             {
-                var json = new StreamReader("Ordinance.json").ReadToEnd();
+                var json = new StreamReader("Components/Ordinance.json").ReadToEnd();
                 Ordinances = JsonConvert.DeserializeObject<List<Ordinance>>(json);
             }
         }
 
         public static void PopulateReactors()
         {
-            if (File.Exists("Reactors.json"))
+            if (File.Exists("Components/Reactors.json"))
             {
-                var json = new StreamReader("Reactors.json").ReadToEnd();
+                var json = new StreamReader("Components/Reactors.json").ReadToEnd();
                 Reactors = JsonConvert.DeserializeObject<List<Reactor>>(json);
             }
         }
 
         public static void PopulateShields()
         {
-            if (File.Exists("Shields.json"))
+            if (File.Exists("Components/Shields.json"))
             {
-                var json = new StreamReader("Shields.json").ReadToEnd();
+                var json = new StreamReader("Components/Shields.json").ReadToEnd();
                 Shields = JsonConvert.DeserializeObject<List<Shield>>(json);
             }
         }
 
         public static void PopulateWeapons()
         {
-            if (File.Exists("Weapons.json"))
+            if (File.Exists("Components/Weapons.json"))
             {
-                var json = new StreamReader("Weapons.json").ReadToEnd();
+                var json = new StreamReader("Components/Weapons.json").ReadToEnd();
                 Weapons = JsonConvert.DeserializeObject<List<Weapon>>(json);
             }
         }

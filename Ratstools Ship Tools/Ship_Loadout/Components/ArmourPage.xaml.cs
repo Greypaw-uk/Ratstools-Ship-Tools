@@ -80,7 +80,7 @@ namespace Ship_Loadout.Components
         //Serialise JSON directly into Filestream
         private void SaveJSON()
         {
-            using (StreamWriter file = File.CreateText("Armour.json"))
+            using (StreamWriter file = File.CreateText("Components/Armour.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, Components.Armours);
