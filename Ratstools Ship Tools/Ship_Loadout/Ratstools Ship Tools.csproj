@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Images\xwing.ico</ApplicationIcon>
+    <ApplicationIcon>Icons\xwing.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>Ship_Loadout.App</StartupObject>
@@ -248,13 +248,13 @@
     <Resource Include="Images\Astro_droids.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Astromech.ico" />
+    <Resource Include="Icons\Astromech.ico" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\dancing-penis.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Images\xwing.ico" />
+    <Resource Include="Icons\xwing.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

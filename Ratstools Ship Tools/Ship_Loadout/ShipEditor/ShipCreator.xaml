@@ -7,21 +7,23 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ShipCreator">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="150"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-            <Button Name="btn_add" Height="24" Width="100" Content="Add New" Click="Btn_add_OnClick" Margin="10" HorizontalAlignment="Left"/>
+            <Button Name="btn_add" Width="100" Content="Add New" Click="Btn_add_OnClick" Margin="10" HorizontalAlignment="Left"
+                    Style="{DynamicResource btn_orange}"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="btn_save" Content="Save" Height="24" Width="100" Click="Btn_save_OnClick" Margin="0 0 10 0"/>
+                <Button Name="btn_save" Content="Save" Width="100" Click="Btn_save_OnClick" Margin="0 0 10 0"
+                        Style="{DynamicResource btn_orange}"/>
             </StackPanel>
 
-            <DataGrid Name="dg_ships" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="Dg_ships_OnSelectionChanged"
-                      Grid.Row="1" Margin="10">
+            <DataGrid Name="dg_ships" SelectionChanged="Dg_ships_OnSelectionChanged"
+                      Grid.Row="1" Margin="10" Style="{DynamicResource dg_global}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}" Width="*"/>
                 </DataGrid.Columns>
@@ -46,9 +48,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Faction" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
-            <ComboBox Name="cb_faction" Grid.Row="0" Grid.Column="1" Height="24" Width="200" 
-                      VerticalAlignment="Center" HorizontalAlignment="Left">
+            <TextBlock Text="Faction" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"
+                       Style="{DynamicResource tb_label}"/>
+            <ComboBox Name="cb_faction" Grid.Row="0" Grid.Column="1" Style="{DynamicResource cb_fancy}" 
+                      Width="200" HorizontalAlignment="Left">
                 <ComboBoxItem>Rebel</ComboBoxItem>
                 <ComboBoxItem>Imperial</ComboBoxItem>
                 <ComboBoxItem>Freelance</ComboBoxItem>
@@ -57,70 +60,70 @@
 
 
             <!-- Name/Mass -->
-            <TextBlock Text="Name" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
-            <TextBox Name="tb_name" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock Text="Name" Grid.Row="1" Grid.Column="0" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_name"  Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
 
-            <TextBlock Text="Max Mass" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2"/>
-            <TextBox Name="tb_mass" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3"
+            <TextBlock Text="Max Mass" Grid.Row="1" Grid.Column="2" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_mass" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3"
                      PreviewTextInput="OnPreviewTextInput"/>
 
 
             <!-- Acceleration/Deceleration -->
-            <TextBlock Text="Acceleration" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-            <TextBox Name="tb_acceleration" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1"
+            <TextBlock Text="Acceleration" Grid.Row="2" Grid.Column="0" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_acceleration"  Style="{DynamicResource tb_input}"  Width="200" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Deceleration" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2"/>
-            <TextBox Name="tb_deceleration" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="3"
+            <TextBlock Text="Deceleration" Grid.Row="2" Grid.Column="2" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_deceleration" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="3"
                      PreviewTextInput="OnPreviewTextInput"/>
 
 
             <!-- Yew/Pitch -->
-            <TextBlock Text="Yaw Rate" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
-            <TextBox Name="tb_yaw" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1"
+            <TextBlock Text="Yaw Rate" Grid.Row="3" Grid.Column="0" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_yaw" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Pitch" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2"/>
-            <TextBox Name="tb_pitch" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="3"
+            <TextBlock Text="Pitch" Grid.Row="3" Grid.Column="2" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_pitch" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="3"
                      PreviewTextInput="OnPreviewTextInput"/>
 
 
             <!-- Roll -->
-            <TextBlock Text="Roll" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
-            <TextBox Name="tb_roll" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1"
+            <TextBlock Text="Roll" Grid.Row="4" Grid.Column="0" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_roll" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_roll_OnLostFocus"
                      ToolTip="If the value is a decimal, enter is as a normal number.  e.g. 37.5 is entered as 375"/>
 
 
             <!-- Speed High/Low -->
-            <TextBlock Text="Speed High" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
-            <TextBox Name="tb_speedHigh" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1"
+            <TextBlock Text="Speed High" Grid.Row="5" Grid.Column="0" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_speedHigh" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_speedHigh_OnLostFocus"
                      ToolTip="This represents a decimal.  For 0.99 enter only 99"/>
 
-            <TextBlock Text="Speed Low" VerticalAlignment="Center" Grid.Row="5" Grid.Column="2"/>
-            <TextBox Name="tb_speedLow" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="3"
+            <TextBlock Text="Speed Low" Grid.Row="5" Grid.Column="2" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_speedLow" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="3"
                      PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_speedLow_OnLostFocus"
                      ToolTip="This represents a decimal.  For 0.99 enter only 99"/>
 
 
             <!-- Weapon/Turret Slots -->
-            <TextBlock Text="Weapon Slots" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
-            <TextBox Name="tb_weapons" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1"
+            <TextBlock Text="Weapon Slots" Grid.Row="6" Grid.Column="0" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_weapons" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Turret Slots" VerticalAlignment="Center" Grid.Row="6" Grid.Column="2"/>
-            <TextBox Name="tb_turrets" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="3"
+            <TextBlock Text="Turret Slots" Grid.Row="6" Grid.Column="2" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_turrets" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="3"
                      PreviewTextInput="OnPreviewTextInput"/>
 
 
             <!-- Ordinance/Counter Measures -->
-            <TextBlock Text="Ordinance Slots" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"/>
-            <TextBox Name="tb_ordinance" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="1"
+            <TextBlock Text="Ordinance Slots" Grid.Row="7" Grid.Column="0" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_ordinance" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Countermeasures" VerticalAlignment="Center" Grid.Row="7" Grid.Column="2"/>
-            <TextBox Name="tb_counters" VerticalAlignment="Center" Width="200" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="3"
+            <TextBlock Text="Countermeasures" Grid.Row="7" Grid.Column="2" Style="{DynamicResource tb_label}"/>
+            <TextBox Name="tb_counters" Style="{DynamicResource tb_input}" Width="200" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="3"
                      PreviewTextInput="OnPreviewTextInput"/>
         </Grid>
     </Grid>
