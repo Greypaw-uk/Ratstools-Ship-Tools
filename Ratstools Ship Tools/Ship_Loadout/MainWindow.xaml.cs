@@ -3,12 +3,14 @@ using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using Ship_Loadout.ShipEditor;
 
 namespace Ship_Loadout
 {
     public partial class MainWindow : Window
     {
         StringBuilder phrase = new StringBuilder();
+        public static Ship ShipCache;
 
         public MainWindow()
         {
@@ -64,12 +66,12 @@ namespace Ship_Loadout
 
         private void BtnShipLoadouts_OnClick(object sender, RoutedEventArgs e)
         {
-            //throw new System.NotImplementedException();
+            mainFrame.Content = new LoadoutEditor.LoadoutEditor();
         }
 
         private void ShipEditor_OnClick(object sender, RoutedEventArgs e)
         {
-            mainFrame.Content = new ShipLoadout.ShipCreator();
+            mainFrame.Content = new ShipCreator();
         }
 
         private void Rectangle_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

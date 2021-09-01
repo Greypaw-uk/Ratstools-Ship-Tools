@@ -18,7 +18,7 @@
 
             <Button Height="24" Width="100" Content="Components" Margin="10" Click="BtnComponent_OnClick" />
 
-            <Button Height="24" Width="100" Content="Ship Loadouts" Margin="10" Click="BtnShipLoadouts_OnClick" IsEnabled="False" />
+            <Button Height="24" Width="100" Content="Ship Loadouts" Margin="10" Click="BtnShipLoadouts_OnClick"/>
         </StackPanel>
 
         <StackPanel VerticalAlignment="Bottom">

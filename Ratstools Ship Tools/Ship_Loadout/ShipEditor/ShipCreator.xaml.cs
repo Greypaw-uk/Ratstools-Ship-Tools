@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Newtonsoft.Json;
 
-namespace Ship_Loadout.ShipLoadout
+namespace Ship_Loadout.ShipEditor
 {
     public partial class ShipCreator : Page
     {

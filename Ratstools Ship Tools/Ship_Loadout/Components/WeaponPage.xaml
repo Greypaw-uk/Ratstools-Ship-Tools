@@ -71,21 +71,24 @@
             <!-- Vs Shield/Armour-->
             <TextBlock Text="Vs. Shields" Height="24" Grid.Row="4" Grid.Column="0"/>
             <TextBox Name="tb_vShield" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="1"
-                     PreviewTextInput="OnPreviewTextInput"/>
+                     PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_vShield_OnLostFocus"
+                     ToolTip="Enter number as an integer and it will be converted into a decimal.  For instance, enter 0.75 as just 75"/>
 
             <TextBlock Text="Vs. Armour" Height="24" Grid.Row="4" Grid.Column="2"/>
             <TextBox Name="tb_vArmour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="3"
-                     PreviewTextInput="OnPreviewTextInput"/>
+                     PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_vArmour_OnLostFocus"
+                     ToolTip="Enter number as an integer and it will be converted into a decimal.  For instance, enter 0.75 as just 75"/>
 
             <!-- EPS/Refire-->
             <TextBlock Text="EPS" Height="24" Grid.Row="5" Grid.Column="0"/>
             <TextBox Name="tb_eps" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="5" Grid.Column="1"
-                     PreviewTextInput="OnPreviewTextInput"/>
+                     PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_eps_OnLostFocus"
+                     ToolTip="Enter number as an integer and it will be converted into a decimal.  For instance, enter 0.75 as just 75"/>
 
             <TextBlock Text="Refire Rate" Height="24" Grid.Row="5" Grid.Column="2"/>
             <TextBox Name="tb_refire" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="5" Grid.Column="3"
-                     PreviewTextInput="OnPreviewTextInput"/>
-
+                     PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_refire_OnLostFocus"
+                     ToolTip="Enter number as an integer and it will be converted into a decimal.  For instance, enter 0.75 as just 75"/>
         </Grid>
 
         <Grid Grid.Row="2" VerticalAlignment="Bottom">

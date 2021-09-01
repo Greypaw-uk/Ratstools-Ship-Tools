@@ -104,12 +104,18 @@
     <Compile Include="Dragon.xaml.cs">
       <DependentUpon>Dragon.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoadoutEditor\LoadoutEditor.xaml.cs">
+      <DependentUpon>LoadoutEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoadoutEditor\NewLoadout.xaml.cs">
+      <DependentUpon>NewLoadout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RECalculator\RECalculator.xaml.cs">
       <DependentUpon>RECalculator.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppDataContext.cs" />
-    <Compile Include="ShipLoadout\Ship.cs" />
-    <Compile Include="ShipLoadout\ShipCreator.xaml.cs">
+    <Compile Include="ShipEditor\Ship.cs" />
+    <Compile Include="ShipEditor\ShipCreator.xaml.cs">
       <DependentUpon>ShipCreator.xaml</DependentUpon>
     </Compile>
     <Page Include="Components\ArmourPage.xaml">
@@ -164,11 +170,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LoadoutEditor\LoadoutEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadoutEditor\NewLoadout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RECalculator\RECalculator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShipLoadout\ShipCreator.xaml">
+    <Page Include="ShipEditor\ShipCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

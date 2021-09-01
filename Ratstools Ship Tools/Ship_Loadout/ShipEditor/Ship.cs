@@ -1,6 +1,6 @@
 ﻿using Ship_Loadout.Components;
 
-namespace Ship_Loadout.ShipLoadout
+namespace Ship_Loadout.ShipEditor
 {
     public class Ship
     {
@@ -29,7 +29,7 @@ namespace Ship_Loadout.ShipLoadout
         public Ordinance Ord2 { get; set; }
         public Ordinance Ord3 { get; set; }
 
-    public int Countermeasures { get; set; }
+        public int Countermeasures { get; set; }
         public CounterMeasure CM1 { get; set; }
         public CounterMeasure CM2 { get; set; }
 

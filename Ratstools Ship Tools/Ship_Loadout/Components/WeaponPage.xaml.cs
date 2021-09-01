@@ -141,5 +141,49 @@ namespace Ship_Loadout.Components
 
             return true;
         }
+
+        private void Tb_vShield_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_vShield.Text))
+            {
+                if (!tb_vShield.Text.Contains("."))
+                {
+                    tb_vShield.Text = "0." + tb_vShield.Text;
+                }
+            }
+        }
+
+        private void Tb_vArmour_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_armour.Text))
+            {
+                if (!tb_armour.Text.Contains("."))
+                {
+                    tb_armour.Text = "0." + tb_armour.Text;
+                }
+            }
+        }
+
+        private void Tb_eps_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_eps.Text))
+            {
+                if (!tb_eps.Text.Contains("."))
+                {
+                    tb_eps.Text = "0." + tb_eps.Text;
+                }
+            }
+        }
+
+        private void Tb_refire_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_refire.Text))
+            {
+                if (!tb_refire.Text.Contains("."))
+                {
+                    tb_refire.Text = "0." + tb_refire.Text;
+                }
+            }
+        }
     }
 }
