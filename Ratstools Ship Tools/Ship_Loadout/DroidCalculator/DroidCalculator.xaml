@@ -145,8 +145,18 @@
                       Style="{DynamicResource dg_global}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}"
-                                        SortDirection="Descending" Width="200" />
+                                        SortDirection="Descending" Width="*" />
                 </DataGrid.Columns>
+
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Orange"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
             </DataGrid>
             <Button Grid.Row="6" Grid.Column="3" Height="24" Width="24" VerticalAlignment="Bottom"
                     HorizontalAlignment="Left" Margin="10 0 0 17" Click="ClearOtherChips_OnClick">
@@ -156,7 +166,7 @@
 
         <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="40,0,10,20" Width="780">
             <ProgressBar Name="ProgressBar" Minimum="0" Maximum="100" 
-                         Background="Orange"/>
+                         Background="DarkGray"/>
 
             <StackPanel Height="20" Orientation="Horizontal" VerticalAlignment="Center" Margin="364,20,376,10">
                 <TextBlock x:Name="tb_totalLoad" Text="0"/>

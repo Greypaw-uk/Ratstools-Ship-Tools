@@ -24,6 +24,17 @@
 
             <DataGrid Name="dg_ships" SelectionChanged="Dg_ships_OnSelectionChanged"
                       Grid.Row="1" Margin="10" Style="{DynamicResource dg_global}">
+
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Orange"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
+
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}" Width="*"/>
                 </DataGrid.Columns>
