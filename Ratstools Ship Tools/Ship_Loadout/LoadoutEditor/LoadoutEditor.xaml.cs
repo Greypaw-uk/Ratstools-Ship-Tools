@@ -14,5 +14,10 @@ namespace Ship_Loadout.LoadoutEditor
         {
             shipFrame.Content = new NewLoadout();
         }
+
+        private void Btn_load_OnClick(object sender, RoutedEventArgs e)
+        {
+            shipFrame.Content = new OpenLoadout();
+        }
     }
 }

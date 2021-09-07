@@ -12,13 +12,15 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0" Orientation="Vertical">
-            <Button Height="24" Width="100" Content="Droid Calculator" Margin="10" Click="BtnDroidCalculator_OnClick"/>
 
-            <Button Height="24" Width="100" Content="RE Calculator" Margin="10" Click="BtnRECalculator_OnClick" />
+            <Button Width="100" Content="RE Calculator" Margin="10" Click="BtnRECalculator_OnClick" 
+                    Style="{DynamicResource btn_orange}"/>
 
-            <Button Height="24" Width="100" Content="Components" Margin="10" Click="BtnComponent_OnClick" />
+            <Button Width="100" Content="Components" Margin="10" Click="BtnComponent_OnClick" 
+                    Style="{DynamicResource btn_orange}"/>
 
-            <Button Height="24" Width="100" Content="Ship Loadouts" Margin="10" Click="BtnShipLoadouts_OnClick"/>
+            <Button Width="100" Content="Ship Loadouts" Margin="10" Click="BtnShipLoadouts_OnClick"
+                    Style="{DynamicResource btn_orange}"/>
         </StackPanel>
 
         <StackPanel VerticalAlignment="Bottom">

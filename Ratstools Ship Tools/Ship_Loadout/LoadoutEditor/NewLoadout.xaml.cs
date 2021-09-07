@@ -37,27 +37,26 @@ namespace Ship_Loadout.LoadoutEditor
         {
             if (!isLoaded) return;
 
-            List<Ship> ShipDisplayList = new List<Ship>();
+            var ShipDisplayList = new List<Ship>();
 
-            if (cb_rebel.IsChecked == true)
-                foreach (var ship in ShipList.Where(ship => ship.Faction == 0))
-                    ShipDisplayList.Add(ship);
-
-
-            if (cb_imperial.IsChecked == true)
-                foreach (var ship in ShipList.Where(ship => ship.Faction == 1))
-                    ShipDisplayList.Add(ship);
-
-
-            if (cb_freelance.IsChecked == true)
-                foreach (var ship in ShipList.Where(ship => ship.Faction == 2))
-                    ShipDisplayList.Add(ship);
-
-            if (cb_special.IsChecked == true)
-                foreach (var ship in ShipList.Where(ship => ship.Faction == 3))
-                    ShipDisplayList.Add(ship);
+            if (cb_rebel.IsChecked == true) ShipDisplayList.AddRange(ShipList.Where(ship => ship.Faction == 0));
+            if (cb_imperial.IsChecked == true) ShipDisplayList.AddRange(ShipList.Where(ship => ship.Faction == 1));
+            if (cb_freelance.IsChecked == true) ShipDisplayList.AddRange(ShipList.Where(ship => ship.Faction == 2));
+            if (cb_special.IsChecked == true) ShipDisplayList.AddRange(ShipList.Where(ship => ship.Faction == 3));
 
             dg_ships.ItemsSource = ShipDisplayList;
+        }
+
+        private void Btn_next_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (dg_ships.SelectedIndex != -1)
+            {
+                MainWindow.ShipCache = ShipList[dg_ships.SelectedIndex];
+
+                //loadoutFrame
+            }
+            else
+                MessageBox.Show("Please select a ship.");
         }
     }
 }

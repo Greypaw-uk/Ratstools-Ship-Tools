@@ -52,7 +52,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_reactorArmourInput.Text))
                 {
                     var result = float.Parse(tb_reactorArmourInput.Text) * multiplier;
-                    tb_reactorArmourOutput.Text = result.ToString("0.00");
+                    tb_reactorArmourOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -65,7 +65,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_reactorMassInput.Text))
                 {
                     var result = float.Parse(tb_reactorMassInput.Text) / multiplier;
-                    tb_reactorMassOutput.Text = result.ToString("0.00");
+                    tb_reactorMassOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -78,7 +78,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_reactorGenerationInput.Text))
                 {
                     var result = float.Parse(tb_reactorGenerationInput.Text) * multiplier;
-                    tb_reactorGenerationOutput.Text = result.ToString("0.00");
+                    tb_reactorGenerationOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -112,7 +112,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_engineArmourInput.Text))
                 {
                     var result = float.Parse(tb_engineArmourInput.Text) * multiplier;
-                    tb_engineArmourOutput.Text = result.ToString("0.00");
+                    tb_engineArmourOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -125,7 +125,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_engineDrainInput.Text))
                 {
                     var result = float.Parse(tb_engineDrainInput.Text) / multiplier;
-                    tb_engineDrainOutput.Text = result.ToString("0.00");
+                    tb_engineDrainOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -138,7 +138,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_engineMassInput.Text))
                 {
                     var result = float.Parse(tb_engineMassInput.Text) / multiplier;
-                    tb_engineMassOutput.Text = result.ToString("0.00");
+                    tb_engineMassOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -151,7 +151,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_enginePitchInput.Text))
                 {
                     var result = float.Parse(tb_enginePitchInput.Text) * multiplier;
-                    tb_enginePitchOutput.Text = result.ToString("0.00");
+                    tb_enginePitchOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -164,7 +164,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_engineYawInput.Text))
                 {
                     var result = float.Parse(tb_engineYawInput.Text) * multiplier;
-                    tb_engineYawOutput.Text = result.ToString("0.00");
+                    tb_engineYawOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -177,7 +177,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_engineRollInput.Text))
                 {
                     var result = float.Parse(tb_engineRollInput.Text) * multiplier;
-                    tb_engineRollOutput.Text = result.ToString("0.00");
+                    tb_engineRollOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -190,7 +190,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_engineSpeedInput.Text))
                 {
                     var result = float.Parse(tb_engineSpeedInput.Text) * multiplier;
-                    tb_engineSpeedOutput.Text = result.ToString("0.00");
+                    tb_engineSpeedOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -236,7 +236,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_boosterArmourInput.Text))
                 {
                     var result = float.Parse(tb_engineArmourInput.Text) * multiplier;
-                    tb_boosterArmourOutput.Text = result.ToString("0.00");
+                    tb_boosterArmourOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -249,7 +249,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_boosterDrainInput.Text))
                 {
                     var result = float.Parse(tb_boosterDrainInput.Text) / multiplier;
-                    tb_boosterDrainOutput.Text = result.ToString("0.00");
+                    tb_boosterDrainOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -262,7 +262,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_boosterMassInput.Text))
                 {
                     var result = float.Parse(tb_boosterMassInput.Text) / multiplier;
-                    tb_boosterMassOutput.Text = result.ToString("0.00");
+                    tb_boosterMassOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -275,7 +275,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_boosterEnergyInput.Text))
                 {
                     var result = float.Parse(tb_boosterEnergyInput.Text) * multiplier;
-                    tb_boosterEnergyOutput.Text = result.ToString("0.00");
+                    tb_boosterEnergyOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -288,7 +288,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_boosterRechargeInput.Text))
                 {
                     var result = float.Parse(tb_boosterRechargeInput.Text) * multiplier;
-                    tb_boosterRechargeOutput.Text = result.ToString("0.00");
+                    tb_boosterRechargeOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -301,7 +301,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_boosterConsumptionInput.Text))
                 {
                     var result = float.Parse(tb_boosterConsumptionInput.Text) / multiplier;
-                    tb_boosterConsumptionOutput.Text = result.ToString("0.00");
+                    tb_boosterConsumptionOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -314,7 +314,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_boosterAccelerationInput.Text))
                 {
                     var result = float.Parse(tb_boosterAccelerationInput.Text) * multiplier;
-                    tb_boosterAccelerationOutput.Text = result.ToString("0.00");
+                    tb_boosterAccelerationOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -327,7 +327,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_boosterSpeedInput.Text))
                 {
                     var result = float.Parse(tb_boosterSpeedInput.Text) * multiplier;
-                    tb_boosterSpeedOutput.Text = result.ToString("0.00");
+                    tb_boosterSpeedOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -376,7 +376,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_shieldArmourInput.Text))
                 {
                     var result = float.Parse(tb_shieldArmourInput.Text) * multiplier;
-                    tb_shieldArmourOutput.Text = result.ToString("0.00");
+                    tb_shieldArmourOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -389,7 +389,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_shieldDrainInput.Text))
                 {
                     var result = float.Parse(tb_shieldDrainInput.Text) / multiplier;
-                    tb_shieldDrainOutput.Text = result.ToString("0.00");
+                    tb_shieldDrainOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -402,7 +402,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_shieldMassInput.Text))
                 {
                     var result = float.Parse(tb_shieldMassInput.Text) / multiplier;
-                    tb_shieldMassOutput.Text = result.ToString("0.00");
+                    tb_shieldMassOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -415,7 +415,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_shieldFrontHPInput.Text))
                 {
                     var result = float.Parse(tb_shieldFrontHPInput.Text) * multiplier;
-                    tb_shieldFrontHPOutput.Text = result.ToString("0.00");
+                    tb_shieldFrontHPOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -428,7 +428,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_shieldRearHPInput.Text))
                 {
                     var result = float.Parse(tb_shieldRearHPInput.Text) * multiplier;
-                    tb_shieldRearHPOutput.Text = result.ToString("0.00");
+                    tb_shieldRearHPOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -441,7 +441,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_shieldRechargeInput.Text))
                 {
                     var result = float.Parse(tb_shieldRechargeInput.Text) * multiplier;
-                    tb_shieldRechargeOutput.Text = result.ToString("0.00");
+                    tb_shieldRechargeOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -484,7 +484,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_armourArmourInput.Text))
                 {
                     var result = float.Parse(tb_armourArmourInput.Text) * multiplier;
-                    tb_armourArmourOutput.Text = result.ToString("0.00");
+                    tb_armourArmourOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -497,7 +497,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_armourMassInput.Text))
                 {
                     var result = float.Parse(tb_armourMassInput.Text) / multiplier;
-                    tb_armourMassOutput.Text = result.ToString("0.00");
+                    tb_armourMassOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -528,7 +528,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_diArmourInput.Text))
                 {
                     var result = float.Parse(tb_diArmourInput.Text) * multiplier;
-                    tb_diArmourOutput.Text = result.ToString("0.00");
+                    tb_diArmourOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -541,7 +541,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_diDrainInput.Text))
                 {
                     var result = float.Parse(tb_diDrainInput.Text) * multiplier;
-                    tb_diDrainOutput.Text = result.ToString("0.00");
+                    tb_diDrainOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -554,7 +554,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_diMassInput.Text))
                 {
                     var result = float.Parse(tb_diMassInput.Text) * multiplier;
-                    tb_diMassOutput.Text = result.ToString("0.00");
+                    tb_diMassOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -567,7 +567,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_diSpeedInput.Text))
                 {
                     var result = float.Parse(tb_diSpeedInput.Text) * multiplier;
-                    tb_diSpeedOutput.Text = result.ToString("0.00");
+                    tb_diSpeedOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -604,7 +604,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_capArmourInput.Text))
                 {
                     var result = float.Parse(tb_capArmourInput.Text) * multiplier;
-                    tb_capArmourOutput.Text = result.ToString("0.00");
+                    tb_capArmourOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -617,7 +617,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_capDrainInput.Text))
                 {
                     var result = float.Parse(tb_capDrainInput.Text) / multiplier;
-                    tb_capDrainOutput.Text = result.ToString("0.00");
+                    tb_capDrainOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -630,7 +630,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_capMassInput.Text))
                 {
                     var result = float.Parse(tb_capMassInput.Text) / multiplier;
-                    tb_capMassOutput.Text = result.ToString("0.00");
+                    tb_capMassOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -643,7 +643,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_capEnergyInput.Text))
                 {
                     var result = float.Parse(tb_capEnergyInput.Text) * multiplier;
-                    tb_capEnergyOutput.Text = result.ToString("0.00");
+                    tb_capEnergyOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -656,7 +656,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_capRechargeInput.Text))
                 {
                     var result = float.Parse(tb_capRechargeInput.Text) * multiplier;
-                    tb_capRechargeOutput.Text = result.ToString("0.00");
+                    tb_capRechargeOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -696,7 +696,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_wepArmourInput.Text))
                 {
                     var result = float.Parse(tb_wepArmourInput.Text) * multiplier;
-                    tb_wepArmourOutput.Text = result.ToString("0.00");
+                    tb_wepArmourOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -709,7 +709,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_wepDrainInput.Text))
                 {
                     var result = float.Parse(tb_wepDrainInput.Text) / multiplier;
-                    tb_wepDrainOutput.Text = result.ToString("0.00");
+                    tb_wepDrainOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -722,7 +722,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_wepMassInput.Text))
                 {
                     var result = float.Parse(tb_wepMassInput.Text) / multiplier;
-                    tb_wepMassOutput.Text = result.ToString("0.00");
+                    tb_wepMassOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -735,7 +735,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_wepMinInput.Text))
                 {
                     var result = float.Parse(tb_wepMinInput.Text) * multiplier;
-                    tb_wepMinOutput.Text = result.ToString("0.00");
+                    tb_wepMinOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -748,7 +748,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_wepMaxInput.Text))
                 {
                     var result = float.Parse(tb_wepMaxInput.Text) * multiplier;
-                    tb_wepMaxOutput.Text = result.ToString("0.00");
+                    tb_wepMaxOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -761,7 +761,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_wepVShieldInput.Text))
                 {
                     var result = float.Parse(tb_wepVShieldInput.Text) * multiplier;
-                    tb_wepVShieldOutput.Text = result.ToString("0.00");
+                    tb_wepVShieldOutput.Text = result.ToString("0.000");
                 }
             }
             catch (Exception)
@@ -774,7 +774,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_wepVArmourInput.Text))
                 {
                     var result = float.Parse(tb_wepVArmourInput.Text) * multiplier;
-                    tb_wepVArmourOutput.Text = result.ToString("0.00");
+                    tb_wepVArmourOutput.Text = result.ToString("0.000");
                 }
             }
             catch (Exception)
@@ -787,7 +787,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_wepEPSInput.Text))
                 {
                     var result = float.Parse(tb_wepEPSInput.Text) / multiplier;
-                    tb_wepEPSOutput.Text = result.ToString("0.00");
+                    tb_wepEPSOutput.Text = result.ToString("0.0");
                 }
             }
             catch (Exception)
@@ -800,7 +800,7 @@ namespace Ship_Loadout
                 if (!string.IsNullOrEmpty(tb_wepRefireInput.Text))
                 {
                     var result = float.Parse(tb_wepRefireInput.Text) / multiplier;
-                    tb_wepRefireOutput.Text = result.ToString("0.00");
+                    tb_wepRefireOutput.Text = result.ToString("0.000");
                 }
             }
             catch (Exception)

@@ -6,7 +6,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition />
@@ -32,16 +32,26 @@
         </StackPanel>
 
 
-        <DataGrid Name="dg_ships" Margin="10" AutoGenerateColumns="False" Grid.Row="1" IsReadOnly="True"
-                  SelectionMode="Single">
+        <DataGrid Name="dg_ships" Margin="10" Grid.Row="1" IsReadOnly="True"
+                  SelectionMode="Single" Style="{DynamicResource dg_global}">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}" Width="*"/>
             </DataGrid.Columns>
+
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Orange"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
         </DataGrid>
 
 
-        <Button Name="btn_next" Content="Next" Height="24" Width="80" Grid.Row="2" HorizontalAlignment="Right"
-                Margin="0 0 10 0" />
+        <Button Name="btn_next" Content="Next" Width="80" Grid.Row="2" HorizontalAlignment="Right"
+                Margin="0 0 10 0" Style="{DynamicResource btn_orange}" Click="Btn_next_OnClick"/>
     </Grid>
 </Page>

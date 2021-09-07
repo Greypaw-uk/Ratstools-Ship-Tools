@@ -76,7 +76,7 @@ namespace Ship_Loadout
 
         private void Rectangle_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Dragon dragon = new Dragon();
+            Dragon dragon = new Dragon {Owner = this};
             dragon.Show();
         }
     }
