@@ -79,6 +79,8 @@
                      PreviewTextInput="OnPreviewTextInput"/>
 
             <!-- Vs Shield/Armour-->
+            <TextBlock Text="Vs. Shields" Height="24" Grid.Row="4" Grid.Column="0"/>
+
             <TextBox Name="tb_vShield" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput" LostFocus="Tb_vShield_OnLostFocus"
                      ToolTip="Please enter as a whole number, the program will change it to a decimal.  e.g. for 0.75, enter 75"/>

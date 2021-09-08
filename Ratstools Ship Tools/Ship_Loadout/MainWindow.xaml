@@ -24,6 +24,7 @@
 
             <Button Width="100" Content="Ship Loadouts" Margin="10" Click="BtnShipLoadouts_OnClick"
                     Style="{DynamicResource btn_orange}"/>
+
         </StackPanel>
 
         <StackPanel VerticalAlignment="Bottom">
