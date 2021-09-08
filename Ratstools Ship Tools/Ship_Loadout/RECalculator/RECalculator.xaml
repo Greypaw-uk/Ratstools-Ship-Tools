@@ -7,8 +7,8 @@
       d:DesignHeight="550" d:DesignWidth="800"
       Title="RECalculator">
 
-    <Grid Background="White">
-        <TabControl>
+    <Grid>
+        <TabControl Background="Transparent">
             <!-- Reactor -->
             <TabItem Header="Reactor">
                 <Grid>
@@ -29,7 +29,7 @@
                         <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
                                    Grid.Column="0" />
                         <ComboBox x:Name="cb_reactorLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
-                                  Grid.Row="0" Grid.Column="1">
+                                  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="24" Width="100">
                             <ComboBoxItem>One</ComboBoxItem>
                             <ComboBoxItem>Two - Three</ComboBoxItem>
                             <ComboBoxItem>Four - Five</ComboBoxItem>
@@ -63,9 +63,9 @@
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center"
                                 Margin="20">
                         <Button Name="btnArmourCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
-                                Click="BtnArmourCalculate_OnClick" />
+                                Click="BtnArmourCalculate_OnClick" Style="{DynamicResource btn_orange}"/>
                         <Button Name="btnArmourCancel" Content="Clear" Height="24" Width="100" Margin="20"
-                                Click="BtnArmourCancel_OnClick" />
+                                Click="BtnArmourCancel_OnClick" Style="{DynamicResource btn_orange}"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -94,7 +94,7 @@
                         <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
                                    Grid.Column="0" />
                         <ComboBox x:Name="cb_engineLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
-                                  Grid.Row="0" Grid.Column="1">
+                                  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="24" Width="100">
                             <ComboBoxItem>One</ComboBoxItem>
                             <ComboBoxItem>Two - Three</ComboBoxItem>
                             <ComboBoxItem>Four - Five</ComboBoxItem>
@@ -155,9 +155,9 @@
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                         <Button Name="btnEngineCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
-                                Click="BtnEngineCalculate_OnClick" />
+                                Click="BtnEngineCalculate_OnClick" Style="{DynamicResource btn_orange}"/>
                         <Button Name="btnEngineCancel" Content="Clear" Height="24" Width="100" Margin="20"
-                                Click="BtnEngineCancel_OnClick" />
+                                Click="BtnEngineCancel_OnClick" Style="{DynamicResource btn_orange}"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -187,7 +187,7 @@
                         <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
                                    Grid.Column="0" />
                         <ComboBox x:Name="cb_boosterLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
-                                  Grid.Row="0" Grid.Column="1">
+                                  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="24" Width="100">
                             <ComboBoxItem>One</ComboBoxItem>
                             <ComboBoxItem>Two - Three</ComboBoxItem>
                             <ComboBoxItem>Four - Five</ComboBoxItem>
@@ -245,19 +245,19 @@
                         <TextBlock Name="tb_boosterAccelerationOutput" Grid.Row="7" Grid.Column="3"
                                    Style="{DynamicResource tb_label}" />
 
-                        <TextBlock Text="Speed:" Style="{DynamicResource tb_label}" Grid.Row="7" Grid.Column="0" />
-                        <TextBox x:Name="tb_boosterSpeedInput" Grid.Row="7" Grid.Column="1"
+                        <TextBlock Text="Speed:" Style="{DynamicResource tb_label}" Grid.Row="8" Grid.Column="0" />
+                        <TextBox x:Name="tb_boosterSpeedInput" Grid.Row="8" Grid.Column="1"
                                  Style="{DynamicResource tb_input}" />
-                        <TextBlock Text="Speed:" Style="{DynamicResource tb_label}" Grid.Row="7" Grid.Column="2" />
-                        <TextBlock Name="tb_boosterSpeedOutput" Grid.Row="7" Grid.Column="3"
+                        <TextBlock Text="Speed:" Style="{DynamicResource tb_label}" Grid.Row="8" Grid.Column="2" />
+                        <TextBlock Name="tb_boosterSpeedOutput" Grid.Row="8" Grid.Column="3"
                                    Style="{DynamicResource tb_label}" />
                     </Grid>
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                         <Button Name="btnBoosterCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
-                                Click="BtnBoosterCalculate_OnClick" />
+                                Click="BtnBoosterCalculate_OnClick" Style="{DynamicResource btn_orange}"/>
                         <Button Name="btnBoosterCancel" Content="Clear" Height="24" Width="100" Margin="20"
-                                Click="BtnBoosterCancel_OnClick" />
+                                Click="BtnBoosterCancel_OnClick" Style="{DynamicResource btn_orange}"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -285,7 +285,7 @@
                         <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
                                    Grid.Column="0" />
                         <ComboBox x:Name="cb_shieldLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
-                                  Grid.Row="0" Grid.Column="1">
+                                  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="24" Width="100">
                             <ComboBoxItem>One</ComboBoxItem>
                             <ComboBoxItem>Two - Three</ComboBoxItem>
                             <ComboBoxItem>Four - Five</ComboBoxItem>
@@ -341,9 +341,9 @@
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                         <Button Name="btnShieldCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
-                                Click="BtnShieldCalculate_OnClick" />
+                                Click="BtnShieldCalculate_OnClick" Style="{DynamicResource btn_orange}"/>
                         <Button Name="btnShieldCancel" Content="Clear" Height="24" Width="100" Margin="20"
-                                Click="BtnShieldCancel_OnClick" />
+                                Click="BtnShieldCancel_OnClick" Style="{DynamicResource btn_orange}"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -367,7 +367,7 @@
                         <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
                                    Grid.Column="0" />
                         <ComboBox x:Name="cb_armourLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
-                                  Grid.Row="0" Grid.Column="1">
+                                  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="24" Width="100">
                             <ComboBoxItem>One</ComboBoxItem>
                             <ComboBoxItem>Two - Three</ComboBoxItem>
                             <ComboBoxItem>Four - Five</ComboBoxItem>
@@ -393,9 +393,9 @@
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                         <Button Name="btnarmourCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
-                                Click="BtnarmourCalculate_OnClick" />
+                                Click="BtnarmourCalculate_OnClick" Style="{DynamicResource btn_orange}"/>
                         <Button Name="btnarmourCancel" Content="Clear" Height="24" Width="100" Margin="20"
-                                Click="BtnarmourCancel_OnClick" />
+                                Click="BtnarmourCancel_OnClick" Style="{DynamicResource btn_orange}"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -421,7 +421,7 @@
                         <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
                                    Grid.Column="0" />
                         <ComboBox x:Name="cb_diLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
-                                  Grid.Row="0" Grid.Column="1">
+                                  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="24" Width="100">
                             <ComboBoxItem>One</ComboBoxItem>
                             <ComboBoxItem>Two - Three</ComboBoxItem>
                             <ComboBoxItem>Four - Five</ComboBoxItem>
@@ -461,9 +461,9 @@
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                         <Button Name="btndiCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
-                                Click="BtndiCalculate_OnClick" />
+                                Click="BtndiCalculate_OnClick" Style="{DynamicResource btn_orange}"/>
                         <Button Name="btndiCancel" Content="Clear" Height="24" Width="100" Margin="20"
-                                Click="BtndiCancel_OnClick" />
+                                Click="BtndiCancel_OnClick" Style="{DynamicResource btn_orange}"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -490,7 +490,7 @@
                         <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
                                    Grid.Column="0" />
                         <ComboBox x:Name="cb_capLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
-                                  Grid.Row="0" Grid.Column="1">
+                                  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="24" Width="100">
                             <ComboBoxItem>One</ComboBoxItem>
                             <ComboBoxItem>Two - Three</ComboBoxItem>
                             <ComboBoxItem>Four - Five</ComboBoxItem>
@@ -527,19 +527,19 @@
                         <TextBlock Name="tb_capEnergyOutput" Grid.Row="4" Grid.Column="3"
                                    Style="{DynamicResource tb_label}" />
 
-                        <TextBlock Text="Recharge:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="0" />
-                        <TextBox x:Name="tb_capRechargeInput" Grid.Row="4" Grid.Column="1"
+                        <TextBlock Text="Recharge:" Style="{DynamicResource tb_label}" Grid.Row="5" Grid.Column="0" />
+                        <TextBox x:Name="tb_capRechargeInput" Grid.Row="5" Grid.Column="1"
                                  Style="{DynamicResource tb_input}" />
-                        <TextBlock Text="Recharge:" Style="{DynamicResource tb_label}" Grid.Row="4" Grid.Column="2" />
-                        <TextBlock Name="tb_capRechargeOutput" Grid.Row="4" Grid.Column="3"
+                        <TextBlock Text="Recharge:" Style="{DynamicResource tb_label}" Grid.Row="5" Grid.Column="2" />
+                        <TextBlock Name="tb_capRechargeOutput" Grid.Row="5" Grid.Column="3"
                                    Style="{DynamicResource tb_label}" />
                     </Grid>
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                         <Button Name="btncapCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
-                                Click="BtncapCalculate_OnClick" />
+                                Click="BtncapCalculate_OnClick" Style="{DynamicResource btn_orange}"/>
                         <Button Name="btncapCancel" Content="Clear" Height="24" Width="100" Margin="20"
-                                Click="BtncapCancel_OnClick" />
+                                Click="BtncapCancel_OnClick" Style="{DynamicResource btn_orange}"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -569,7 +569,7 @@
                         <TextBlock Text="Component Level" Style="{DynamicResource tb_label}" Grid.Row="0"
                                    Grid.Column="0" />
                         <ComboBox x:Name="cb_wepLevel" SelectedIndex="0" Style="{DynamicResource cb_fancy}"
-                                  Grid.Row="0" Grid.Column="1">
+                                  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="24" Width="100">
                             <ComboBoxItem>One</ComboBoxItem>
                             <ComboBoxItem>Two - Three</ComboBoxItem>
                             <ComboBoxItem>Four - Five</ComboBoxItem>
@@ -644,9 +644,9 @@
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                         <Button Name="btnwepCalculate" Content="Calculate" Height="24" Width="100" Margin="20"
-                                Click="BtnwepCalculate_OnClick" />
+                                Click="BtnwepCalculate_OnClick" Style="{DynamicResource btn_orange}"/>
                         <Button Name="btnwepCancel" Content="Clear" Height="24" Width="100" Margin="20"
-                                Click="BtnwepCancel_OnClick" />
+                                Click="BtnwepCancel_OnClick" Style="{DynamicResource btn_orange}"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

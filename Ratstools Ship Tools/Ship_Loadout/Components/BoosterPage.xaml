@@ -6,7 +6,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition />
@@ -14,10 +14,20 @@
         </Grid.RowDefinitions>
 
         <DataGrid Name="dg_booster" Margin="0 10 0 0" SelectionMode="Single" CanUserAddRows="False"
-                  SelectionChanged="Dg_booster_OnSelectionChanged" AutoGenerateColumns="False" IsReadOnly="True">
+                  SelectionChanged="Dg_booster_OnSelectionChanged" Style="{DynamicResource dg_global}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Path = Name}" />
             </DataGrid.Columns>
+
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Orange"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
         </DataGrid>
 
         <Grid Row="1" Margin="0 10 0 0">
@@ -40,59 +50,60 @@
 
                 <!-- Name -->
                 <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0" />
-                <TextBox Name="tb_BoosterName" Height="24" Width="190" HorizontalAlignment="Left" 
+                <TextBox Name="tb_BoosterName"  Style="{DynamicResource tb_input}"  Width="190" HorizontalAlignment="Left" 
                          Grid.Row="0" Grid.Column="1" />
 
                 <!-- Armour -->
                 <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0" />
-                <TextBox Name="tb_BoosterArmour" Height="24" Width="190" HorizontalAlignment="Left" 
+                <TextBox Name="tb_BoosterArmour" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="1" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Drain/Mass -->
                 <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0" />
-                <TextBox Name="tb_BoosterDrain" Height="24" Width="190" HorizontalAlignment="Left" 
+                <TextBox Name="tb_BoosterDrain" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="2" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
                 <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="2" />
-                <TextBox Name="tb_BoosterMass" Height="24" Width="190" HorizontalAlignment="Left" 
+                <TextBox Name="tb_BoosterMass" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="2" Grid.Column="3" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Energy/Recharge -->
                 <TextBlock Text="Energy" Height="24" Grid.Row="3" Grid.Column="0" />
-                <TextBox Name="tb_BoosterEnergy" Height="24" Width="190" HorizontalAlignment="Left" 
+                <TextBox Name="tb_BoosterEnergy" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="3" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
                 <TextBlock Text="Recharge" Height="24" Grid.Row="3" Grid.Column="2" />
-                <TextBox Name="tb_BoosterRecharge" Height="24" Width="190" HorizontalAlignment="Left" 
+                <TextBox Name="tb_BoosterRecharge" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="3" Grid.Column="3" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Consumption/Acceleration -->
                 <TextBlock Text="Consumption" Height="24" Grid.Row="4" Grid.Column="0" />
-                <TextBox Name="tb_BoosterConsumption" Height="24" Width="190" HorizontalAlignment="Left" 
+                <TextBox Name="tb_BoosterConsumption" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="4" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
                 <TextBlock Text="Acceleration" Height="24" Grid.Row="4" Grid.Column="2" />
-                <TextBox Name="tb_BoosterAcceleration" Height="24" Width="190" HorizontalAlignment="Left" 
+                <TextBox Name="tb_BoosterAcceleration" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="4" Grid.Column="3" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Speed -->
                 <TextBlock Text="Speed" Height="24" Grid.Row="5" Grid.Column="0" />
-                <TextBox Name="tb_BoosterSpeed" Height="24" Width="190" HorizontalAlignment="Left" 
+                <TextBox Name="tb_BoosterSpeed" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="5" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
             </Grid>
         </Grid>
 
         <Grid Grid.Row="2" VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Button Name="btn_add" Content="Add" Click="Btn_add_OnClick" Height="24" Width="60"
-                        HorizontalAlignment="Left" Margin="10" />
+                <Button Name="btn_add" Content="Add" Click="Btn_add_OnClick" Width="60"
+                        HorizontalAlignment="Left" Margin="10" Style="{DynamicResource btn_orange}"/>
 
                 <Button Name="btn_delete" Content="Delete" Click="Btn_delete_OnClick"  Height="24" Width="60"
-                        HorizontalAlignment="Left"/>
+                        HorizontalAlignment="Left" Style="{DynamicResource btn_orange}"/>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="btn_save" Content="Save" Click="Btn_save_OnClick" Height="24" Width="60" Margin="10" />
+                <Button Name="btn_save" Content="Save" Click="Btn_save_OnClick" Height="24" Width="60" Margin="10" 
+                        Style="{DynamicResource btn_orange}"/>
             </StackPanel>
         </Grid>
 

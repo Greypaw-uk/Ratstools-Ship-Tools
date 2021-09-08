@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="" Height="600" Width="800" ResizeMode="NoResize">
-    <Grid>
+    <Grid Background="DimGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0" Orientation="Vertical">
+
+            <Button Width="100" Content="Droid Calculator" Margin="10" Click="BtnDroidCalculator_OnClick"
+                    Style="{DynamicResource btn_orange}"/>
 
             <Button Width="100" Content="RE Calculator" Margin="10" Click="BtnRECalculator_OnClick" 
                     Style="{DynamicResource btn_orange}"/>
@@ -24,11 +27,12 @@
         </StackPanel>
 
         <StackPanel VerticalAlignment="Bottom">
-            <Button Height="24" Width="100" Content="Ship Editor" Margin="10" Click="ShipEditor_OnClick" VerticalAlignment="Bottom"/>
+            <Button Width="100" Content="Ship Editor" Margin="10" Click="ShipEditor_OnClick" VerticalAlignment="Bottom"
+                    Style="{DynamicResource btn_orange}"/>
         </StackPanel>
 
         <Rectangle Name="Rectangle" Height="10" Width="10" VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                   Fill="AliceBlue" MouseLeftButtonDown="Rectangle_OnMouseLeftButtonDown"/>
+                   Fill="DimGray" MouseLeftButtonDown="Rectangle_OnMouseLeftButtonDown"/>
 
         <Frame Name="mainFrame" Grid.Column="1" Margin="10" NavigationUIVisibility="Hidden"/>
     </Grid>

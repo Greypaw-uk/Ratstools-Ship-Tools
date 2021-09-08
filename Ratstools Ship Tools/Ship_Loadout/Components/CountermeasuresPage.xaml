@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800" >
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
             <!-- DataGrid -->
@@ -18,10 +18,20 @@
         </Grid.RowDefinitions>
 
         <DataGrid Name="dg_counter" Margin="0 10 0 0" SelectionMode="Single" CanUserAddRows="False"
-                  SelectionChanged="Dg_counter_OnSelectionChanged"  AutoGenerateColumns="False" IsReadOnly="True">
+                  SelectionChanged="Dg_counter_OnSelectionChanged" Style="{DynamicResource dg_global}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Path = Name}"/>
             </DataGrid.Columns>
+
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Orange"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
         </DataGrid>
 
         <Grid Grid.Row="1" Margin="0 10 0 0">
@@ -37,28 +47,29 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0"/>
-            <TextBox Name="tb_Name" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="1"/>
+            <TextBox Name="tb_Name" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="1"/>
 
             <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"/>
-            <TextBox Name="tb_Armour" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
+            <TextBox Name="tb_Armour" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
             <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="0"/>
-            <TextBox Name="tb_Mass" Height="24" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
+            <TextBox Name="tb_Mass" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
         </Grid>
 
         <Grid Grid.Row="2" VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Button Name="btn_add" Content="Add" Click="Btn_add_OnClick" Height="24" Width="60"
-                        HorizontalAlignment="Left" Margin="10" />
+                        HorizontalAlignment="Left" Margin="10" Style="{DynamicResource btn_orange}"/>
 
                 <Button Name="btn_delete" Content="Delete" Click="Btn_delete_OnClick"  Height="24" Width="60"
-                        HorizontalAlignment="Left"/>
+                        HorizontalAlignment="Left" Style="{DynamicResource btn_orange}"/>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="btn_save" Content="Save" Click="Btn_save_OnClick" Height="24" Width="60" Margin="10" />
+                <Button Name="btn_save" Content="Save" Click="Btn_save_OnClick" Height="24" Width="60" Margin="10" 
+                        Style="{DynamicResource btn_orange}"/>
             </StackPanel>
         </Grid>
     </Grid>
