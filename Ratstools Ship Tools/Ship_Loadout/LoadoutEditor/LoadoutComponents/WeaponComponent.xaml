@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Ship_Loadout.LoadoutEditor.LoadoutComponents.WeaponComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="140" d:DesignWidth="120">
+    <Grid Background="White" Height="140" Width="120" Margin="10">
+        <Border BorderBrush="Orange" BorderThickness="1">
+            <StackPanel>
+                <ComboBox Name="ComboBox" Height="20" VerticalAlignment="Top"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Armour: "  FontSize="8"/>
+                    <TextBlock Name="tb_armour" FontSize="8"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Drain: "  FontSize="8"/>
+                    <TextBlock Name="tb_drain"  FontSize="8"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Mass: "  FontSize="8"/>
+                    <TextBlock Name="tb_mass"  FontSize="8"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Min. Dmg: "  FontSize="8"/>
+                    <TextBlock Name="tb_minDam"  FontSize="8"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Max. Dmg: "  FontSize="8"/>
+                    <TextBlock Name="tb_maxDam"  FontSize="8"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="vs. Shield: "  FontSize="8"/>
+                    <TextBlock Name="tb_vsS"  FontSize="8"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="vs. Armour: "  FontSize="8"/>
+                    <TextBlock Name="tb_vsA"  FontSize="8"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="EPS: "  FontSize="8"/>
+                    <TextBlock Name="tb_eps"  FontSize="8"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Refire: "  FontSize="8"/>
+                    <TextBlock Name="tb_refire"  FontSize="8"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

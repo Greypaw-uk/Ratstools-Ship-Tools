@@ -33,7 +33,7 @@
 
 
         <DataGrid Name="dg_ships" Margin="10" Grid.Row="1" IsReadOnly="True"
-                  SelectionMode="Single" Style="{DynamicResource dg_global}">
+                  SelectionMode="Single" Style="{DynamicResource dg_global}" SelectionChanged="Dg_ships_OnSelectionChanged">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}" Width="*"/>
@@ -51,7 +51,6 @@
         </DataGrid>
 
 
-        <Button Name="btn_next" Content="Next" Width="80" Grid.Row="2" HorizontalAlignment="Right"
-                Margin="0 0 10 0" Style="{DynamicResource btn_orange}" Click="Btn_next_OnClick"/>
+
     </Grid>
 </Page>

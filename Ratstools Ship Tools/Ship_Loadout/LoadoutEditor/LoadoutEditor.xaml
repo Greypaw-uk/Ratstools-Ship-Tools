@@ -12,11 +12,19 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+        <StackPanel Name="sp_loadoutStart" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
             <Button Name="btn_new" Content="New" Width="50" Margin="10" Click="Btn_new_OnClick" Style="{DynamicResource btn_orange}"/>
             <Button Name="btn_load" Content="Load" Width="50" Margin="10" Click="Btn_load_OnClick" Style="{DynamicResource btn_orange}"/>
         </StackPanel>
 
         <Frame Name="shipFrame" Grid.Row="1"/>
+
+        <StackPanel Name="sp_loadoutNew" Grid.Row="0" Visibility="Collapsed" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="btn_back" Content="Back" Width="80" Margin="10" 
+                    Style="{DynamicResource btn_orange}" Click="Btn_back_OnClick"/>
+
+                <Button x:Name="btn_next" Content="Next" Width="80" Margin="10,13" 
+                        Style="{DynamicResource btn_orange}" Click="Btn_next_OnClick"/>
+        </StackPanel>
     </Grid>
 </Page>

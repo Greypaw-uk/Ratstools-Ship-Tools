@@ -104,9 +104,16 @@
     <Compile Include="Dragon.xaml.cs">
       <DependentUpon>Dragon.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoadoutEditor\LoadoutComponents\ReactorComponent.xaml.cs">
+      <DependentUpon>ReactorComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoadoutEditor\DisplayLoadout.xaml.cs">
       <DependentUpon>DisplayLoadout.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoadoutEditor\LoadoutComponents\WeaponComponent.xaml.cs">
+      <DependentUpon>WeaponComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoadoutEditor\LoadoutData.cs" />
     <Compile Include="LoadoutEditor\LoadoutEditor.xaml.cs">
       <DependentUpon>LoadoutEditor.xaml</DependentUpon>
     </Compile>
@@ -176,7 +183,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LoadoutEditor\LoadoutComponents\ReactorComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoadoutEditor\DisplayLoadout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadoutEditor\LoadoutComponents\WeaponComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

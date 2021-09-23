@@ -10,7 +10,7 @@ namespace Ship_Loadout.LoadoutEditor
 {
     public partial class NewLoadout : Page
     {
-        private List<Ship> ShipList = new List<Ship>();
+        
         private bool isLoaded;
 
         public NewLoadout()
@@ -27,9 +27,9 @@ namespace Ship_Loadout.LoadoutEditor
             if (File.Exists("Ship_Data/Ships.json"))
             {
                 var json = new StreamReader("Ship_Data/Ships.json").ReadToEnd();
-                ShipList = JsonConvert.DeserializeObject<List<Ship>>(json);
+                LoadoutData.ShipList = JsonConvert.DeserializeObject<List<Ship>>(json);
 
-                dg_ships.ItemsSource = ShipList;
+                dg_ships.ItemsSource = LoadoutData.ShipList;
             }
         }
 
@@ -39,24 +39,20 @@ namespace Ship_Loadout.LoadoutEditor
 
             var ShipDisplayList = new List<Ship>();
 
-            if (cb_rebel.IsChecked == true) ShipDisplayList.AddRange(ShipList.Where(ship => ship.Faction == 0));
-            if (cb_imperial.IsChecked == true) ShipDisplayList.AddRange(ShipList.Where(ship => ship.Faction == 1));
-            if (cb_freelance.IsChecked == true) ShipDisplayList.AddRange(ShipList.Where(ship => ship.Faction == 2));
-            if (cb_special.IsChecked == true) ShipDisplayList.AddRange(ShipList.Where(ship => ship.Faction == 3));
+            if (cb_rebel.IsChecked == true) ShipDisplayList.AddRange(LoadoutData.ShipList.Where(ship => ship.Faction == 0));
+            if (cb_imperial.IsChecked == true) ShipDisplayList.AddRange(LoadoutData.ShipList.Where(ship => ship.Faction == 1));
+            if (cb_freelance.IsChecked == true) ShipDisplayList.AddRange(LoadoutData.ShipList.Where(ship => ship.Faction == 2));
+            if (cb_special.IsChecked == true) ShipDisplayList.AddRange(LoadoutData.ShipList.Where(ship => ship.Faction == 3));
 
             dg_ships.ItemsSource = ShipDisplayList;
+            
+            LoadoutData.ShipList.Clear();
+            LoadoutData.ShipList = ShipDisplayList;
         }
 
-        private void Btn_next_OnClick(object sender, RoutedEventArgs e)
+        private void Dg_ships_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dg_ships.SelectedIndex != -1)
-            {
-                MainWindow.ShipCache = ShipList[dg_ships.SelectedIndex];
-
-                //loadoutFrame
-            }
-            else
-                MessageBox.Show("Please select a ship.");
+            LoadoutData.ShipListSelection = dg_ships.SelectedIndex;
         }
     }
 }

@@ -7,7 +7,18 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DisplayLoadout">
 
-    <Grid Background="White">
-        <TextBlock Text="WORK IN PROGRESS" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <Grid>
+        <ScrollViewer>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <WrapPanel Name="WrapPanelOne" Grid.Row="0"/>
+                <WrapPanel Name="WrapPanelTwo" Grid.Row="1"/>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
