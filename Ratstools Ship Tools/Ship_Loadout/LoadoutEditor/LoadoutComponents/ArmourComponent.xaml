@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Ship_Loadout.LoadoutEditor.Components.ReactorComponent"
+﻿<UserControl x:Class="Ship_Loadout.LoadoutEditor.LoadoutComponents.ArmourComponent"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -18,11 +18,6 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Mass: "/>
                     <TextBlock Name="tb_mass"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Generation: "/>
-                    <TextBlock Name="tb_gen"/>
                 </StackPanel>
             </StackPanel>
         </Border>
