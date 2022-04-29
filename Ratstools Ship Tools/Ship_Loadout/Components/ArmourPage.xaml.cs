@@ -27,13 +27,13 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_armour.SelectedIndex;
+            Armour armour = (Armour)dg_armour.SelectedItem;
 
-            if (i != -1)
+            if (armour != null)
             {
-                tb_armourName.Text = Components.Armours[i].Name;
-                tb_armourArmour.Text = Components.Armours[i].Armor.ToString();
-                tb_armourMass.Text = Components.Armours[i].Mass.ToString();
+                tb_armourName.Text = armour.Name;
+                tb_armourArmour.Text = armour.Armor.ToString();
+                tb_armourMass.Text = armour.Mass.ToString();
             }
         }
 

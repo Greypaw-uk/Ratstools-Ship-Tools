@@ -28,18 +28,18 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_engine.SelectedIndex;
+            Engine engine = (Engine)dg_engine.SelectedItem;
 
-            if (i != -1)
+            if (engine != null)
             {
-                tb_name.Text = Components.Engines[i].Name;
-                tb_armour.Text = Components.Engines[i].Armour.ToString();
-                tb_drain.Text = Components.Engines[i].Drain.ToString();
-                tb_Mass.Text = Components.Engines[i].Mass.ToString();
-                tb_pitch.Text = Components.Engines[i].Pitch.ToString();
-                tb_yaw.Text = Components.Engines[i].Yaw.ToString();
-                tb_roll.Text = Components.Engines[i].Roll.ToString();
-                tb_speed.Text = Components.Engines[i].Speed.ToString();
+                tb_name.Text = engine.Name;
+                tb_armour.Text = engine.Armour.ToString();
+                tb_drain.Text = engine.Drain.ToString();
+                tb_Mass.Text = engine.Mass.ToString();
+                tb_pitch.Text = engine.Pitch.ToString();
+                tb_yaw.Text = engine.Yaw.ToString();
+                tb_roll.Text = engine.Roll.ToString();
+                tb_speed.Text = engine.Speed.ToString();
             }
         }
 

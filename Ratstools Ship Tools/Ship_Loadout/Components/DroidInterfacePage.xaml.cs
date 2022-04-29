@@ -27,14 +27,14 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_de.SelectedIndex;
+            DroidInterface di = (DroidInterface)dg_de.SelectedItem;
 
-            if (i != -1)
+            if (di != null)
             {
-                tb_name.Text = Components.DroidInterfaces[i].Name;
-                tb_armour.Text = Components.DroidInterfaces[i].Armour.ToString();
-                tb_mass.Text = Components.DroidInterfaces[i].Mass.ToString();
-                tb_speed.Text = Components.DroidInterfaces[i].Speed.ToString();
+                tb_name.Text = di.Name;
+                tb_armour.Text = di.Armour.ToString();
+                tb_mass.Text = di.Mass.ToString();
+                tb_speed.Text = di.Speed.ToString();
             }
         }
 

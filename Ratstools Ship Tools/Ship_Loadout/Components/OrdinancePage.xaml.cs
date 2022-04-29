@@ -28,19 +28,19 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_ordinance.SelectedIndex;
+            Ordinance ord = (Ordinance)dg_ordinance.SelectedItem;
 
-            if (i != -1)
+            if (ord != null)
             {
-                tb_name.Text = Components.Ordinances[i].Name;
-                tb_armour.Text = Components.Ordinances[i].Armour.ToString();
-                tb_drain.Text = Components.Ordinances[i].Drain.ToString();
-                tb_Mass.Text = Components.Ordinances[i].Mass.ToString(); 
-                tb_minDam.Text = Components.Ordinances[i].MinDam.ToString(); 
-                tb_maxDam.Text = Components.Ordinances[i].Mass.ToString(); 
-                tb_vShield.Text = Components.Ordinances[i].VShield.ToString(); 
-                tb_vArmour.Text = Components.Ordinances[i].VArmour.ToString(); 
-                tb_ammo.Text = Components.Ordinances[i].Ammo.ToString();
+                tb_name.Text = ord.Name;
+                tb_armour.Text = ord.Armour.ToString();
+                tb_drain.Text = ord.Drain.ToString();
+                tb_Mass.Text = ord.Mass.ToString(); 
+                tb_minDam.Text = ord.MinDam.ToString(); 
+                tb_maxDam.Text = ord.Mass.ToString(); 
+                tb_vShield.Text = ord.VShield.ToString(); 
+                tb_vArmour.Text = ord.VArmour.ToString(); 
+                tb_ammo.Text = ord.Ammo.ToString();
             }
         }
 

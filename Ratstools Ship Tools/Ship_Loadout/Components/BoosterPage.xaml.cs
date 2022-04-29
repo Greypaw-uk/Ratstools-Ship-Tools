@@ -21,19 +21,19 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_booster.SelectedIndex;
+            Booster booster = (Booster)dg_booster.SelectedItem;
 
-            if (i != -1)
+            if (booster != null)
             {
-                tb_BoosterName.Text = Components.Boosters[i].Name;
-                tb_BoosterArmour.Text = Components.Boosters[i].Armour.ToString();
-                tb_BoosterDrain.Text = Components.Boosters[i].Drain.ToString();
-                tb_BoosterMass.Text = Components.Boosters[i].Mass.ToString();
-                tb_BoosterEnergy.Text = Components.Boosters[i].Energy.ToString();
-                tb_BoosterRecharge.Text = Components.Boosters[i].Recharge.ToString();
-                tb_BoosterConsumption.Text = Components.Boosters[i].Consumption.ToString();
-                tb_BoosterAcceleration.Text = Components.Boosters[i].Acceleration.ToString();
-                tb_BoosterSpeed.Text = Components.Boosters[i].Speed.ToString();
+                tb_BoosterName.Text = booster.Name;
+                tb_BoosterArmour.Text = booster.Armour.ToString();
+                tb_BoosterDrain.Text = booster.Drain.ToString();
+                tb_BoosterMass.Text = booster.Mass.ToString();
+                tb_BoosterEnergy.Text = booster.Energy.ToString();
+                tb_BoosterRecharge.Text = booster.Recharge.ToString();
+                tb_BoosterConsumption.Text = booster.Consumption.ToString();
+                tb_BoosterAcceleration.Text = booster.Acceleration.ToString();
+                tb_BoosterSpeed.Text = booster.Speed.ToString();
             }
         }
 

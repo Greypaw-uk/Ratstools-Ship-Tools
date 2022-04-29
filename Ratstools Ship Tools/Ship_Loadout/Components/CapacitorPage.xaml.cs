@@ -21,16 +21,16 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_capacitors.SelectedIndex;
+            Capacitor cap = (Capacitor)dg_capacitors.SelectedItem;
 
-            if (dg_capacitors.SelectedIndex != -1)
+            if (cap != null)
             {
-                tb_Name.Text = Components.Capacitors[i].Name;
-                tb_Armour.Text = Components.Capacitors[i].Armour.ToString();
-                tb_Drain.Text = Components.Capacitors[i].Drain.ToString();
-                tb_Mass.Text = Components.Capacitors[i].Mass.ToString();
-                tb_Energy.Text = Components.Capacitors[i].Energy.ToString();
-                tb_Recharge.Text = Components.Capacitors[i].RechargeRate.ToString();
+                tb_Name.Text = cap.Name;
+                tb_Armour.Text = cap.Armour.ToString();
+                tb_Drain.Text = cap.Drain.ToString();
+                tb_Mass.Text = cap.Mass.ToString();
+                tb_Energy.Text = cap.Energy.ToString();
+                tb_Recharge.Text = cap.RechargeRate.ToString();
             }
         }
 

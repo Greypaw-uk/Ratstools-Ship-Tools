@@ -28,19 +28,19 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_shield.SelectedIndex;
+            Shield shield = (Shield)dg_shield.SelectedItem;
 
-            if (i != -1)
+            if (shield != null)
             {
-                tb_name.Text = Components.Shields[i].Name;
-                tb_armour.Text = Components.Shields[i].Armour.ToString();
-                tb_Mass.Text = Components.Shields[i].Mass.ToString();
-                tb_drain.Text = Components.Shields[i].Drain.ToString();
-                tb_fHealth.Text = Components.Shields[i].FHP.ToString();
-                tb_rHealth.Text = Components.Shields[i].RHP.ToString();
-                tb_recharge.Text = Components.Shields[i].RR.ToString();
+                tb_name.Text = shield.Name;
+                tb_armour.Text = shield.Armour.ToString();
+                tb_Mass.Text = shield.Mass.ToString();
+                tb_drain.Text = shield.Drain.ToString();
+                tb_fHealth.Text = shield.FHP.ToString();
+                tb_rHealth.Text = shield.RHP.ToString();
+                tb_recharge.Text = shield.RR.ToString();
 
-                cb_adjust.SelectedIndex = Components.Shields[i].Adjust;
+                cb_adjust.SelectedIndex = shield.Adjust;
             }
         }
 

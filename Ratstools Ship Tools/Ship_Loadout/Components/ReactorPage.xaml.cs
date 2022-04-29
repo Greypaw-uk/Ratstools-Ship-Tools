@@ -28,14 +28,14 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_reactor.SelectedIndex;
+            Reactor reactor = (Reactor)dg_reactor.SelectedItem;
 
-            if (i != -1)
+            if (reactor != null)
             {
-                tb_name.Text = Components.Reactors[i].Name;
-                tb_armour.Text = Components.Reactors[i].Armour.ToString();
-                tb_mass.Text = Components.Reactors[i].Mass.ToString();
-                tb_generation.Text = Components.Reactors[i].Generation.ToString();
+                tb_name.Text = reactor.Name;
+                tb_armour.Text = reactor.Armour.ToString();
+                tb_mass.Text = reactor.Mass.ToString();
+                tb_generation.Text = reactor.Generation.ToString();
             }
         }
 

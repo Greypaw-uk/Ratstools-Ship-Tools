@@ -28,20 +28,20 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_weapon.SelectedIndex;
+            Weapon weapon = (Weapon)dg_weapon.SelectedItem;
 
-            if (i != -1)
+            if (weapon != null)
             {
-                tb_name.Text = Components.Weapons[i].Name;
-                tb_armour.Text = Components.Weapons[i].Armour.ToString();
-                tb_drain.Text = Components.Weapons[i].Drain.ToString();
-                tb_Mass.Text = Components.Weapons[i].Mass.ToString();
-                tb_minDam.Text = Components.Weapons[i].MinD.ToString();
-                tb_maxDam.Text = Components.Weapons[i].MaxD.ToString();
-                tb_vShield.Text = Components.Weapons[i].VS.ToString();
-                tb_vArmour.Text = Components.Weapons[i].VA.ToString();
-                tb_eps.Text = Components.Weapons[i].EPS.ToString();
-                tb_refire.Text = Components.Weapons[i].RR.ToString();
+                tb_name.Text = weapon.Name;
+                tb_armour.Text = weapon.Armour.ToString();
+                tb_drain.Text = weapon.Drain.ToString();
+                tb_Mass.Text = weapon.Mass.ToString();
+                tb_minDam.Text = weapon.MinD.ToString();
+                tb_maxDam.Text = weapon.MaxD.ToString();
+                tb_vShield.Text = weapon.VS.ToString();
+                tb_vArmour.Text = weapon.VA.ToString();
+                tb_eps.Text = weapon.EPS.ToString();
+                tb_refire.Text = weapon.RR.ToString();
             }
         }
 

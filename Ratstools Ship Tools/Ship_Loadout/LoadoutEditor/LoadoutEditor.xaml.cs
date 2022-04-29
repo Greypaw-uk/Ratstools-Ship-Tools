@@ -8,6 +8,9 @@ namespace Ship_Loadout.LoadoutEditor
         public LoadoutEditor()
         {
             InitializeComponent();
+
+            // Refresh lists to ensure nothing added since program started is missing from dropdowns
+            Components.Components.PopulateAllComponents();
         }
 
         private void Btn_new_OnClick(object sender, RoutedEventArgs e)

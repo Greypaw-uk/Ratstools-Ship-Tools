@@ -27,13 +27,13 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_cargo.SelectedIndex;
+            CargoBay cb = (CargoBay)dg_cargo.SelectedItem;
 
-            if (i != -1)
+            if (cb != null)
             {
-                tb_Name.Text = Components.CargoBays[i].Name;
-                tb_Armour.Text = Components.CargoBays[i].Armour.ToString();
-                tb_Mass.Text = Components.CargoBays[i].Mass.ToString();
+                tb_Name.Text = cb.Name;
+                tb_Armour.Text = cb.Armour.ToString();
+                tb_Mass.Text = cb.Mass.ToString();
             }
         }
 

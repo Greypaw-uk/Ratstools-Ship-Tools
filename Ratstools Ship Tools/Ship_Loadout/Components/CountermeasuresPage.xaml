@@ -39,6 +39,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -53,8 +54,12 @@
             <TextBox Name="tb_Armour" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="0"/>
-            <TextBox Name="tb_Mass" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
+            <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0"/>
+            <TextBox Name="tb_Drain" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
+                     PreviewTextInput="OnPreviewTextInput"/>
+
+            <TextBlock Text="Mass" Height="24" Grid.Row="3" Grid.Column="0"/>
+            <TextBox Name="tb_Mass" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
         </Grid>
 

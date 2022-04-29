@@ -40,6 +40,21 @@ namespace Ship_Loadout.Components
 
         #region Populate Components
 
+        public static void PopulateAllComponents()
+        {
+            PopulateArmourList();
+            PopulateBoosterList();
+            PopulateCapacitorList();
+            PopulateCargoList();
+            PopulateCounterMeasureList();
+            PopulateDroidInterfaces();
+            PopulateEngines();
+            PopulateOrdinance();
+            PopulateReactors();
+            PopulateShields();
+            PopulateWeapons();
+        }
+
         public static void PopulateArmourList()
         {
             if (File.Exists("Components/Armour.json"))

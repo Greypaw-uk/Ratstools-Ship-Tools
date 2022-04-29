@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
 using Newtonsoft.Json;
 
 namespace Ship_Loadout.Components
@@ -27,13 +28,14 @@ namespace Ship_Loadout.Components
         {
             ClearControls();
 
-            var i = dg_counter.SelectedIndex;
+            CounterMeasure cm = (CounterMeasure)dg_counter.SelectedItem;
 
-            if (i != -1)
+            if (cm != null)
             {
-                tb_Name.Text = Components.CounterMeasures[i].Name;
-                tb_Armour.Text = Components.CounterMeasures[i].Armour.ToString();
-                tb_Mass.Text = Components.CounterMeasures[i].Mass.ToString();
+                tb_Name.Text = cm.Name;
+                tb_Armour.Text = cm.Armour.ToString();
+                tb_Drain.Text = cm.Drain.ToString();
+                tb_Mass.Text = cm.Mass.ToString();
             }
         }
 
@@ -41,6 +43,7 @@ namespace Ship_Loadout.Components
         {
             tb_Name.Text = "";
             tb_Armour.Text = "";
+            tb_Drain.Text = "";
             tb_Mass.Text = "";
         }
 
@@ -56,6 +59,7 @@ namespace Ship_Loadout.Components
             {
                 Name = tb_Name.Text,
                 Armour = float.Parse(tb_Armour.Text),
+                Drain = float.Parse(tb_Drain.Text),
                 Mass = float.Parse(tb_Mass.Text)
             };
 
@@ -109,6 +113,7 @@ namespace Ship_Loadout.Components
         {
             if (string.IsNullOrEmpty(tb_Name.Text)) return false;
             if (string.IsNullOrEmpty(tb_Armour.Text)) return false;
+            if (string.IsNullOrEmpty(tb_Drain.Text)) return false;
             if (string.IsNullOrEmpty(tb_Mass.Text)) return false;
 
             return true;

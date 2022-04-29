@@ -1,9 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using Ship_Loadout.Components;
-using Ship_Loadout.LoadoutEditor.Components;
-using Ship_Loadout.LoadoutEditor.LoadoutComponents;
 using Ship_Loadout.ShipEditor;
 
 namespace Ship_Loadout.LoadoutEditor
@@ -11,14 +8,6 @@ namespace Ship_Loadout.LoadoutEditor
     public partial class DisplayLoadout : Page
     {
         private Ship ship = LoadoutData.ShipList[LoadoutData.ShipListSelection];
-
-        private ReactorComponent sc_reactor = new ReactorComponent();
-        private EngineComponent sc_engine = new EngineComponent();
-        private BoosterComponent sc_booster = new BoosterComponent();
-        private ShieldComponent sc_shield = new ShieldComponent();
-        private DIComponent sc_di = new DIComponent();
-        private CapacitorComponent sc_cap = new CapacitorComponent();
-
 
         public DisplayLoadout()
         {
@@ -28,58 +17,35 @@ namespace Ship_Loadout.LoadoutEditor
             InitialiseEngine();
             InitialiseBooster();
             InitialiseShield();
+            InitialiseArmour();
 
             InitialiseDI();
             InitialiseCapacitor();
 
+            InitialiseOrdinance();
+
             InitialiseWeapons();
+
+            InitialiseCountermeasures();
         }
 
         #region Reactor
 
         private void InitialiseReactor()
         {
-            //Create title text boxes
-            var tb_reactor = new TextBlock
-            {
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Text = "Reactor",
-                Foreground = new SolidColorBrush(Colors.Orange)
-            };
-
-
             //Add Reactors to Combolist
-            sc_reactor.ComboBox.ItemsSource = Ship_Loadout.Components.Components.Reactors;
-            sc_reactor.ComboBox.DisplayMemberPath = "Name";
-            sc_reactor.ComboBox.SelectionChanged += ReactorSelectionChanged;
-
-
-            //Create Stackpanels and add sub-controls
-            var sp_reactor = new StackPanel { Children = { tb_reactor, sc_reactor } };
-
-
-            //Add Stackpanel to Wrap Panel
-            WrapPanelOne.Children.Add(sp_reactor);
+            cb_reactor.ItemsSource = Ship_Loadout.Components.Components.Reactors;
         }
 
         private void ReactorSelectionChanged(object sender, System.EventArgs e)
         {
-            ComboBox cmb = (ComboBox)sender;
-
-            Ship_Loadout.Components.Components.ReactorCache = Ship_Loadout.Components.Components.Reactors[cmb.SelectedIndex];
-
-            Reactor reactor = Ship_Loadout.Components.Components.ReactorCache;
+            Reactor reactor = (Reactor)cb_reactor.SelectedItem;
 
             if (reactor != null)
             {
-                sc_reactor.tb_armour.Text = reactor.Armour.ToString();
-                sc_reactor.tb_armour.TextAlignment = TextAlignment.Right;
-
-                sc_reactor.tb_mass.Text = reactor.Mass.ToString();
-                sc_reactor.tb_mass.TextAlignment = TextAlignment.Right;
-
-                sc_reactor.tb_gen.Text = reactor.Generation.ToString();
-                sc_reactor.tb_gen.TextAlignment = TextAlignment.Right;
+                tb_reactorArmour.Text = reactor.Armour.ToString();
+                tb_reactorMass.Text = reactor.Mass.ToString();
+                tb_reactorGeneration.Text = reactor.Generation.ToString();
             }
         }
 
@@ -89,40 +55,22 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseEngine()
         {
-            sc_engine.ComboBox.ItemsSource = Ship_Loadout.Components.Components.Engines;
-            sc_engine.ComboBox.DisplayMemberPath = "Name";
-            sc_engine.ComboBox.SelectionChanged += EngineSelectionChanged;
-
-            TextBlock tb_engine = new TextBlock();
-            tb_engine.HorizontalAlignment = HorizontalAlignment.Center;
-            tb_engine.Text = "Engine";
-            tb_engine.Foreground = new SolidColorBrush(Colors.Orange);
-
-            StackPanel sp_engine = new StackPanel();
-            sp_engine.Children.Add(tb_engine);
-            sp_engine.Children.Add(sc_engine);
-
-            WrapPanelOne.Children.Add(sp_engine);
+            cb_engine.ItemsSource = Ship_Loadout.Components.Components.Engines;
         }
 
         private void EngineSelectionChanged(object sender, System.EventArgs e)
         {
-            ComboBox cmb = (ComboBox)sender;
-
-            Ship_Loadout.Components.Components.EngineCache =
-                Ship_Loadout.Components.Components.Engines[cmb.SelectedIndex];
-
-            Engine engine = Ship_Loadout.Components.Components.EngineCache;
+            Engine engine = (Engine)cb_engine.SelectedItem;
 
             if (engine != null)
             {
-                sc_engine.tb_armour.Text = engine.Armour.ToString();
-                sc_engine.tb_drain.Text = engine.Drain.ToString();
-                sc_engine.tb_mass.Text = engine.Mass.ToString();
-                sc_engine.tb_pitch.Text = engine.Pitch.ToString();
-                sc_engine.tb_yaw.Text = engine.Yaw.ToString();
-                sc_engine.tb_roll.Text = engine.Roll.ToString();
-                sc_engine.tb_speed.Text = engine.Speed.ToString();
+                tb_engineArmour.Text = engine.Armour.ToString();
+                tb_engineDrain.Text = engine.Drain.ToString();
+                tb_engineMass.Text = engine.Mass.ToString();
+                tb_enginePitch.Text = engine.Pitch.ToString();
+                tb_engineYaw.Text = engine.Yaw.ToString();
+                tb_engineRoll.Text = engine.Roll.ToString();
+                tb_engineSpeed.Text = engine.Speed.ToString();
             }
         }
 
@@ -132,41 +80,23 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseBooster()
         {
-            sc_booster.ComboBox.ItemsSource = Ship_Loadout.Components.Components.Boosters;
-            sc_booster.ComboBox.DisplayMemberPath = "Name";
-            sc_booster.ComboBox.SelectionChanged += BoosterSelectionChanged;
-
-            TextBlock tb_booster = new TextBlock();
-            tb_booster.HorizontalAlignment = HorizontalAlignment.Center;
-            tb_booster.Text = "Booster";
-            tb_booster.Foreground = new SolidColorBrush(Colors.Orange);
-
-            StackPanel sp_booster = new StackPanel();
-            sp_booster.Children.Add(tb_booster);
-            sp_booster.Children.Add(sc_booster);
-
-            WrapPanelOne.Children.Add(sp_booster);
+            cb_booster.ItemsSource = Ship_Loadout.Components.Components.Boosters;
         }
 
         private void BoosterSelectionChanged(object sender, System.EventArgs e)
         {
-            ComboBox cmb = (ComboBox)sender;
-
-            Ship_Loadout.Components.Components.BoosterCache =
-                Ship_Loadout.Components.Components.Boosters[cmb.SelectedIndex];
-
-            Booster booster = Ship_Loadout.Components.Components.BoosterCache;
+            Booster booster = (Booster)cb_booster.SelectedItem;
 
             if (booster != null)
             {
-                sc_booster.tb_armour.Text = booster.Armour.ToString();
-                sc_booster.tb_drain.Text = booster.Drain.ToString();
-                sc_booster.tb_mass.Text = booster.Mass.ToString();
-                sc_booster.tb_energy.Text = booster.Energy.ToString();
-                sc_booster.tb_recharge.Text = booster.Recharge.ToString();
-                sc_booster.tb_consumption.Text = booster.Consumption.ToString();
-                sc_booster.tb_acceleration.Text = booster.Acceleration.ToString();
-                sc_booster.tb_speed.Text = booster.Speed.ToString();
+                tb_boosterArmour.Text = booster.Armour.ToString();
+                tb_boosterDrain.Text = booster.Drain.ToString();
+                tb_boosterMass.Text = booster.Mass.ToString();
+                tb_boosterEnergy.Text = booster.Energy.ToString();
+                tb_boosterRecharge.Text = booster.Recharge.ToString();
+                tb_boosterConsumption.Text = booster.Consumption.ToString();
+                tb_BoosterAcceleration.Text = booster.Acceleration.ToString();
+                tb_BoosterSpeed.Text = booster.Speed.ToString();
             }
         }
 
@@ -176,41 +106,22 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseShield()
         {
-            sc_shield.ComboBox.ItemsSource = Ship_Loadout.Components.Components.Shields;
-            sc_shield.ComboBox.DisplayMemberPath = "Name";
-            sc_shield.ComboBox.SelectionChanged += ShieldSelectionChanged;
-
-            TextBlock tb_shield = new TextBlock();
-            tb_shield.HorizontalAlignment = HorizontalAlignment.Center;
-            tb_shield.Text = "Shield";
-            tb_shield.Foreground = new SolidColorBrush(Colors.Orange);
-
-
-
-            StackPanel sp_shield = new StackPanel();
-            sp_shield.Children.Add(tb_shield);
-            sp_shield.Children.Add(sc_shield);
-
-            WrapPanelOne.Children.Add(sp_shield);
+            cb_shield.ItemsSource = Ship_Loadout.Components.Components.Shields;
         }
 
         private void ShieldSelectionChanged(object sender, System.EventArgs e)
         {
-            ComboBox cmb = (ComboBox)sender;
-
-            Ship_Loadout.Components.Components.ShieldCache =
-                Ship_Loadout.Components.Components.Shields[cmb.SelectedIndex];
-
-            Shield shield = Ship_Loadout.Components.Components.ShieldCache;
+            Shield shield = (Shield)cb_shield.SelectedItem;
 
             if (shield != null)
             {
-                sc_shield.tb_armour.Text = shield.Armour.ToString();
-                sc_shield.tb_drain.Text = shield.Drain.ToString();
-                sc_shield.tb_mass.Text = shield.Mass.ToString();
-                sc_shield.tb_frontHP.Text = shield.FHP.ToString();
-                sc_shield.tb_rearHP.Text = shield.RHP.ToString();
-                sc_shield.tb_recharge.Text = shield.RR.ToString();
+                tb_shieldArmour.Text = shield.Armour.ToString();
+                tb_shieldDrain.Text = shield.Drain.ToString();
+                tb_shieldMass.Text = shield.Mass.ToString();
+                tb_shieldFront.Text = shield.FHP.ToString();
+                tb_shieldRear.Text = shield.RHP.ToString();
+                tb_shieldRecharge.Text = shield.RR.ToString();
+                tb_shieldAdjust.Text = shield.Adjust.ToString();
             }
         }
 
@@ -218,6 +129,34 @@ namespace Ship_Loadout.LoadoutEditor
 
         #region Armour
 
+        private void InitialiseArmour()
+        {
+            cb_armourFront.ItemsSource = Ship_Loadout.Components.Components.Armours;
+
+            cb_armourRear.ItemsSource = Ship_Loadout.Components.Components.Armours;
+        }
+
+        private void FrontArmourChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Armour armour = (Armour)cb_armourFront.SelectedItem;
+
+            if (armour != null)
+            {
+                tb_frontArmourArmour.Text = armour.Armor.ToString();
+                tb_frontArmourMass.Text = armour.Mass.ToString();
+            }
+        }
+
+        private void RearArmourChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Armour armour = (Armour)cb_armourFront.SelectedItem;
+
+            if (armour != null)
+            {
+                tb_rearArmourArmour.Text = armour.Armor.ToString();
+                tb_rearArmourMass.Text = armour.Mass.ToString();
+            }
+        }
 
         #endregion
 
@@ -225,38 +164,19 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseDI()
         {
-            sc_di.ComboBox.ItemsSource = Ship_Loadout.Components.Components.DroidInterfaces;
-            sc_di.ComboBox.DisplayMemberPath = "Name";
-            sc_di.ComboBox.SelectionChanged += DISelectionChanged;
-
-            TextBlock tb_DI = new TextBlock();
-            tb_DI.HorizontalAlignment = HorizontalAlignment.Center;
-            tb_DI.Text = "Droid Interface";
-            tb_DI.Foreground = new SolidColorBrush(Colors.Orange);
-
-
-            StackPanel sp_DI = new StackPanel();
-            sp_DI.Children.Add(tb_DI);
-            sp_DI.Children.Add(sc_di);
-
-            WrapPanelOne.Children.Add(sp_DI);
+            cb_droidInterface.ItemsSource = Ship_Loadout.Components.Components.DroidInterfaces;
         }
 
         private void DISelectionChanged(object sender, System.EventArgs e)
         {
-            ComboBox cmb = (ComboBox)sender;
-
-            Ship_Loadout.Components.Components.DECache =
-                Ship_Loadout.Components.Components.DroidInterfaces[cmb.SelectedIndex];
-
-            DroidInterface di = Ship_Loadout.Components.Components.DECache;
+            DroidInterface di = (DroidInterface)cb_droidInterface.SelectedItem;
 
             if (di != null)
             {
-                sc_di.tb_armour.Text = di.Armour.ToString();
-                sc_di.tb_drain.Text = di.Drain.ToString();
-                sc_di.tb_mass.Text = di.Mass.ToString();
-                sc_di.tb_speed.Text = di.Speed.ToString();
+                tb_diArmour.Text = di.Armour.ToString();
+                tb_diDrain.Text = di.Drain.ToString();
+                tb_diMass.Text = di.Mass.ToString();
+                tb_diSpeed.Text = di.Speed.ToString();
             }
         }
 
@@ -266,39 +186,20 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseCapacitor()
         {
-            sc_cap.ComboBox.ItemsSource = Ship_Loadout.Components.Components.Capacitors;
-            sc_cap.ComboBox.DisplayMemberPath = "Name";
-            sc_cap.ComboBox.SelectionChanged += CapacitorSelectionChanged;
-
-            TextBlock tb_Cap = new TextBlock();
-            tb_Cap.HorizontalAlignment = HorizontalAlignment.Center;
-            tb_Cap.Text = "Capacitor";
-            tb_Cap.Foreground = new SolidColorBrush(Colors.Orange);
-
-
-            StackPanel sp_cap = new StackPanel();
-            sp_cap.Children.Add(tb_Cap);
-            sp_cap.Children.Add(sc_cap);
-
-            WrapPanelOne.Children.Add(sp_cap);
+            cb_capacitor.ItemsSource = Ship_Loadout.Components.Components.Capacitors;
         }
 
         private void CapacitorSelectionChanged(object sender, System.EventArgs e)
         {
-            ComboBox cmb = (ComboBox)sender;
-
-            Ship_Loadout.Components.Components.CapacitorCache =
-                Ship_Loadout.Components.Components.Capacitors[cmb.SelectedIndex];
-
-            Capacitor cap = Ship_Loadout.Components.Components.CapacitorCache;
+            Capacitor cap = (Capacitor)cb_capacitor.SelectedItem;
 
             if (cap != null)
             {
-                sc_cap.tb_armour.Text = cap.Armour.ToString();
-                sc_cap.tb_drain.Text = cap.Drain.ToString();
-                sc_cap.tb_mass.Text = cap.Mass.ToString();
-                sc_cap.tb_energy.Text = cap.Energy.ToString();
-                sc_cap.tb_recharge.Text = cap.RechargeRate.ToString();
+                tb_capArmour.Text = cap.Armour.ToString();
+                tb_capDrain.Text = cap.Drain.ToString();
+                tb_capMass.Text = cap.Mass.ToString();
+                tb_capEnergy.Text = cap.Energy.ToString();
+                tb_capRecharge.Text = cap.RechargeRate.ToString();
             }
         }
 
@@ -306,12 +207,109 @@ namespace Ship_Loadout.LoadoutEditor
 
         #region Ordinance
 
+        private void InitialiseOrdinance()
+        {
+            switch (ship.Ordinance)
+            {
+                case 0:
+                {
+                    gd_ordOne.Visibility = Visibility.Collapsed;
+                    gd_ordTwo.Visibility = Visibility.Collapsed;
+                    gd_ordThree.Visibility = Visibility.Collapsed;
 
-        #region Turrets
+                    cb_ordOne.ItemsSource = null;
+                    cb_ordTwo.ItemsSource = null;
+                    cb_ordTwo.ItemsSource = null;
+                }
+                    break;
 
+                case 1:
+                {
+                    gd_ordOne.Visibility = Visibility.Visible;
+                    gd_ordTwo.Visibility = Visibility.Collapsed;
+                    gd_ordThree.Visibility = Visibility.Collapsed;
 
+                    cb_ordOne.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
+                    cb_ordTwo.ItemsSource = null;
+                    cb_ordTwo.ItemsSource = null;
+                }
+                    break;
 
-        #endregion
+                case 2:
+                {
+                    gd_ordOne.Visibility = Visibility.Visible;
+                    gd_ordTwo.Visibility = Visibility.Visible;
+                    gd_ordThree.Visibility = Visibility.Collapsed;
+
+                    cb_ordOne.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
+                    cb_ordTwo.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
+                    cb_ordTwo.ItemsSource = null;
+                }
+                    break;
+                case 3:
+                {
+                    gd_ordOne.Visibility = Visibility.Visible;
+                    gd_ordTwo.Visibility = Visibility.Visible;
+                    gd_ordThree.Visibility = Visibility.Visible;
+
+                    cb_ordOne.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
+                    cb_ordTwo.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
+                    cb_ordTwo.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
+                }
+                    break;
+            }
+        }
+
+        private void OrdinanceOneChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Ordinance ord = (Ordinance)cb_ordOne.SelectedItem;
+
+            if (ord != null)
+            {
+                tb_ordOneArmour.Text = ord.Armour.ToString();
+                tb_ordOneDrain.Text = ord.Drain.ToString();
+                tb_ordOneMass.Text = ord.Mass.ToString();
+                tb_ordOneMinDam.Text = ord.MinDam.ToString();
+                tb_ordOneMaxDam.Text = ord.MaxDam.ToString();
+                tb_ordOneVsShield.Text = ord.VShield.ToString();
+                tb_ordOneVsArmour.Text = ord.VArmour.ToString();
+                tb_ordOneAmmo.Text = ord.Ammo.ToString();
+            }
+        }
+
+        private void OrdinanceTwoChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Ordinance ord = (Ordinance)cb_ordTwo.SelectedItem;
+
+            if (ord != null)
+            {
+                tb_ordTwoArmour.Text = ord.Armour.ToString();
+                tb_ordTwoDrain.Text = ord.Drain.ToString();
+                tb_ordTwoMass.Text = ord.Mass.ToString();
+                tb_ordTwoMinDam.Text = ord.MinDam.ToString();
+                tb_ordTwoMaxDam.Text = ord.MaxDam.ToString();
+                tb_ordTwoVsShield.Text = ord.VShield.ToString();
+                tb_ordTwoVsArmour.Text = ord.VArmour.ToString();
+                tb_ordTwoAmmo.Text = ord.Ammo.ToString();
+            }
+        }
+
+        private void OrdinanceThreeChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Ordinance ord = (Ordinance)cb_ordThree.SelectedItem;
+
+            if (ord != null)
+            {
+                tb_ordThreeArmour.Text = ord.Armour.ToString();
+                tb_ordThreeDrain.Text = ord.Drain.ToString();
+                tb_ordThreeMass.Text = ord.Mass.ToString();
+                tb_ordThreeMinDam.Text = ord.MinDam.ToString();
+                tb_ordThreeMaxDam.Text = ord.MaxDam.ToString();
+                tb_ordThreeVsShield.Text = ord.VShield.ToString();
+                tb_ordThreeVsArmour.Text = ord.VArmour.ToString();
+                tb_ordThreeAmmo.Text = ord.Ammo.ToString();
+            }
+        }
 
         #endregion
 
@@ -319,51 +317,237 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseWeapons()
         {
-            for (int i = 0; i < ship.Weapons; i++)
+            switch (ship.Weapons)
             {
-                WeaponComponent sc_weapon = new WeaponComponent();
+                case 0:
+                    {
+                        gd_WepOne.Visibility = Visibility.Collapsed;
+                        gd_WepTwo.Visibility = Visibility.Collapsed;
+                        gd_WepThree.Visibility = Visibility.Collapsed;
+                        gd_WepFour.Visibility = Visibility.Collapsed;
+                        gd_WepFive.Visibility = Visibility.Collapsed;
+                        gd_WepSix.Visibility = Visibility.Collapsed;
 
-                TextBlock tb_weapon = new TextBlock
+                        cb_wepOne.ItemsSource = null;
+                        cb_wepTwo.ItemsSource = null;
+                        cb_wepThree.ItemsSource = null;
+                        cb_wepFour.ItemsSource = null;
+                        cb_wepFive.ItemsSource = null;
+                        cb_wepSix.ItemsSource = null;
+                    }
+                    break;
+
+                case 1:
+                    {
+                        gd_WepOne.Visibility = Visibility.Visible;
+                        gd_WepTwo.Visibility = Visibility.Collapsed;
+                        gd_WepThree.Visibility = Visibility.Collapsed;
+                        gd_WepFour.Visibility = Visibility.Collapsed;
+                        gd_WepFive.Visibility = Visibility.Collapsed;
+                        gd_WepSix.Visibility = Visibility.Collapsed;
+
+                        cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                        cb_wepTwo.ItemsSource = null;
+                        cb_wepThree.ItemsSource = null;
+                        cb_wepFour.ItemsSource = null;
+                        cb_wepFive.ItemsSource = null;
+                        cb_wepSix.ItemsSource = null;
+                    }
+                    break;
+
+                case 2:
+                    {
+                        gd_WepOne.Visibility = Visibility.Visible;
+                        gd_WepTwo.Visibility = Visibility.Visible;
+                        gd_WepThree.Visibility = Visibility.Collapsed;
+                        gd_WepFour.Visibility = Visibility.Collapsed;
+                        gd_WepFive.Visibility = Visibility.Collapsed;
+                        gd_WepSix.Visibility = Visibility.Collapsed;
+
+                        cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                        cb_wepTwo.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                        cb_wepThree.ItemsSource = null;
+                        cb_wepFour.ItemsSource = null;
+                        cb_wepFive.ItemsSource = null;
+                        cb_wepSix.ItemsSource = null;
+                    }
+                    break;
+                case 3:
+                    {
+                        gd_WepOne.Visibility = Visibility.Visible;
+                        gd_WepTwo.Visibility = Visibility.Visible;
+                        gd_WepThree.Visibility = Visibility.Visible;
+                        gd_WepFour.Visibility = Visibility.Collapsed;
+                        gd_WepFive.Visibility = Visibility.Collapsed;
+                        gd_WepSix.Visibility = Visibility.Collapsed;
+
+                        cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                        cb_wepTwo.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                        cb_wepThree.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                        cb_wepFour.ItemsSource = null;
+                        cb_wepFive.ItemsSource = null;
+                        cb_wepSix.ItemsSource = null;
+                    }
+                    break;
+                case 4:
                 {
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    Text = "Weapon " + (i + 1),
-                    Foreground = new SolidColorBrush(Colors.Orange)
-                };
+                    gd_WepOne.Visibility = Visibility.Visible;
+                    gd_WepTwo.Visibility = Visibility.Visible;
+                    gd_WepThree.Visibility = Visibility.Visible;
+                    gd_WepFour.Visibility = Visibility.Visible;
+                    gd_WepFive.Visibility = Visibility.Collapsed;
+                    gd_WepSix.Visibility = Visibility.Collapsed;
 
-                sc_weapon.ComboBox.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                sc_weapon.ComboBox.DisplayMemberPath = "Name";
-                sc_weapon.ComboBox.SelectionChanged += (WeaponSelectionChanged);
+                    cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepTwo.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepThree.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepFour.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepFive.ItemsSource = null;
+                    cb_wepSix.ItemsSource = null;
+                }
+                    break;
+                case 5:
+                {
+                    gd_WepOne.Visibility = Visibility.Visible;
+                    gd_WepTwo.Visibility = Visibility.Visible;
+                    gd_WepThree.Visibility = Visibility.Visible;
+                    gd_WepFour.Visibility = Visibility.Visible;
+                    gd_WepFive.Visibility = Visibility.Visible;
+                    gd_WepSix.Visibility = Visibility.Collapsed;
 
-                var sp_weapon = new StackPanel { Children = { tb_weapon, sc_weapon } };
+                    cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepTwo.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepThree.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepFour.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepFive.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepSix.ItemsSource = null;
+                }
+                    break;
+                case 6:
+                {
+                    gd_WepOne.Visibility = Visibility.Visible;
+                    gd_WepTwo.Visibility = Visibility.Visible;
+                    gd_WepThree.Visibility = Visibility.Visible;
+                    gd_WepFour.Visibility = Visibility.Visible;
+                    gd_WepFive.Visibility = Visibility.Visible;
+                    gd_WepSix.Visibility = Visibility.Visible;
 
-                WrapPanelTwo.Children.Add(sp_weapon);
+                    cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepTwo.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepThree.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepFour.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepFive.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepSix.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                }
+                    break;
             }
         }
 
-        private void WeaponSelectionChanged(object sender, System.EventArgs e)
+        private void WeaponOneChanged(object sender, System.EventArgs e)
         {
-            ComboBox cmb = (ComboBox)sender;
+            Weapon weapon = (Weapon)cb_wepOne.SelectedItem;
 
-            var parent = cmb.Parent;
-
-            Ship_Loadout.Components.Components.WeaponCache = Ship_Loadout.Components.Components.Weapons[cmb.SelectedIndex];
-
-            //UpdateWeapons(sender, e);
-
-            Weapon weapon = Ship_Loadout.Components.Components.WeaponCache;
             if (weapon != null)
             {
-                WeaponComponent sc_weapon = new WeaponComponent();
+                tb_wepOneArmour.Text = weapon.Armour.ToString();
+                tb_wepOneDrain.Text = weapon.Drain.ToString();
+                tb_wepOneMass.Text = weapon.Mass.ToString();
+                tb_wepOneMinDam.Text = weapon.MinD.ToString();
+                tb_wepOneMaxDam.Text = weapon.MaxD.ToString();
+                tb_wepOneVsShield.Text = weapon.VS.ToString();
+                tb_wepOneVsArmour.Text = weapon.VA.ToString();
+                tb_wepOneEPS.Text = weapon.EPS.ToString();
+                tb_wepOneRR.Text = weapon.RR.ToString();
+            }
+        }
 
-                sc_weapon.tb_armour.Text = weapon.Armour.ToString();
-                sc_weapon.tb_drain.Text = weapon.Drain.ToString();
-                sc_weapon.tb_mass.Text = weapon.Mass.ToString();
-                sc_weapon.tb_minDam.Text = weapon.MinD.ToString();
-                sc_weapon.tb_maxDam.Text = weapon.MaxD.ToString();
-                sc_weapon.tb_vsS.Text = weapon.VS.ToString();
-                sc_weapon.tb_vsA.Text = weapon.VA.ToString();
-                sc_weapon.tb_eps.Text = weapon.EPS.ToString();
-                sc_weapon.tb_refire.Text = weapon.RR.ToString();
+        private void WeaponTwoChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Weapon weapon = (Weapon)cb_wepTwo.SelectedItem;
+
+            if (weapon != null)
+            {
+                tb_wepTwoArmour.Text = weapon.Armour.ToString();
+                tb_wepTwoDrain.Text = weapon.Drain.ToString();
+                tb_wepTwoMass.Text = weapon.Mass.ToString();
+                tb_wepTwoMinDam.Text = weapon.MinD.ToString();
+                tb_wepTwoMaxDam.Text = weapon.MaxD.ToString();
+                tb_wepTwoVsShield.Text = weapon.VS.ToString();
+                tb_wepTwoVsArmour.Text = weapon.VA.ToString();
+                tb_wepTwoEPS.Text = weapon.EPS.ToString();
+                tb_wepTwoRR.Text = weapon.RR.ToString();
+            }
+        }
+
+        private void WeaponThreeChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Weapon weapon = (Weapon)cb_wepThree.SelectedItem;
+
+            if (weapon != null)
+            {
+                tb_wepThreeArmour.Text = weapon.Armour.ToString();
+                tb_wepThreeDrain.Text = weapon.Drain.ToString();
+                tb_wepThreeMass.Text = weapon.Mass.ToString();
+                tb_wepThreeMinDam.Text = weapon.MinD.ToString();
+                tb_wepThreeMaxDam.Text = weapon.MaxD.ToString();
+                tb_wepThreeVsShield.Text = weapon.VS.ToString();
+                tb_wepThreeVsArmour.Text = weapon.VA.ToString();
+                tb_wepThreeEPS.Text = weapon.EPS.ToString();
+                tb_wepThreeRR.Text = weapon.RR.ToString();
+            }
+        }
+
+        private void WeaponFourChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Weapon weapon = (Weapon)cb_wepFour.SelectedItem;
+
+            if (weapon != null)
+            {
+                tb_wepFourArmour.Text = weapon.Armour.ToString();
+                tb_wepFourDrain.Text = weapon.Drain.ToString();
+                tb_wepFourMass.Text = weapon.Mass.ToString();
+                tb_wepFourMinDam.Text = weapon.MinD.ToString();
+                tb_wepFourMaxDam.Text = weapon.MaxD.ToString();
+                tb_wepFourVsShield.Text = weapon.VS.ToString();
+                tb_wepFourVsArmour.Text = weapon.VA.ToString();
+                tb_wepFourEPS.Text = weapon.EPS.ToString();
+                tb_wepFourRR.Text = weapon.RR.ToString();
+            }
+        }
+
+        private void WeaponFiveChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Weapon weapon = (Weapon)cb_wepFive.SelectedItem;
+
+            if (weapon != null)
+            {
+                tb_wepFiveArmour.Text = weapon.Armour.ToString();
+                tb_wepFiveDrain.Text = weapon.Drain.ToString();
+                tb_wepFiveMass.Text = weapon.Mass.ToString();
+                tb_wepFiveMinDam.Text = weapon.MinD.ToString();
+                tb_wepFiveMaxDam.Text = weapon.MaxD.ToString();
+                tb_wepFiveVsShield.Text = weapon.VS.ToString();
+                tb_wepFiveVsArmour.Text = weapon.VA.ToString();
+                tb_wepFiveEPS.Text = weapon.EPS.ToString();
+                tb_wepFiveRR.Text = weapon.RR.ToString();
+            }
+        }
+
+        private void WeaponSixChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Weapon weapon = (Weapon)cb_wepSix.SelectedItem;
+
+            if (weapon != null)
+            {
+                tb_wepSixArmour.Text = weapon.Armour.ToString();
+                tb_wepSixDrain.Text = weapon.Drain.ToString();
+                tb_wepSixMass.Text = weapon.Mass.ToString();
+                tb_wepSixMinDam.Text = weapon.MinD.ToString();
+                tb_wepSixMaxDam.Text = weapon.MaxD.ToString();
+                tb_wepSixVsShield.Text = weapon.VS.ToString();
+                tb_wepSixVsArmour.Text = weapon.VA.ToString();
+                tb_wepSixEPS.Text = weapon.EPS.ToString();
+                tb_wepSixRR.Text = weapon.RR.ToString();
             }
         }
 
@@ -371,7 +555,70 @@ namespace Ship_Loadout.LoadoutEditor
 
         #region Counter Measures
 
-        
+        private void InitialiseCountermeasures()
+        {
+            switch (ship.Countermeasures)
+            {
+                case 0:
+                {
+                    gd_cmOne.Visibility = Visibility.Collapsed;
+                    gd_cmTwo.Visibility = Visibility.Collapsed;
+
+                    cb_cmOne.ItemsSource = null;
+                    cb_cmTwo.ItemsSource = null;
+                }
+                    break;
+
+                case 1:
+                {
+                    gd_cmOne.Visibility = Visibility.Visible;
+                    gd_cmTwo.Visibility = Visibility.Collapsed;
+
+                    cb_cmOne.ItemsSource = Ship_Loadout.Components.Components.CounterMeasures;
+                    cb_cmTwo.ItemsSource = null;
+                }
+                    break;
+                case 2:
+                {
+                    gd_cmOne.Visibility = Visibility.Visible;
+                    gd_cmTwo.Visibility = Visibility.Visible;
+
+                    cb_cmOne.ItemsSource = Ship_Loadout.Components.Components.CounterMeasures;
+                    cb_cmTwo.ItemsSource = Ship_Loadout.Components.Components.CounterMeasures;
+                }
+                    break;
+            }
+        }
+
+        private void CMOneChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CounterMeasure cm = (CounterMeasure)cb_cmOne.SelectedItem;
+
+            if (cm != null)
+            {
+                tb_cmOneArmour.Text = cm.Armour.ToString();
+                tb_cmOneDrain.Text = cm.Drain.ToString();
+                tb_cmOneMass.Text = cm.Mass.ToString();
+            }
+        }
+
+        private void CMTwoChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CounterMeasure cm = (CounterMeasure)cb_cmTwo.SelectedItem;
+
+            if (cm != null)
+            {
+                tb_cmTwoArmour.Text = cm.Armour.ToString();
+                tb_cmTwoDrain.Text = cm.Drain.ToString();
+                tb_cmTwoMass.Text = cm.Mass.ToString();
+            }
+        }
+
+        #endregion
+
+        #region Turrets
+
+
 
         #endregion
     }
