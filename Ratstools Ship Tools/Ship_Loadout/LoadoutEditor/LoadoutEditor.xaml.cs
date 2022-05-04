@@ -1,10 +1,17 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Windows;
 using System.Windows.Controls;
+using Newtonsoft.Json;
+using Ship_Loadout.ShipEditor;
 
 namespace Ship_Loadout.LoadoutEditor
 {
     public partial class LoadoutEditor : Page
     {
+        public static Ship ShipCache;
+
         public LoadoutEditor()
         {
             InitializeComponent();
@@ -17,22 +24,31 @@ namespace Ship_Loadout.LoadoutEditor
         {
             shipFrame.Content = new NewLoadout();
 
-            sp_loadoutStart.Visibility = Visibility.Collapsed;
             sp_loadoutNew.Visibility = Visibility.Visible;
+            sp_loadoutStart.Visibility = Visibility.Collapsed;
+            sp_loadMenu.Visibility = Visibility.Collapsed;
         }
 
         private void Btn_load_OnClick(object sender, RoutedEventArgs e)
         {
             shipFrame.Content = new OpenLoadout();
+
+            sp_loadoutStart.Visibility = Visibility.Collapsed;
+            sp_loadMenu.Visibility = Visibility.Visible;
+            sp_loadoutDisplayed.Visibility = Visibility.Collapsed;
+            sp_loadoutNew.Visibility = Visibility.Collapsed;
         }
 
         private void Btn_next_OnClick(object sender, RoutedEventArgs e)
         {
-            if (LoadoutData.ShipListSelection != -1)
+            if (ShipCache != null)
             {
-                MainWindow.ShipCache = LoadoutData.ShipList[LoadoutData.ShipListSelection];
+                shipFrame.Content = new DisplayLoadout(ShipCache);
 
-                shipFrame.Content = new DisplayLoadout();
+                sp_loadoutNew.Visibility = Visibility.Collapsed;
+                sp_loadoutStart.Visibility = Visibility.Collapsed;
+                sp_loadMenu.Visibility = Visibility.Collapsed;
+                sp_loadoutDisplayed.Visibility = Visibility.Visible;
             }
             else
                 MessageBox.Show("Please select a ship.");
@@ -42,9 +58,50 @@ namespace Ship_Loadout.LoadoutEditor
         {
             sp_loadoutStart.Visibility = Visibility.Visible;
             sp_loadoutNew.Visibility = Visibility.Collapsed;
+            sp_loadoutDisplayed.Visibility = Visibility.Collapsed;
+            sp_loadMenu.Visibility = Visibility.Collapsed;
 
             shipFrame.Content = null;
-            LoadoutData.ShipListSelection = -1;
+            ShipCache = null;
+        }
+
+        private void Btn_save_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                List<Ship> tempSavedShips = new List<Ship>();
+
+                if (OpenLoadout.SavedShips.Count == 0)
+                    tempSavedShips.Add(ShipCache);
+                else
+                {
+                    foreach (var ship in OpenLoadout.SavedShips)
+                    {
+                        if (ship.ID != ShipCache.ID)
+                            tempSavedShips.Add(ship);
+                        else
+                            tempSavedShips.Add(ShipCache);
+                    }
+                }
+
+                using (StreamWriter file = File.CreateText("Ship_Data/SavedShips.json"))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Serialize(file, tempSavedShips);
+                }
+
+                MessageBox.Show("Ship saved");
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+        }
+
+        private void Btn_open_OnClick(object sender, RoutedEventArgs e)
+        {
+            shipFrame.Content = new DisplayLoadout(ShipCache);
         }
     }
 }

@@ -1,23 +1,30 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
-using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using Newtonsoft.Json;
+using Ship_Loadout.LoadoutEditor;
 using Ship_Loadout.ShipEditor;
 
 namespace Ship_Loadout
 {
     public partial class MainWindow : Window
     {
-        StringBuilder phrase = new StringBuilder();
-        public static Ship ShipCache;
-
         public MainWindow()
         {
             InitializeComponent();
 
             Title = "Ratstool's Ship Tools";
 
+            PopulateComponents();
+            PopulateFolders();
+            LoadSavedShips();
+        }
+
+        private void PopulateComponents()
+        {
             Components.Components.PopulateArmourList();
             Components.Components.PopulateBoosterList();
             Components.Components.PopulateCapacitorList();
@@ -29,14 +36,17 @@ namespace Ship_Loadout
             Components.Components.PopulateReactors();
             Components.Components.PopulateShields();
             Components.Components.PopulateWeapons();
+        }
 
+        private void PopulateFolders()
+        {
             //Check Folders exist
             //First: Check for Components folder
             //Second: Check for Ships folder
             //Third: Check for Ship Loadouts folder
             var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            if (!Directory.Exists(path+"/Components"))
-                Directory.CreateDirectory(path+"/Components");
+            if (!Directory.Exists(path + "/Components"))
+                Directory.CreateDirectory(path + "/Components");
 
             if (!Directory.Exists(path + "/Ship_Data"))
             {
@@ -44,9 +54,24 @@ namespace Ship_Loadout
                                 "You will need to add the ships before you can use the Ship Loadout tool");
                 Directory.CreateDirectory(path + "/Ship_Data");
             }
+        }
 
-            if (!Directory.Exists(path + "/Ship_Loadouts"))
-                Directory.CreateDirectory(path + "/Ship_Loadouts");
+        private void LoadSavedShips()
+        {
+            OpenLoadout.SavedShips = new List<Ship>();
+
+            if (File.Exists("Ship_Data/SavedShips.json"))
+            {
+                try
+                {
+                    var json = new StreamReader("Ship_Data/SavedShips.json").ReadToEnd();
+                    OpenLoadout.SavedShips = JsonConvert.DeserializeObject<List<Ship>>(json);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Unable to load saved ships " + e);
+                }
+            }
         }
 
         private void BtnDroidCalculator_OnClick(object sender, RoutedEventArgs e)

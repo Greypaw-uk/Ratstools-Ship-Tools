@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Security.Cryptography;
+using System.Windows;
 using System.Windows.Controls;
 using Ship_Loadout.Components;
 using Ship_Loadout.ShipEditor;
@@ -7,11 +8,15 @@ namespace Ship_Loadout.LoadoutEditor
 {
     public partial class DisplayLoadout : Page
     {
-        private Ship ship = LoadoutData.ShipList[LoadoutData.ShipListSelection];
+        //private Ship ship = LoadoutData.ShipList[LoadoutData.ShipListSelection];
 
-        public DisplayLoadout()
+        private Ship ship;
+
+        public DisplayLoadout(Ship _ship)
         {
             InitializeComponent();
+
+            ship = _ship;
 
             InitialiseReactor();
             InitialiseEngine();
@@ -34,7 +39,11 @@ namespace Ship_Loadout.LoadoutEditor
         private void InitialiseReactor()
         {
             //Add Reactors to Combolist
-            cb_reactor.ItemsSource = Ship_Loadout.Components.Components.Reactors;
+            cb_reactor.ItemsSource = Components.Components.Reactors;
+
+            //Load existing reactor
+            if (ship.Reactor != null)
+                cb_reactor.SelectedItem = ship.Reactor;
         }
 
         private void ReactorSelectionChanged(object sender, System.EventArgs e)
@@ -55,7 +64,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseEngine()
         {
-            cb_engine.ItemsSource = Ship_Loadout.Components.Components.Engines;
+            cb_engine.ItemsSource = Components.Components.Engines;
+
+            if (ship.Engine != null)
+                cb_engine.SelectedItem = ship.Engine;
         }
 
         private void EngineSelectionChanged(object sender, System.EventArgs e)
@@ -80,7 +92,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseBooster()
         {
-            cb_booster.ItemsSource = Ship_Loadout.Components.Components.Boosters;
+            cb_booster.ItemsSource = Components.Components.Boosters;
+
+            if (ship.Booster != null)
+                cb_booster.SelectedItem = ship.Booster;
         }
 
         private void BoosterSelectionChanged(object sender, System.EventArgs e)
@@ -106,7 +121,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseShield()
         {
-            cb_shield.ItemsSource = Ship_Loadout.Components.Components.Shields;
+            cb_shield.ItemsSource = Components.Components.Shields;
+
+            if (ship.Shield != null)
+                cb_shield.SelectedItem = ship.Shield;
         }
 
         private void ShieldSelectionChanged(object sender, System.EventArgs e)
@@ -131,9 +149,15 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseArmour()
         {
-            cb_armourFront.ItemsSource = Ship_Loadout.Components.Components.Armours;
+            cb_armourFront.ItemsSource = Components.Components.Armours;
 
-            cb_armourRear.ItemsSource = Ship_Loadout.Components.Components.Armours;
+            cb_armourRear.ItemsSource = Components.Components.Armours;
+
+            if (ship.FrontArmour != null)
+                cb_armourFront.SelectedItem = ship.FrontArmour;
+
+            if (ship.RearArmour != null)
+                cb_armourRear.SelectedItem = ship.RearArmour;
         }
 
         private void FrontArmourChanged(object sender, SelectionChangedEventArgs e)
@@ -164,7 +188,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseDI()
         {
-            cb_droidInterface.ItemsSource = Ship_Loadout.Components.Components.DroidInterfaces;
+            cb_droidInterface.ItemsSource = Components.Components.DroidInterfaces;
+
+            if (ship.DroidInterface != null)
+                cb_droidInterface.SelectedItem = ship.DroidInterface;
         }
 
         private void DISelectionChanged(object sender, System.EventArgs e)
@@ -186,7 +213,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseCapacitor()
         {
-            cb_capacitor.ItemsSource = Ship_Loadout.Components.Components.Capacitors;
+            cb_capacitor.ItemsSource = Components.Components.Capacitors;
+
+            if (ship.Capacitor != null)
+                cb_capacitor.SelectedItem = ship.Capacitor;
         }
 
         private void CapacitorSelectionChanged(object sender, System.EventArgs e)
@@ -229,7 +259,7 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_ordTwo.Visibility = Visibility.Collapsed;
                     gd_ordThree.Visibility = Visibility.Collapsed;
 
-                    cb_ordOne.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
+                    cb_ordOne.ItemsSource = Components.Components.Ordinances;
                     cb_ordTwo.ItemsSource = null;
                     cb_ordTwo.ItemsSource = null;
                 }
@@ -241,8 +271,8 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_ordTwo.Visibility = Visibility.Visible;
                     gd_ordThree.Visibility = Visibility.Collapsed;
 
-                    cb_ordOne.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
-                    cb_ordTwo.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
+                    cb_ordOne.ItemsSource = Components.Components.Ordinances;
+                    cb_ordTwo.ItemsSource = Components.Components.Ordinances;
                     cb_ordTwo.ItemsSource = null;
                 }
                     break;
@@ -252,12 +282,21 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_ordTwo.Visibility = Visibility.Visible;
                     gd_ordThree.Visibility = Visibility.Visible;
 
-                    cb_ordOne.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
-                    cb_ordTwo.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
-                    cb_ordTwo.ItemsSource = Ship_Loadout.Components.Components.Ordinances;
+                    cb_ordOne.ItemsSource = Components.Components.Ordinances;
+                    cb_ordTwo.ItemsSource = Components.Components.Ordinances;
+                    cb_ordTwo.ItemsSource = Components.Components.Ordinances;
                 }
                     break;
             }
+
+            if (ship.Ord1 != null)
+                cb_ordOne.SelectedItem = ship.Ord1;
+
+            if (ship.Ord2 != null)
+                cb_ordTwo.SelectedItem = ship.Ord2;
+
+            if (ship.Ord3 != null)
+                cb_ordThree.SelectedItem = ship.Ord3;
         }
 
         private void OrdinanceOneChanged(object sender, SelectionChangedEventArgs e)
@@ -346,7 +385,7 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_WepFive.Visibility = Visibility.Collapsed;
                         gd_WepSix.Visibility = Visibility.Collapsed;
 
-                        cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                        cb_wepOne.ItemsSource = Components.Components.Weapons;
                         cb_wepTwo.ItemsSource = null;
                         cb_wepThree.ItemsSource = null;
                         cb_wepFour.ItemsSource = null;
@@ -364,8 +403,8 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_WepFive.Visibility = Visibility.Collapsed;
                         gd_WepSix.Visibility = Visibility.Collapsed;
 
-                        cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                        cb_wepTwo.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                        cb_wepOne.ItemsSource = Components.Components.Weapons;
+                        cb_wepTwo.ItemsSource = Components.Components.Weapons;
                         cb_wepThree.ItemsSource = null;
                         cb_wepFour.ItemsSource = null;
                         cb_wepFive.ItemsSource = null;
@@ -381,9 +420,9 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_WepFive.Visibility = Visibility.Collapsed;
                         gd_WepSix.Visibility = Visibility.Collapsed;
 
-                        cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                        cb_wepTwo.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                        cb_wepThree.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                        cb_wepOne.ItemsSource = Components.Components.Weapons;
+                        cb_wepTwo.ItemsSource = Components.Components.Weapons;
+                        cb_wepThree.ItemsSource = Components.Components.Weapons;
                         cb_wepFour.ItemsSource = null;
                         cb_wepFive.ItemsSource = null;
                         cb_wepSix.ItemsSource = null;
@@ -398,10 +437,10 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_WepFive.Visibility = Visibility.Collapsed;
                     gd_WepSix.Visibility = Visibility.Collapsed;
 
-                    cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepTwo.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepThree.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepFour.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepOne.ItemsSource = Components.Components.Weapons;
+                    cb_wepTwo.ItemsSource = Components.Components.Weapons;
+                    cb_wepThree.ItemsSource = Components.Components.Weapons;
+                    cb_wepFour.ItemsSource = Components.Components.Weapons;
                     cb_wepFive.ItemsSource = null;
                     cb_wepSix.ItemsSource = null;
                 }
@@ -415,11 +454,11 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_WepFive.Visibility = Visibility.Visible;
                     gd_WepSix.Visibility = Visibility.Collapsed;
 
-                    cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepTwo.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepThree.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepFour.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepFive.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepOne.ItemsSource = Components.Components.Weapons;
+                    cb_wepTwo.ItemsSource = Components.Components.Weapons;
+                    cb_wepThree.ItemsSource = Components.Components.Weapons;
+                    cb_wepFour.ItemsSource = Components.Components.Weapons;
+                    cb_wepFive.ItemsSource = Components.Components.Weapons;
                     cb_wepSix.ItemsSource = null;
                 }
                     break;
@@ -432,15 +471,33 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_WepFive.Visibility = Visibility.Visible;
                     gd_WepSix.Visibility = Visibility.Visible;
 
-                    cb_wepOne.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepTwo.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepThree.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepFour.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepFive.ItemsSource = Ship_Loadout.Components.Components.Weapons;
-                    cb_wepSix.ItemsSource = Ship_Loadout.Components.Components.Weapons;
+                    cb_wepOne.ItemsSource = Components.Components.Weapons;
+                    cb_wepTwo.ItemsSource = Components.Components.Weapons;
+                    cb_wepThree.ItemsSource = Components.Components.Weapons;
+                    cb_wepFour.ItemsSource = Components.Components.Weapons;
+                    cb_wepFive.ItemsSource = Components.Components.Weapons;
+                    cb_wepSix.ItemsSource = Components.Components.Weapons;
                 }
                     break;
             }
+
+            if (ship.Weapon1 != null)
+                cb_wepOne.SelectedItem = ship.Weapon1;
+
+            if (ship.Weapon2 != null)
+                cb_wepTwo.SelectedItem = ship.Weapon2;
+
+            if (ship.Weapon3 != null)
+                cb_wepThree.SelectedItem = ship.Weapon3;
+
+            if (ship.Weapon4 != null)
+                cb_wepFour.SelectedItem = ship.Weapon4;
+
+            if (ship.Weapon5 != null)
+                cb_wepFive.SelectedItem = ship.Weapon5;
+
+            if (ship.Weapon6 != null)
+                cb_wepSix.SelectedItem = ship.Weapon6;
         }
 
         private void WeaponOneChanged(object sender, System.EventArgs e)
@@ -574,7 +631,7 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_cmOne.Visibility = Visibility.Visible;
                     gd_cmTwo.Visibility = Visibility.Collapsed;
 
-                    cb_cmOne.ItemsSource = Ship_Loadout.Components.Components.CounterMeasures;
+                    cb_cmOne.ItemsSource = Components.Components.CounterMeasures;
                     cb_cmTwo.ItemsSource = null;
                 }
                     break;
@@ -583,11 +640,17 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_cmOne.Visibility = Visibility.Visible;
                     gd_cmTwo.Visibility = Visibility.Visible;
 
-                    cb_cmOne.ItemsSource = Ship_Loadout.Components.Components.CounterMeasures;
-                    cb_cmTwo.ItemsSource = Ship_Loadout.Components.Components.CounterMeasures;
+                    cb_cmOne.ItemsSource = Components.Components.CounterMeasures;
+                    cb_cmTwo.ItemsSource = Components.Components.CounterMeasures;
                 }
                     break;
             }
+
+            if (ship.CM1 != null)
+                cb_cmOne.SelectedItem = ship.CM1;
+
+            if (ship.CM2 != null)
+                cb_cmTwo.SelectedItem = ship.CM2;
         }
 
         private void CMOneChanged(object sender, SelectionChangedEventArgs e)
