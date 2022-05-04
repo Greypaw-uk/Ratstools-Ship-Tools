@@ -47,18 +47,18 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0"/>
+            <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_Name" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="1"/>
 
-            <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_Armour" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_Drain" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Mass" Height="24" Grid.Row="3" Grid.Column="0"/>
+            <TextBlock Text="Mass" Height="24" Grid.Row="3" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_Mass" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
         </Grid>

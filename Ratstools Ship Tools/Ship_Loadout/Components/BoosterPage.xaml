@@ -49,44 +49,44 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Name -->
-                <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0" />
+                <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0"  Foreground="Orange"/>
                 <TextBox Name="tb_BoosterName"  Style="{DynamicResource tb_input}"  Width="190" HorizontalAlignment="Left" 
                          Grid.Row="0" Grid.Column="1" />
 
                 <!-- Armour -->
-                <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0" />
+                <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"  Foreground="Orange"/>
                 <TextBox Name="tb_BoosterArmour" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="1" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Drain/Mass -->
-                <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0" />
+                <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0"  Foreground="Orange"/>
                 <TextBox Name="tb_BoosterDrain" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="2" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
-                <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="2" />
+                <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="2"  Foreground="Orange"/>
                 <TextBox Name="tb_BoosterMass" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="2" Grid.Column="3" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Energy/Recharge -->
-                <TextBlock Text="Energy" Height="24" Grid.Row="3" Grid.Column="0" />
+                <TextBlock Text="Energy" Height="24" Grid.Row="3" Grid.Column="0"  Foreground="Orange"/>
                 <TextBox Name="tb_BoosterEnergy" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="3" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
-                <TextBlock Text="Recharge" Height="24" Grid.Row="3" Grid.Column="2" />
+                <TextBlock Text="Recharge" Height="24" Grid.Row="3" Grid.Column="2"  Foreground="Orange"/>
                 <TextBox Name="tb_BoosterRecharge" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="3" Grid.Column="3" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Consumption/Acceleration -->
-                <TextBlock Text="Consumption" Height="24" Grid.Row="4" Grid.Column="0" />
+                <TextBlock Text="Consumption" Height="24" Grid.Row="4" Grid.Column="0"  Foreground="Orange"/>
                 <TextBox Name="tb_BoosterConsumption" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="4" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
 
-                <TextBlock Text="Acceleration" Height="24" Grid.Row="4" Grid.Column="2" />
+                <TextBlock Text="Acceleration" Height="24" Grid.Row="4" Grid.Column="2"  Foreground="Orange"/>
                 <TextBox Name="tb_BoosterAcceleration" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="4" Grid.Column="3" PreviewTextInput="OnPreviewTextInput"/>
 
                 <!-- Speed -->
-                <TextBlock Text="Speed" Height="24" Grid.Row="5" Grid.Column="0" />
+                <TextBlock Text="Speed" Height="24" Grid.Row="5" Grid.Column="0"  Foreground="Orange"/>
                 <TextBox Name="tb_BoosterSpeed" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left" 
                          Grid.Row="5" Grid.Column="1" PreviewTextInput="OnPreviewTextInput"/>
             </Grid>

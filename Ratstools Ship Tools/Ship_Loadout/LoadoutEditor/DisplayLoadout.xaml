@@ -48,7 +48,7 @@
 
                     <TextBlock Text = "Reactor" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_reactor"  Height="20" Style="{DynamicResource cb_fancy}"
+                    <ComboBox Name="cb_reactor"  Height="20"
                               SelectionChanged="ReactorSelectionChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
 

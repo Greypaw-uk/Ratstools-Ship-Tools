@@ -47,22 +47,22 @@
             </Grid.ColumnDefinitions>
 
             <!-- Name -->
-            <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0"/>
+            <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_name" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="1"/>
 
             <!-- Armour -->
-            <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_armour" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
 
             <!-- Mass -->
-            <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_mass" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
             <!-- Generation -->
-            <TextBlock Text="Generation Rate" Height="24" Grid.Row="3" Grid.Column="0"/>
+            <TextBlock Text="Generation Rate" Height="24" Grid.Row="3" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_generation" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 

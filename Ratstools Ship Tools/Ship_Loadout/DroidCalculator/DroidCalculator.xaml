@@ -16,7 +16,7 @@
                 <RowDefinition Height="40" />
                 <RowDefinition Height="40" />
                 <RowDefinition Height="40" />
-                <RowDefinition Height="210"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150" />
@@ -26,7 +26,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="Droid/Comp Level" Style="{DynamicResource tb_label}"
-                       Grid.Row="0" Grid.Column="0" />
+                       Grid.Row="0" Grid.Column="0" Foreground="Orange"/>
             <ComboBox Name="cb_AstroMechLevel" Grid.Row="0" Grid.Column="1" Height="25" Width="120"
                       SelectionChanged="Cb_AstroMechLevel_OnSelectionChanged"  SelectedIndex="0"
                       Style="{DynamicResource cb_fancy}">
@@ -39,7 +39,7 @@
             </ComboBox>
 
             <TextBlock Text="Reactor Overload" Style="{DynamicResource tb_label}"
-                       Grid.Row="1" Grid.Column="0" />
+                       Grid.Row="1" Grid.Column="0" Foreground="Orange"/>
             <ComboBox Name="cb_reactor" Grid.Row="1" Grid.Column="1" Height="25" Width="120" SelectionChanged="ReadyChip_OnSelectionChanged" SelectedIndex="0"
                       Style="{DynamicResource cb_fancy}">
                 <ComboBoxItem>None</ComboBoxItem>
@@ -50,7 +50,7 @@
             </ComboBox>
 
             <TextBlock Text="Engine Overload" Style="{DynamicResource tb_label}"
-                       Grid.Row="1" Grid.Column="2" />
+                       Grid.Row="1" Grid.Column="2" Foreground="Orange"/>
             <ComboBox Name="cb_engine" Grid.Row="1" Grid.Column="3" Height="25" Width="120" SelectionChanged="ReadyChip_OnSelectionChanged" SelectedIndex="0"
                       Style="{DynamicResource cb_fancy}">
                 <ComboBoxItem>None</ComboBoxItem>
@@ -61,7 +61,7 @@
             </ComboBox>
 
             <TextBlock Text="Capacitor Overload" Style="{DynamicResource tb_label}"
-                       Grid.Row="2" Grid.Column="0" />
+                       Grid.Row="2" Grid.Column="0" Foreground="Orange"/>
             <ComboBox Name="cb_capacitor" Grid.Row="2" Grid.Column="1" Height="25" Width="120" SelectionChanged="ReadyChip_OnSelectionChanged" SelectedIndex="0"
                       Style="{DynamicResource cb_fancy}">
                 <ComboBoxItem>None</ComboBoxItem>
@@ -72,7 +72,7 @@
             </ComboBox>
 
             <TextBlock Text="Weapon Overload" Style="{DynamicResource tb_label}"
-                       Grid.Row="2" Grid.Column="2" />
+                       Grid.Row="2" Grid.Column="2" Foreground="Orange"/>
             <ComboBox Name="cb_weapon" Grid.Row="2" Grid.Column="3" Height="25" Width="120" SelectionChanged="ReadyChip_OnSelectionChanged" SelectedIndex="0"
                       Style="{DynamicResource cb_fancy}">
                 <ComboBoxItem>None</ComboBoxItem>
@@ -83,7 +83,7 @@
             </ComboBox>
 
             <TextBlock Text="Capacitor Shunt" Style="{DynamicResource tb_label}"
-                       Grid.Row="3" Grid.Column="0" />
+                       Grid.Row="3" Grid.Column="0" Foreground="Orange"/>
             <ComboBox Name="cb_capShunt" Grid.Row="3" Grid.Column="1" Height="25" Width="120" SelectionChanged="ReadyChip_OnSelectionChanged" SelectedIndex="0"
                       Style="{DynamicResource cb_fancy}">
                 <ComboBoxItem>None</ComboBoxItem>
@@ -94,7 +94,7 @@
             </ComboBox>
 
             <TextBlock Text="Front Shield Adjust" Style="{DynamicResource tb_label}"
-                       Grid.Row="4" Grid.Column="0" />
+                       Grid.Row="4" Grid.Column="0" Foreground="Orange"/>
             <ComboBox Name="cb_frontShieldAdjust" Grid.Row="4" Grid.Column="1" Height="25" Width="120" SelectionChanged="ReadyChip_OnSelectionChanged" SelectedIndex="0"
                       Style="{DynamicResource cb_fancy}">
                 <ComboBoxItem>None</ComboBoxItem>
@@ -105,7 +105,7 @@
             </ComboBox>
 
             <TextBlock Text="Rear Shield Adjust" Style="{DynamicResource tb_label}"
-                       Grid.Row="4" Grid.Column="2" />
+                       Grid.Row="4" Grid.Column="2" Foreground="Orange"/>
             <ComboBox Name="cb_rearShieldAdjust" Grid.Row="4" Grid.Column="3" Height="25" Width="120" SelectionChanged="ReadyChip_OnSelectionChanged" SelectedIndex="0"
                       Style="{DynamicResource cb_fancy}">
                 <ComboBoxItem>None</ComboBoxItem>
@@ -116,7 +116,7 @@
             </ComboBox>
 
             <TextBlock Text="Front Shield Reinforce" Style="{DynamicResource tb_label}"
-                       Grid.Row="5" Grid.Column="0" />
+                       Grid.Row="5" Grid.Column="0" Foreground="Orange"/>
             <ComboBox Name="cb_frontShieldReinforce" Grid.Row="5" Grid.Column="1" Height="25" Width="120" SelectionChanged="ReadyChip_OnSelectionChanged" SelectedIndex="0"
                       Style="{DynamicResource cb_fancy}">
                 <ComboBoxItem>None</ComboBoxItem>
@@ -127,7 +127,7 @@
             </ComboBox>
 
             <TextBlock Text="Rear Shield Reinforce" Style="{DynamicResource tb_label}"
-                       Grid.Row="5" Grid.Column="2" />
+                       Grid.Row="5" Grid.Column="2" Foreground="Orange"/>
             <ComboBox Name="cb_rearShieldReinforce" Grid.Row="5" Grid.Column="3" Height="25" Width="120" SelectionChanged="ReadyChip_OnSelectionChanged" SelectedIndex="0"
                       Style="{DynamicResource cb_fancy}">
                 <ComboBoxItem>None</ComboBoxItem>
@@ -142,7 +142,7 @@
                       HeadersVisibility="None" HorizontalAlignment="Left"
                       HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
                       SelectionChanged="Dg_otherChips_OnSelectionChanged" Margin="15,22,0,20"
-                      Style="{DynamicResource dg_global}">
+                      Style="{DynamicResource dg_global}" Height="Auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}"
                                         SortDirection="Descending" Width="*" />
@@ -168,7 +168,7 @@
             <ProgressBar Name="ProgressBar" Minimum="0" Maximum="100" 
                          Background="DarkGray"/>
 
-            <StackPanel Height="20" Orientation="Horizontal" VerticalAlignment="Center" Margin="364,20,376,10">
+            <StackPanel Height="20" Orientation="Horizontal" VerticalAlignment="Center" Margin="364,20,360,10">
                 <TextBlock x:Name="tb_totalLoad" Text="0"/>
                 <TextBlock Text=" of "/>
                 <TextBlock x:Name="tb_max" Text="20"/>

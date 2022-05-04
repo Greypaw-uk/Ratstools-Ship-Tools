@@ -102,6 +102,9 @@ namespace Ship_Loadout.LoadoutEditor
         private void Btn_open_OnClick(object sender, RoutedEventArgs e)
         {
             shipFrame.Content = new DisplayLoadout(ShipCache);
+
+            sp_loadoutDisplayed.Visibility = Visibility.Visible;
+            sp_loadMenu.Visibility = Visibility.Collapsed;
         }
     }
 }

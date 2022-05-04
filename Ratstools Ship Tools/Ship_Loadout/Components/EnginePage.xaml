@@ -50,39 +50,39 @@
             </Grid.ColumnDefinitions>
 
             <!-- Name -->
-            <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0"/>
+            <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_name" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="1"/>
 
             <!-- Armour -->
-            <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_armour" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
 
             <!-- Drain/Mass -->
-            <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Text="Drain" Height="24" Grid.Row="2" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_drain" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="2"/>
+            <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="2" Foreground="Orange"/>
             <TextBox Name="tb_Mass" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="3"
                      PreviewTextInput="OnPreviewTextInput"/>
 
             <!-- Pitch/Yaw -->
-            <TextBlock Text="Pitch" Height="24" Grid.Row="3" Grid.Column="0"/>
+            <TextBlock Text="Pitch" Height="24" Grid.Row="3" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_pitch" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Yaw" Height="24" Grid.Row="3" Grid.Column="2"/>
+            <TextBlock Text="Yaw" Height="24" Grid.Row="3" Grid.Column="2" Foreground="Orange"/>
             <TextBox Name="tb_yaw" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="3"
                      PreviewTextInput="OnPreviewTextInput"/>
 
             <!-- Roll/Speed -->
-            <TextBlock Text="Roll" Height="24" Grid.Row="4" Grid.Column="0"/>
+            <TextBlock Text="Roll" Height="24" Grid.Row="4" Grid.Column="0" Foreground="Orange"/>
             <TextBox Name="tb_roll" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Speed" Height="24" Grid.Row="4" Grid.Column="2"/>
+            <TextBlock Text="Speed" Height="24" Grid.Row="4" Grid.Column="2" Foreground="Orange"/>
             <TextBox Name="tb_speed" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="4" Grid.Column="3"
                      PreviewTextInput="OnPreviewTextInput"/>
 
