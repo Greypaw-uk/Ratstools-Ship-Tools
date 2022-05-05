@@ -1,4 +1,5 @@
-﻿using Ship_Loadout.Components;
+﻿using System.Windows;
+using Ship_Loadout.Components;
 
 namespace Ship_Loadout.ShipEditor
 {
@@ -8,12 +9,25 @@ namespace Ship_Loadout.ShipEditor
         public int Faction { get; set; }
 
         public string Name { get; set; }
-        public int Mass { get; set; }
+        public string GivenName { get; set; }
 
-        public int Acceleration { get; set; }
-        public int Deceleration { get; set; }
-        public int Yaw { get; set; }
-        public int Pitch { get; set; }
+        public float CurrentMass { get; set; }
+        public float Mass { get; set; }
+        public float RemainingMass { get; set; }
+
+        public float CurrentEnergyDrain { get; set; }
+        public float RemainingDrain { get; set; }
+
+        public int ReactorOverride { get; set; }
+        public float OverridenGeneration { get; set; }
+        public int EngineOverride { get; set; }
+        public int CapacitorOverride { get; set; }
+        public int WeaponOverride { get; set; }
+
+        public float Acceleration { get; set; }
+        public float Deceleration { get; set; }
+        public float Yaw { get; set; }
+        public float Pitch { get; set; }
         public float Roll { get; set; }
         public float SpeedTop { get; set; }
         public float SpeedLow { get; set; }
@@ -36,12 +50,12 @@ namespace Ship_Loadout.ShipEditor
         public Weapon Weapon6 { get; set; }
 
         public int Turrets { get; set; }
-        public Turret Turret1 { get; set; }
-        public Turret Turret2 { get; set; }
-        public Turret Turret3 { get; set; }
-        public Turret Turret4 { get; set; }
-        public Turret Turret5 { get; set; }
-        public Turret Turret6 { get; set; }
+        public Weapon Turret1 { get; set; }
+        public Weapon Turret2 { get; set; }
+        public Weapon Turret3 { get; set; }
+        public Weapon Turret4 { get; set; }
+        public Weapon Turret5 { get; set; }
+        public Weapon Turret6 { get; set; }
 
         public int Ordinance { get; set; }
         public Ordinance Ord1 { get; set; }

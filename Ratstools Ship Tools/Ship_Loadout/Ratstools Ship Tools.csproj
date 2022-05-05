@@ -120,7 +120,7 @@
       <DependentUpon>RECalculator.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppDataContext.cs" />
-    <Compile Include="ShipEditor\Ship.cs" />
+    <Compile Include="Ship.cs" />
     <Compile Include="ShipEditor\ShipCreator.xaml.cs">
       <DependentUpon>ShipCreator.xaml</DependentUpon>
     </Compile>
@@ -265,6 +265,7 @@
     <Resource Include="Icons\Astromech.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Components\Engine.png" />
     <Content Include="Images\dancing-penis.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

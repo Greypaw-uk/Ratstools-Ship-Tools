@@ -49,6 +49,9 @@
 
             <Button x:Name="btn_open" Content="Load" Width="80" Margin="10,13" 
                     Style="{DynamicResource btn_orange}" Click="Btn_open_OnClick"/>
+
+            <Button x:Name="btn_delete" Content="Delete" Width="80" Margin="80,13" 
+                    Style="{DynamicResource btn_orange}" Click="Btn_delete_OnClick"/>
         </StackPanel>
 
 

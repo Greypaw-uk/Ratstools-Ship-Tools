@@ -11,7 +11,8 @@
             SelectionMode="Single" Style="{DynamicResource dg_global}" SelectionChanged="Dg_ships_OnSelectionChanged">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}" Width="*"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path = GivenName}" Width="*"/>
+                <DataGridTextColumn Header="Chassis" Binding="{Binding Path = Name}" Width="*"/>
             </DataGrid.Columns>
 
             <DataGrid.CellStyle>

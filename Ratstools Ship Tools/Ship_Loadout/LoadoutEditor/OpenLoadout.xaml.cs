@@ -23,14 +23,14 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void LoadSavedShips()
         {
-            OpenLoadout.SavedShips = new List<Ship>();
+            SavedShips = new List<Ship>();
 
             if (File.Exists("Ship_Data/SavedShips.json"))
             {
                 try
                 {
                     var json = new StreamReader("Ship_Data/SavedShips.json").ReadToEnd();
-                    OpenLoadout.SavedShips = JsonConvert.DeserializeObject<List<Ship>>(json);
+                    SavedShips = JsonConvert.DeserializeObject<List<Ship>>(json);
                 }
                 catch (Exception e)
                 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Newtonsoft.Json;
@@ -75,13 +76,8 @@ namespace Ship_Loadout.LoadoutEditor
                     tempSavedShips.Add(ShipCache);
                 else
                 {
-                    foreach (var ship in OpenLoadout.SavedShips)
-                    {
-                        if (ship.ID != ShipCache.ID)
-                            tempSavedShips.Add(ship);
-                        else
-                            tempSavedShips.Add(ShipCache);
-                    }
+                    tempSavedShips.AddRange(OpenLoadout.SavedShips.Where(x => x.ID != ShipCache.ID));
+                    tempSavedShips.Add(ShipCache);
                 }
 
                 using (StreamWriter file = File.CreateText("Ship_Data/SavedShips.json"))
@@ -105,6 +101,41 @@ namespace Ship_Loadout.LoadoutEditor
 
             sp_loadoutDisplayed.Visibility = Visibility.Visible;
             sp_loadMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void Btn_delete_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (ShipCache != null)
+            {
+                var result = MessageBox.Show(
+                    "Are you sure you wish to delete this ship?", "Warning", MessageBoxButton.YesNo);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        List<Ship> tempSavedShips = new List<Ship>();
+
+                        tempSavedShips.AddRange(OpenLoadout.SavedShips.Where(x => x.ID != ShipCache.ID));
+
+                        using (StreamWriter file = File.CreateText("Ship_Data/SavedShips.json"))
+                        {
+                            JsonSerializer serializer = new JsonSerializer();
+                            serializer.Serialize(file, tempSavedShips);
+                        }
+
+                        shipFrame.Content = new OpenLoadout();
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show("Unable to remove ship " + e);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No ship selected");
+            }
         }
     }
 }

@@ -62,6 +62,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/Armour.json").ReadToEnd();
                 Armours = JsonConvert.DeserializeObject<List<Armour>>(json);
             }
+
+            Armours.Insert(0, new Armour());
         }
 
         public static void PopulateBoosterList()
@@ -71,6 +73,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/Boosters.json").ReadToEnd();
                 Boosters = JsonConvert.DeserializeObject<List<Booster>>(json);
             }
+
+            Boosters.Insert(0, new Booster());
         }
 
         public static void PopulateCapacitorList()
@@ -80,6 +84,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/Capacitors.json").ReadToEnd();
                 Capacitors = JsonConvert.DeserializeObject<List<Capacitor>>(json);
             }
+
+            Capacitors.Insert(0, new Capacitor());
         }
 
         public static void PopulateCargoList()
@@ -89,6 +95,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/Cargobays.json").ReadToEnd();
                 CargoBays = JsonConvert.DeserializeObject<List<CargoBay>>(json);
             }
+
+            CargoBays.Insert(0, new CargoBay());
         }
 
         public static void PopulateCounterMeasureList()
@@ -98,6 +106,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/CMeasures.json").ReadToEnd();
                 CounterMeasures = JsonConvert.DeserializeObject<List<CounterMeasure>>(json);
             }
+
+            CounterMeasures.Insert(0, new CounterMeasure());
         }
 
         public static void PopulateDroidInterfaces()
@@ -107,6 +117,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/DroidInterfaces.json").ReadToEnd();
                 DroidInterfaces = JsonConvert.DeserializeObject<List<DroidInterface>>(json);
             }
+
+            DroidInterfaces.Insert(0, new DroidInterface());
         }
 
         public static void PopulateEngines()
@@ -116,6 +128,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/Engines.json").ReadToEnd();
                 Engines = JsonConvert.DeserializeObject<List<Engine>>(json);
             }
+
+            Engines.Insert(0, new Engine());
         }
 
         public static void PopulateOrdinance()
@@ -125,6 +139,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/Ordinance.json").ReadToEnd();
                 Ordinances = JsonConvert.DeserializeObject<List<Ordinance>>(json);
             }
+
+            Ordinances.Insert(0, new Ordinance());
         }
 
         public static void PopulateReactors()
@@ -134,6 +150,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/Reactors.json").ReadToEnd();
                 Reactors = JsonConvert.DeserializeObject<List<Reactor>>(json);
             }
+
+            Reactors.Insert(0, new Reactor());
         }
 
         public static void PopulateShields()
@@ -143,6 +161,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/Shields.json").ReadToEnd();
                 Shields = JsonConvert.DeserializeObject<List<Shield>>(json);
             }
+
+            Shields.Insert(0, new Shield());
         }
 
         public static void PopulateWeapons()
@@ -152,6 +172,8 @@ namespace Ship_Loadout.Components
                 var json = new StreamReader("Components/Weapons.json").ReadToEnd();
                 Weapons = JsonConvert.DeserializeObject<List<Weapon>>(json);
             }
+
+            Weapons.Insert(0, new Weapon());
         }
 
         #endregion
