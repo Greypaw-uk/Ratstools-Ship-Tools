@@ -10,11 +10,6 @@ namespace Ship_Loadout.LoadoutEditor
     {
         private Ship ship;
 
-        private int _reactorOverload;
-        private int _engineOverload;
-        private int _weaponOverload;
-        private int _capacitorOverload;
-
         public DisplayLoadout(Ship _ship)
         {
             InitializeComponent();
@@ -39,6 +34,8 @@ namespace Ship_Loadout.LoadoutEditor
             InitialiseTurrets();
 
             InitialiseShipDetails();
+
+            InitialiseOverloads();
 
             CalculateCurrentMass();
             ChangeReactorStats();
@@ -116,7 +113,9 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void ReactorOverloadChanged(object sender, SelectionChangedEventArgs e)
         {
-            _reactorOverload = cb_reactorOverload.SelectedIndex;
+            if (ship != null)
+                ship.ReactorOverride = cb_reactorOverload.SelectedIndex;
+            
             ChangeReactorStats();
         }
 
@@ -127,7 +126,7 @@ namespace Ship_Loadout.LoadoutEditor
 
             // Reactor Override calculation
             var multiplier = 0f;
-            switch (_reactorOverload)
+            switch (ship.ReactorOverride)
             {
                 case 0: { multiplier = 0f; } break;
                 case 1: { multiplier = 1.09f; } break;
@@ -150,7 +149,12 @@ namespace Ship_Loadout.LoadoutEditor
             float drain = 0f;
 
             if (ship.Engine != null)
+            {
                 drain += ship.Engine.Drain;
+
+                //if (drain > ship.RemainingDrain)
+
+            }
 
             if (ship.Booster != null)
                 drain += ship.Booster.Drain;
@@ -261,7 +265,9 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void EngineOverloadChanged(object sender, SelectionChangedEventArgs e)
         {
-            _engineOverload = cb_engineOverload.SelectedIndex;
+            if (ship != null)
+                ship.EngineOverride = cb_engineOverload.SelectedIndex;
+            
             CalculateCurrentDrain();
         }
 
@@ -493,7 +499,8 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void CapacitorOverloadChanged(object sender, SelectionChangedEventArgs e)
         {
-            _capacitorOverload = cb_capacitorOverload.SelectedIndex;
+            if (ship != null)
+                ship.CapacitorOverride = cb_capacitorOverload.SelectedIndex;
             CalculateCurrentDrain();
         }
 
@@ -973,7 +980,9 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void WeaponOverloadChanged(object sender, SelectionChangedEventArgs e)
         {
-            _weaponOverload = cb_weaponOverload.SelectedIndex;
+            if (ship != null)
+                ship.WeaponOverride = cb_weaponOverload.SelectedIndex;
+            
             CalculateCurrentDrain();
         }
 
@@ -1448,6 +1457,24 @@ namespace Ship_Loadout.LoadoutEditor
             tb_shipYaw.Text = ship.Yaw.ToString();
             tb_shipRoll.Text = ship.Roll.ToString();
             tb_shipSpeed.Text = $"{ship.SpeedLow}/{ship.SpeedTop}";
+        }
+
+        private void InitialiseOverloads()
+        {
+            if (ship != null)
+            {
+                if (ship.ReactorOverride != null)
+                    cb_reactorOverload.SelectedIndex = ship.ReactorOverride;
+
+                if (ship.EngineOverride != null)
+                    cb_engineOverload.SelectedIndex = ship.EngineOverride;
+
+                if (ship.WeaponOverride != null)
+                    cb_weaponOverload.SelectedIndex = ship.WeaponOverride;
+
+                if (ship.CapacitorOverride != null)
+                    cb_capacitorOverload.SelectedIndex = ship.CapacitorOverride;
+            }
         }
 
         private void Tb_givenName_OnLostFocus(object sender, RoutedEventArgs e)

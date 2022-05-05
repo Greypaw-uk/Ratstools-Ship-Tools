@@ -12,15 +12,10 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="30"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="10"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="10"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="10"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="10"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
@@ -34,17 +29,17 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Ship Stats -->
-                <Grid Grid.Row="0" Grid.ColumnSpan="6">
+                <Grid Grid.Row="0" Grid.ColumnSpan="6" Margin="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="180"/>
                     </Grid.ColumnDefinitions>
 
                     <!-- Name -->
@@ -77,7 +72,6 @@
                                        Grid.Row="2" Grid.Column="1" Margin="0 0 10 10"/>
                         </Grid>
                     </Border>
-                    
 
                     <!-- Mass -->
                     <Border BorderBrush="Orange" BorderThickness="1" Grid.Column="2">
@@ -96,18 +90,18 @@
                             <TextBlock Text="Current Mass" Foreground="Orange"
                                        Grid.Row="0" Grid.Column="0" />
                             <TextBlock Name="tb_currentMass" Text="0" Foreground="Orange"
-                                       Grid.Row="0" Grid.Column="1" Margin="0 0 10 10" />
+                                       Grid.Row="0" Grid.Column="1"  />
 
                             <TextBlock Text="Max Mass" Foreground="Orange"
                                        Grid.Row="1" Grid.Column="0" />
                             <TextBox Name="tb_maxMass" Text="0" LostFocus="Tb_maxMass_OnLostFocus"
-                                     Grid.Row="1" Grid.Column="1" Margin="0 0 10 10" />
+                                     Grid.Row="1" Grid.Column="1" Height="20"/>
 
                             <TextBlock Text="Remaining Mass" Foreground="Orange"
                                        Grid.Row="2" Grid.Column="0" />
                             <TextBlock Name="tb_remainingMass" Text="0" Foreground="Orange"
                                        LostFocus="Tb_maxMass_OnLostFocus"
-                                       Grid.Row="2" Grid.Column="1" Margin="0 0 10 10" />
+                                       Grid.Row="2" Grid.Column="1" />
                         </Grid>
                     </Border>
 
@@ -163,7 +157,7 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="60" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
 
@@ -224,20 +218,19 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="80" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text="Pitch" Foreground="Orange"
                                        Grid.Row="0" Grid.Column="0" />
                             <TextBlock Name="tb_shipPitch" Text="0" Foreground="Orange"
-                                       Grid.Row="0" Grid.Column="1" Margin="0 0 10 10" />
+                                       Grid.Row="0" Grid.Column="1" />
 
                             <TextBlock Text="Yaw" Foreground="Orange"
                                        Grid.Row="1" Grid.Column="0" />
                             <TextBlock Name="tb_shipYaw" Text="0" Foreground="Orange"
-                                       Grid.Row="1" Grid.Column="1" Margin="0 0 10 10" />
-
+                                       Grid.Row="1" Grid.Column="1" />
 
                             <TextBlock Text="Roll" Foreground="Orange"
                                    Grid.Row="2" Grid.Column="0" />
@@ -245,257 +238,30 @@
                                    LostFocus="Tb_givenName_OnLostFocus"
                                    Grid.Row="2" Grid.Column="1" />
 
-
                             <TextBlock Text="Speed" Foreground="Orange"
                                        Grid.Row="3" Grid.Column="0" />
                             <TextBlock Name="tb_shipSpeed" Text="0" Foreground="Orange"
                                        LostFocus="Tb_givenName_OnLostFocus"
-                                       Grid.Row="3" Grid.Column="1" Margin="0 0 10 10" />
+                                       Grid.Row="3" Grid.Column="1" />
                         </Grid>
                     </Border>
                 </Grid>
 
-                
 
                 <!-- Separator -->
                 <Grid Grid.ColumnSpan="6" Grid.Row="1">
-                    <Separator Foreground="Orange"/>
+                    <Separator Foreground="Orange" Margin="10"/>
                 </Grid>
 
-                <!-- Components --> 
+
+                <!-- Components -->
 
                 <!-- Reactor -->
-                <Grid Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    
-
-                    <TextBlock Text = "Reactor" HorizontalAlignment="Center" Foreground="Orange"
-                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_reactor"  Height="20"
-                              SelectionChanged="ReactorSelectionChanged" DisplayMemberPath="Name"
-                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
-
-                    <TextBlock Text="Armour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_reactorArmour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="1"/>
-
-                    <TextBlock Text="Mass" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_reactorMass" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="1"/>
-
-                    <TextBlock Text="Generation" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_reactorGeneration" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="1"/>
-                </Grid>
-
-                <!-- Engine -->
-                <Grid Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Text = "Engine" HorizontalAlignment="Center" Foreground="Orange"
-                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_engine"  Height="20"
-                              SelectionChanged="EngineSelectionChanged" DisplayMemberPath="Name"
-                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-
-                    <TextBlock Text="Armour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_engineArmour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="1"/>
-
-                    <TextBlock Text="Drain" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_engineDrain" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="1"/>
-
-                    <TextBlock Text="Mass" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_engineMass" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="1"/>
-
-                    <TextBlock Text="Pitch" Foreground="Orange"
-                               Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_enginePitch" Foreground="Orange"
-                               Grid.Row="5" Grid.Column="1"/>
-
-                    <TextBlock Text="Yaw" Foreground="Orange"
-                               Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_engineYaw" Foreground="Orange"
-                               Grid.Row="6" Grid.Column="1"/>
-
-                    <TextBlock Text="Roll" Foreground="Orange"
-                               Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_engineRoll" Foreground="Orange"
-                               Grid.Row="7" Grid.Column="1"/>
-
-                    <TextBlock Text="Speed" Foreground="Orange"
-                               Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_engineSpeed" Foreground="Orange"
-                               Grid.Row="8" Grid.Column="1"/>
-                </Grid>
-
-                <!-- Booster -->
-                <Grid Grid.Row="2" Grid.Column="2" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Text = "Booster" HorizontalAlignment="Center" Foreground="Orange"
-                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_booster"  Height="20"
-                              SelectionChanged="BoosterSelectionChanged" DisplayMemberPath="Name"
-                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-
-                    <TextBlock Text="Armour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_boosterArmour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="1"/>
-
-                    <TextBlock Text="Drain" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_boosterDrain" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="1"/>
-
-                    <TextBlock Text="Mass" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_boosterMass" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="1"/>
-
-                    <TextBlock Text="Energy" Foreground="Orange"
-                               Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_boosterEnergy" Foreground="Orange"
-                               Grid.Row="5" Grid.Column="1"/>
-
-                    <TextBlock Text="Recharge" Foreground="Orange"
-                               Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_boosterRecharge" Foreground="Orange"
-                               Grid.Row="6" Grid.Column="1"/>
-
-                    <TextBlock Text="Consumption" Foreground="Orange"
-                               Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_boosterConsumption" Foreground="Orange"
-                               Grid.Row="7" Grid.Column="1"/>
-
-                    <TextBlock Text="Acceleration" Foreground="Orange"
-                               Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_BoosterAcceleration" Foreground="Orange"
-                               Grid.Row="8" Grid.Column="1"/>
-
-                    <TextBlock Text="Speed" Foreground="Orange"
-                               Grid.Row="9" Grid.Column="0"/>
-                    <TextBlock Name="tb_BoosterSpeed" Foreground="Orange"
-                               Grid.Row="9" Grid.Column="1"/>
-                </Grid>
-
-                <!-- Shield -->
-                <Grid Grid.Row="2" Grid.Column="3" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Text = "Shield" HorizontalAlignment="Center" Foreground="Orange"
-                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_shield"  Height="20"
-                              SelectionChanged="ShieldSelectionChanged" DisplayMemberPath="Name"
-                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-
-                    <TextBlock Text="Armour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_shieldArmour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="1"/>
-
-                    <TextBlock Text="Drain" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_shieldDrain" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="1"/>
-
-                    <TextBlock Text="Mass" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_shieldMass" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="1"/>
-
-                    <TextBlock Text="Front HP" Foreground="Orange"
-                               Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_shieldFront" Foreground="Orange"
-                               Grid.Row="5" Grid.Column="1"/>
-
-                    <TextBlock Text="Rear HP" Foreground="Orange"
-                               Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_shieldRear" Foreground="Orange"
-                               Grid.Row="6" Grid.Column="1"/>
-
-                    <TextBlock Text="Recharge" Foreground="Orange"
-                               Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_shieldRecharge" Foreground="Orange"
-                               Grid.Row="7" Grid.Column="1"/>
-
-                    <TextBlock Text="Adjust" Foreground="Orange"
-                               Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_shieldAdjust" Foreground="Orange"
-                               Grid.Row="8" Grid.Column="1"/>
-                </Grid>
-
-                <!-- Front Armour -->
-                <Grid Grid.Row="2" Grid.Column="4" Margin="5" VerticalAlignment="Top">
-                    <Grid>
+                <Border Grid.Row="2" Grid.Column="0" Margin="5,5,5,0" VerticalAlignment="Top" 
+                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                    <Grid Margin="10">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -507,799 +273,1078 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text = "Front Armour" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Reactor" HorizontalAlignment="Center" Foreground="Orange"
                                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_armourFront"  Height="20"
-                                  SelectionChanged="FrontArmourChanged" DisplayMemberPath="Name"
-                                  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <ComboBox Name="cb_reactor"  Height="20"
+                                  SelectionChanged="ReactorSelectionChanged" DisplayMemberPath="Name"
+                                  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
 
                         <TextBlock Text="Armour" Foreground="Orange"
                                    Grid.Row="2" Grid.Column="0"/>
-                        <TextBlock Name="tb_frontArmourArmour" Foreground="Orange"
+                        <TextBlock Name="tb_reactorArmour" Foreground="Orange"
                                    Grid.Row="2" Grid.Column="1"/>
 
                         <TextBlock Text="Mass" Foreground="Orange"
                                    Grid.Row="3" Grid.Column="0"/>
-                        <TextBlock Name="tb_frontArmourMass" Foreground="Orange"
+                        <TextBlock Name="tb_reactorMass" Foreground="Orange"
                                    Grid.Row="3" Grid.Column="1"/>
+
+                        <TextBlock Text="Generation" Foreground="Orange"
+                                   Grid.Row="4" Grid.Column="0"/>
+                        <TextBlock Name="tb_reactorGeneration" Foreground="Orange"
+                                   Grid.Row="4" Grid.Column="1"/>
                     </Grid>
+                </Border>
 
-                    
-                </Grid>
+                <!-- Engine -->
+                <Border Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                <!-- Rear Armour -->
-                <Grid Grid.Row="2" Grid.Column="5" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Text = "Rear Armour" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Engine" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_armourRear"  Height="20"
-                              SelectionChanged="RearArmourChanged" DisplayMemberPath="Name"
+                        <ComboBox Name="cb_engine"  Height="20"
+                              SelectionChanged="EngineSelectionChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_rearArmourArmour" Foreground="Orange"
+                        <TextBlock Name="tb_engineArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_rearArmourMass" Foreground="Orange"
+                        <TextBlock Name="tb_engineDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
-                </Grid>
 
+                        <TextBlock Text="Mass" Foreground="Orange"
+                               Grid.Row="4" Grid.Column="0"/>
+                        <TextBlock Name="tb_engineMass" Foreground="Orange"
+                               Grid.Row="4" Grid.Column="1"/>
+
+                        <TextBlock Text="Pitch" Foreground="Orange"
+                               Grid.Row="5" Grid.Column="0"/>
+                        <TextBlock Name="tb_enginePitch" Foreground="Orange"
+                               Grid.Row="5" Grid.Column="1"/>
+
+                        <TextBlock Text="Yaw" Foreground="Orange"
+                               Grid.Row="6" Grid.Column="0"/>
+                        <TextBlock Name="tb_engineYaw" Foreground="Orange"
+                               Grid.Row="6" Grid.Column="1"/>
+
+                        <TextBlock Text="Roll" Foreground="Orange"
+                               Grid.Row="7" Grid.Column="0"/>
+                        <TextBlock Name="tb_engineRoll" Foreground="Orange"
+                               Grid.Row="7" Grid.Column="1"/>
+
+                        <TextBlock Text="Speed" Foreground="Orange"
+                               Grid.Row="8" Grid.Column="0"/>
+                        <TextBlock Name="tb_engineSpeed" Foreground="Orange"
+                               Grid.Row="8" Grid.Column="1"/>
+                    </Grid>
+                </Border>
+
+                <!-- Booster -->
+                <Border Grid.Row="2" Grid.Column="2" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text = "Booster" HorizontalAlignment="Center" Foreground="Orange"
+                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <ComboBox Name="cb_booster"  Height="20"
+                              SelectionChanged="BoosterSelectionChanged" DisplayMemberPath="Name"
+                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+                        <TextBlock Text="Armour" Foreground="Orange"
+                               Grid.Row="2" Grid.Column="0"/>
+                        <TextBlock Name="tb_boosterArmour" Foreground="Orange"
+                               Grid.Row="2" Grid.Column="1"/>
+
+                        <TextBlock Text="Drain" Foreground="Orange"
+                               Grid.Row="3" Grid.Column="0"/>
+                        <TextBlock Name="tb_boosterDrain" Foreground="Orange"
+                               Grid.Row="3" Grid.Column="1"/>
+
+                        <TextBlock Text="Mass" Foreground="Orange"
+                               Grid.Row="4" Grid.Column="0"/>
+                        <TextBlock Name="tb_boosterMass" Foreground="Orange"
+                               Grid.Row="4" Grid.Column="1"/>
+
+                        <TextBlock Text="Energy" Foreground="Orange"
+                               Grid.Row="5" Grid.Column="0"/>
+                        <TextBlock Name="tb_boosterEnergy" Foreground="Orange"
+                               Grid.Row="5" Grid.Column="1"/>
+
+                        <TextBlock Text="Recharge" Foreground="Orange"
+                               Grid.Row="6" Grid.Column="0"/>
+                        <TextBlock Name="tb_boosterRecharge" Foreground="Orange"
+                               Grid.Row="6" Grid.Column="1"/>
+
+                        <TextBlock Text="Consumption" Foreground="Orange"
+                               Grid.Row="7" Grid.Column="0"/>
+                        <TextBlock Name="tb_boosterConsumption" Foreground="Orange"
+                               Grid.Row="7" Grid.Column="1"/>
+
+                        <TextBlock Text="Acceleration" Foreground="Orange"
+                               Grid.Row="8" Grid.Column="0"/>
+                        <TextBlock Name="tb_BoosterAcceleration" Foreground="Orange"
+                               Grid.Row="8" Grid.Column="1"/>
+
+                        <TextBlock Text="Speed" Foreground="Orange"
+                               Grid.Row="9" Grid.Column="0"/>
+                        <TextBlock Name="tb_BoosterSpeed" Foreground="Orange"
+                               Grid.Row="9" Grid.Column="1"/>
+                    </Grid>
+                </Border>
+
+                <!-- Shield -->
+                <Border Grid.Row="2" Grid.Column="3" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text = "Shield" HorizontalAlignment="Center" Foreground="Orange"
+                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <ComboBox Name="cb_shield"  Height="20"
+                              SelectionChanged="ShieldSelectionChanged" DisplayMemberPath="Name"
+                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+                        <TextBlock Text="Armour" Foreground="Orange"
+                               Grid.Row="2" Grid.Column="0"/>
+                        <TextBlock Name="tb_shieldArmour" Foreground="Orange"
+                               Grid.Row="2" Grid.Column="1"/>
+
+                        <TextBlock Text="Drain" Foreground="Orange"
+                               Grid.Row="3" Grid.Column="0"/>
+                        <TextBlock Name="tb_shieldDrain" Foreground="Orange"
+                               Grid.Row="3" Grid.Column="1"/>
+
+                        <TextBlock Text="Mass" Foreground="Orange"
+                               Grid.Row="4" Grid.Column="0"/>
+                        <TextBlock Name="tb_shieldMass" Foreground="Orange"
+                               Grid.Row="4" Grid.Column="1"/>
+
+                        <TextBlock Text="Front HP" Foreground="Orange"
+                               Grid.Row="5" Grid.Column="0"/>
+                        <TextBlock Name="tb_shieldFront" Foreground="Orange"
+                               Grid.Row="5" Grid.Column="1"/>
+
+                        <TextBlock Text="Rear HP" Foreground="Orange"
+                               Grid.Row="6" Grid.Column="0"/>
+                        <TextBlock Name="tb_shieldRear" Foreground="Orange"
+                               Grid.Row="6" Grid.Column="1"/>
+
+                        <TextBlock Text="Recharge" Foreground="Orange"
+                               Grid.Row="7" Grid.Column="0"/>
+                        <TextBlock Name="tb_shieldRecharge" Foreground="Orange"
+                               Grid.Row="7" Grid.Column="1"/>
+
+                        <TextBlock Text="Adjust" Foreground="Orange"
+                               Grid.Row="8" Grid.Column="0"/>
+                        <TextBlock Name="tb_shieldAdjust" Foreground="Orange"
+                               Grid.Row="8" Grid.Column="1"/>
+                    </Grid>
+                </Border>
+
+                <!-- Front Armour -->
+                <Border Grid.Row="2" Grid.Column="4" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                    <Grid Margin="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text = "Front Armour" HorizontalAlignment="Center" Foreground="Orange"
+                                       Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            <ComboBox Name="cb_armourFront"  Height="20"
+                                      SelectionChanged="FrontArmourChanged" DisplayMemberPath="Name"
+                                      Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+                            <TextBlock Text="Armour" Foreground="Orange"
+                                       Grid.Row="2" Grid.Column="0"/>
+                            <TextBlock Name="tb_frontArmourArmour" Foreground="Orange"
+                                       Grid.Row="2" Grid.Column="1"/>
+
+                            <TextBlock Text="Mass" Foreground="Orange"
+                                       Grid.Row="3" Grid.Column="0"/>
+                            <TextBlock Name="tb_frontArmourMass" Foreground="Orange"
+                                       Grid.Row="3" Grid.Column="1"/>
+                        </Grid>
+
+
+                    </Grid>
+                </Border>
+
+                <!-- Rear Armour -->
+                <Border Grid.Row="2" Grid.Column="5" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text = "Rear Armour" HorizontalAlignment="Center" Foreground="Orange"
+                                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <ComboBox Name="cb_armourRear"  Height="20"
+                                  SelectionChanged="RearArmourChanged" DisplayMemberPath="Name"
+                                  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+                        <TextBlock Text="Armour" Foreground="Orange"
+                                   Grid.Row="2" Grid.Column="0"/>
+                        <TextBlock Name="tb_rearArmourArmour" Foreground="Orange"
+                                   Grid.Row="2" Grid.Column="1"/>
+
+                        <TextBlock Text="Mass" Foreground="Orange"
+                                   Grid.Row="3" Grid.Column="0"/>
+                        <TextBlock Name="tb_rearArmourMass" Foreground="Orange"
+                                   Grid.Row="3" Grid.Column="1"/>
+                    </Grid>
+                </Border>
+                
 
                 <!-- Droid Interface -->
-                <Grid Grid.Row="4" Grid.Column="0" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="220">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Droid Interface" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Droid Interface" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_droidInterface"  Height="20"
+                        <ComboBox Name="cb_droidInterface"  Height="20"
                               SelectionChanged="DISelectionChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_diArmour" Foreground="Orange"
+                        <TextBlock Name="tb_diArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_diDrain" Foreground="Orange"
+                        <TextBlock Name="tb_diDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_diMass" Foreground="Orange"
+                        <TextBlock Name="tb_diMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="Speed" Foreground="Orange"
+                        <TextBlock Text="Speed" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_diSpeed" Foreground="Orange"
+                        <TextBlock Name="tb_diSpeed" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
-                </Grid>
+                    </Grid>
+                </Border>
 
                 <!-- Capacitor -->
-                <Grid Grid.Row="4" Grid.Column="1" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="220">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Capacitor" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Capacitor" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_capacitor"  Height="20"
+                        <ComboBox Name="cb_capacitor"  Height="20"
                               SelectionChanged="CapacitorSelectionChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_capArmour" Foreground="Orange"
+                        <TextBlock Name="tb_capArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_capDrain" Foreground="Orange"
+                        <TextBlock Name="tb_capDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_capMass" Foreground="Orange"
+                        <TextBlock Name="tb_capMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="Energy" Foreground="Orange"
+                        <TextBlock Text="Energy" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_capEnergy" Foreground="Orange"
+                        <TextBlock Name="tb_capEnergy" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                    <TextBlock Text="Recharge" Foreground="Orange"
+                        <TextBlock Text="Recharge" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_capRecharge" Foreground="Orange"
+                        <TextBlock Name="tb_capRecharge" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
-                </Grid>
+                    </Grid>
+                </Border>
 
                 <!-- Ordinance One -->
-                <Grid Name="gd_ordOne" Grid.Row="4" Grid.Column="2" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Name="gd_ordOne" Grid.Row="3" Grid.Column="2" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="220">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Ordinance 1" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Ordinance 1" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_ordOne"  Height="20"
+                        <ComboBox Name="cb_ordOne"  Height="20"
                               SelectionChanged="OrdinanceOneChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordOneArmour" Foreground="Orange"
+                        <TextBlock Name="tb_ordOneArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordOneDrain" Foreground="Orange"
+                        <TextBlock Name="tb_ordOneDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordOneMass" Foreground="Orange"
+                        <TextBlock Name="tb_ordOneMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="Min. Damage" Foreground="Orange"
+                        <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordOneMinDam" Foreground="Orange"
+                        <TextBlock Name="tb_ordOneMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                    <TextBlock Text="Max. Damage" Foreground="Orange"
+                        <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordOneMaxDam" Foreground="Orange"
+                        <TextBlock Name="tb_ordOneMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Shield" Foreground="Orange"
+                        <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordOneVsShield" Foreground="Orange"
+                        <TextBlock Name="tb_ordOneVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Armour" Foreground="Orange"
+                        <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordOneVsArmour" Foreground="Orange"
+                        <TextBlock Name="tb_ordOneVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                    <TextBlock Text="Ammo" Foreground="Orange"
+                        <TextBlock Text="Ammo" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordOneAmmo" Foreground="Orange"
+                        <TextBlock Name="tb_ordOneAmmo" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
-                </Grid>
+                    </Grid>
+                </Border>
 
                 <!-- Ordinance Two -->
-                <Grid Name="gd_ordTwo" Grid.Row="4" Grid.Column="3" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Name="gd_ordTwo" Grid.Row="3" Grid.Column="3" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="220">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Ordinance 2" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Ordinance 2" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_ordTwo"  Height="20"
+                        <ComboBox Name="cb_ordTwo"  Height="20"
                               SelectionChanged="OrdinanceTwoChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordTwoArmour" Foreground="Orange"
+                        <TextBlock Name="tb_ordTwoArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordTwoDrain" Foreground="Orange"
+                        <TextBlock Name="tb_ordTwoDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordTwoMass" Foreground="Orange"
+                        <TextBlock Name="tb_ordTwoMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="Min. Damage" Foreground="Orange"
+                        <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordTwoMinDam" Foreground="Orange"
+                        <TextBlock Name="tb_ordTwoMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                    <TextBlock Text="Max. Damage" Foreground="Orange"
+                        <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordTwoMaxDam" Foreground="Orange"
+                        <TextBlock Name="tb_ordTwoMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Shield" Foreground="Orange"
+                        <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordTwoVsShield" Foreground="Orange"
+                        <TextBlock Name="tb_ordTwoVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Armour" Foreground="Orange"
+                        <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordTwoVsArmour" Foreground="Orange"
+                        <TextBlock Name="tb_ordTwoVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                    <TextBlock Text="Ammo" Foreground="Orange"
+                        <TextBlock Text="Ammo" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                    <TextBlock Name="tb_ordTwoAmmo" Foreground="Orange"
+                        <TextBlock Name="tb_ordTwoAmmo" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
-                </Grid>
+                    </Grid>
+                </Border>
 
                 <!-- Countermeasure One -->
-                <Grid Name="gd_cmOne" Grid.Row="4" Grid.Column="4" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Name="gd_cmOne" Grid.Row="3" Grid.Column="4" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="220">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Countermeasure 1" HorizontalAlignment="Center" Foreground="Orange"
-                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_cmOne"  Height="20"
-                              SelectionChanged="CMOneChanged" DisplayMemberPath="Name"
-                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <TextBlock Text = "Countermeasure 1" HorizontalAlignment="Center" Foreground="Orange"
+                                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <ComboBox Name="cb_cmOne"  Height="20"
+                                  SelectionChanged="CMOneChanged" DisplayMemberPath="Name"
+                                  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_cmOneArmour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="1"/>
+                        <TextBlock Text="Armour" Foreground="Orange"
+                                   Grid.Row="2" Grid.Column="0"/>
+                        <TextBlock Name="tb_cmOneArmour" Foreground="Orange"
+                                   Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_cmOneDrain" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="1"/>
+                        <TextBlock Text="Drain" Foreground="Orange"
+                                   Grid.Row="3" Grid.Column="0"/>
+                        <TextBlock Name="tb_cmOneDrain" Foreground="Orange"
+                                   Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_cmOneMass" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="1"/>
-                </Grid>
+                        <TextBlock Text="Mass" Foreground="Orange"
+                                   Grid.Row="4" Grid.Column="0"/>
+                        <TextBlock Name="tb_cmOneMass" Foreground="Orange"
+                                   Grid.Row="4" Grid.Column="1"/>
+                    </Grid>
+                </Border>
 
                 <!-- Countermeasure Two -->
-                <Grid Name="gd_cmTwo" Grid.Row="4" Grid.Column="5" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Name="gd_cmTwo"  Grid.Row="3" Grid.Column="5" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="220">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Countermeasure 2" HorizontalAlignment="Center" Foreground="Orange"
-                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_cmTwo"  Height="20"
-                              SelectionChanged="CMTwoChanged" DisplayMemberPath="Name"
-                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <TextBlock Text = "Countermeasure 2" HorizontalAlignment="Center" Foreground="Orange"
+                                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <ComboBox Name="cb_cmTwo"  Height="20"
+                                  SelectionChanged="CMTwoChanged" DisplayMemberPath="Name"
+                                  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_cmTwoArmour" Foreground="Orange"
-                               Grid.Row="2" Grid.Column="1"/>
+                        <TextBlock Text="Armour" Foreground="Orange"
+                                   Grid.Row="2" Grid.Column="0"/>
+                        <TextBlock Name="tb_cmTwoArmour" Foreground="Orange"
+                                   Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_cmTwoDrain" Foreground="Orange"
-                               Grid.Row="3" Grid.Column="1"/>
+                        <TextBlock Text="Drain" Foreground="Orange"
+                                   Grid.Row="3" Grid.Column="0"/>
+                        <TextBlock Name="tb_cmTwoDrain" Foreground="Orange"
+                                   Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_cmTwoMass" Foreground="Orange"
-                               Grid.Row="4" Grid.Column="1"/>
-                </Grid>
+                        <TextBlock Text="Mass" Foreground="Orange"
+                                   Grid.Row="4" Grid.Column="0"/>
+                        <TextBlock Name="tb_cmTwoMass" Foreground="Orange"
+                                   Grid.Row="4" Grid.Column="1"/>
+                    </Grid>
+                </Border>
+
 
                 <!-- Weapon One -->
-                <Grid Name="gd_WepOne" Grid.Row="6" Grid.Column="0" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border  Name="gd_WepOne" Grid.Row="4" Grid.Column="0" Margin="5" VerticalAlignment="Top"
+                         BorderBrush="Orange" BorderThickness="1" Height="240">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Weapon 1" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Weapon 1" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_wepOne"  Height="20"
+                        <ComboBox Name="cb_wepOne"  Height="20"
                               SelectionChanged="WeaponOneChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepOneArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepOneArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepOneDrain" Foreground="Orange"
+                        <TextBlock Name="tb_wepOneDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepOneMass" Foreground="Orange"
+                        <TextBlock Name="tb_wepOneMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="Min. Damage" Foreground="Orange"
+                        <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepOneMinDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepOneMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                    <TextBlock Text="Max. Damage" Foreground="Orange"
+                        <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepOneMaxDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepOneMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Shield" Foreground="Orange"
+                        <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepOneVsShield" Foreground="Orange"
+                        <TextBlock Name="tb_wepOneVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Armour" Foreground="Orange"
+                        <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepOneVsArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepOneVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                    <TextBlock Text="EPS" Foreground="Orange"
+                        <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepOneEPS" Foreground="Orange"
+                        <TextBlock Name="tb_wepOneEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                    <TextBlock Text="Refire Rate" Foreground="Orange"
+                        <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepOneRR" Foreground="Orange"
+                        <TextBlock Name="tb_wepOneRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                </Grid>
+                    </Grid>
+                </Border>
 
                 <!-- Weapon Two -->
-                <Grid Name="gd_WepTwo" Grid.Row="6" Grid.Column="1" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Name="gd_WepTwo" Grid.Row="4" Grid.Column="1" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="240">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Weapon 2" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Weapon 2" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_wepTwo"  Height="20"
+                        <ComboBox Name="cb_wepTwo"  Height="20"
                               SelectionChanged="WeaponTwoChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepTwoArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepTwoArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepTwoDrain" Foreground="Orange"
+                        <TextBlock Name="tb_wepTwoDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepTwoMass" Foreground="Orange"
+                        <TextBlock Name="tb_wepTwoMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="Min. Damage" Foreground="Orange"
+                        <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepTwoMinDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepTwoMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                    <TextBlock Text="Max. Damage" Foreground="Orange"
+                        <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepTwoMaxDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepTwoMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Shield" Foreground="Orange"
+                        <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepTwoVsShield" Foreground="Orange"
+                        <TextBlock Name="tb_wepTwoVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Armour" Foreground="Orange"
+                        <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepTwoVsArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepTwoVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                    <TextBlock Text="EPS" Foreground="Orange"
+                        <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepTwoEPS" Foreground="Orange"
+                        <TextBlock Name="tb_wepTwoEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                    <TextBlock Text="Refire Rate" Foreground="Orange"
+                        <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepTwoRR" Foreground="Orange"
+                        <TextBlock Name="tb_wepTwoRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                </Grid>
+                    </Grid>
+                </Border>
 
                 <!-- Weapon Three -->
-                <Grid Name="gd_WepThree" Grid.Row="6" Grid.Column="2" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Name="gd_WepThree" Grid.Row="4" Grid.Column="2" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="240">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Weapon 3" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Weapon 3" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_wepThree"  Height="20"
+                        <ComboBox Name="cb_wepThree"  Height="20"
                               SelectionChanged="WeaponThreeChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepThreeArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepThreeArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepThreeDrain" Foreground="Orange"
+                        <TextBlock Name="tb_wepThreeDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepThreeMass" Foreground="Orange"
+                        <TextBlock Name="tb_wepThreeMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="Min. Damage" Foreground="Orange"
+                        <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepThreeMinDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepThreeMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                    <TextBlock Text="Max. Damage" Foreground="Orange"
+                        <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepThreeMaxDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepThreeMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Shield" Foreground="Orange"
+                        <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepThreeVsShield" Foreground="Orange"
+                        <TextBlock Name="tb_wepThreeVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Armour" Foreground="Orange"
+                        <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepThreeVsArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepThreeVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                    <TextBlock Text="EPS" Foreground="Orange"
+                        <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepThreeEPS" Foreground="Orange"
+                        <TextBlock Name="tb_wepThreeEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                    <TextBlock Text="Refire Rate" Foreground="Orange"
+                        <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepThreeRR" Foreground="Orange"
+                        <TextBlock Name="tb_wepThreeRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                </Grid>
+                    </Grid>
+                </Border>
 
                 <!-- Weapon Four -->
-                <Grid Name="gd_WepFour" Grid.Row="6" Grid.Column="3" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Name="gd_WepFour" Grid.Row="4" Grid.Column="3" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="240">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Weapon 4" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Weapon 4" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_wepFour"  Height="20"
+                        <ComboBox Name="cb_wepFour"  Height="20"
                               SelectionChanged="WeaponFourChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFourArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepFourArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFourDrain" Foreground="Orange"
+                        <TextBlock Name="tb_wepFourDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFourMass" Foreground="Orange"
+                        <TextBlock Name="tb_wepFourMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="Min. Damage" Foreground="Orange"
+                        <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFourMinDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepFourMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                    <TextBlock Text="Max. Damage" Foreground="Orange"
+                        <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFourMaxDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepFourMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Shield" Foreground="Orange"
+                        <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFourVsShield" Foreground="Orange"
+                        <TextBlock Name="tb_wepFourVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Armour" Foreground="Orange"
+                        <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFourVsArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepFourVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                    <TextBlock Text="EPS" Foreground="Orange"
+                        <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFourEPS" Foreground="Orange"
+                        <TextBlock Name="tb_wepFourEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                    <TextBlock Text="Refire Rate" Foreground="Orange"
+                        <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFourRR" Foreground="Orange"
+                        <TextBlock Name="tb_wepFourRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                </Grid>
+                    </Grid>
+                </Border>
 
                 <!-- Weapon Five -->
-                <Grid Name="gd_WepFive" Grid.Row="6" Grid.Column="4" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Name="gd_WepFive" Grid.Row="4" Grid.Column="4" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="240">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Weapon 5" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Weapon 5" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_wepFive"  Height="20"
+                        <ComboBox Name="cb_wepFive"  Height="20"
                               SelectionChanged="WeaponFiveChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFiveArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepFiveArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFiveDrain" Foreground="Orange"
+                        <TextBlock Name="tb_wepFiveDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFiveMass" Foreground="Orange"
+                        <TextBlock Name="tb_wepFiveMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="Min. Damage" Foreground="Orange"
+                        <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFiveMinDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepFiveMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                    <TextBlock Text="Max. Damage" Foreground="Orange"
+                        <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFiveMaxDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepFiveMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Shield" Foreground="Orange"
+                        <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFiveVsShield" Foreground="Orange"
+                        <TextBlock Name="tb_wepFiveVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Armour" Foreground="Orange"
+                        <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFiveVsArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepFiveVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                    <TextBlock Text="EPS" Foreground="Orange"
+                        <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFiveEPS" Foreground="Orange"
+                        <TextBlock Name="tb_wepFiveEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                    <TextBlock Text="Refire Rate" Foreground="Orange"
+                        <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepFiveRR" Foreground="Orange"
+                        <TextBlock Name="tb_wepFiveRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                </Grid>
+                    </Grid>
+                </Border>
 
                 <!-- Weapon Six -->
-                <Grid Name="gd_WepSix" Grid.Row="6" Grid.Column="5" Margin="5" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
+                <Border Name="gd_WepSix" Grid.Row="4" Grid.Column="5" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="240">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text = "Weapon 6" HorizontalAlignment="Center" Foreground="Orange"
+                        <TextBlock Text = "Weapon 6" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cb_wepSix"  Height="20"
+                        <ComboBox Name="cb_wepSix"  Height="20"
                               SelectionChanged="WeaponSixChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    <TextBlock Text="Armour" Foreground="Orange"
+                        <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepSixArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepSixArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="Drain" Foreground="Orange"
+                        <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepSixDrain" Foreground="Orange"
+                        <TextBlock Name="tb_wepSixDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="Mass" Foreground="Orange"
+                        <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepSixMass" Foreground="Orange"
+                        <TextBlock Name="tb_wepSixMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="Min. Damage" Foreground="Orange"
+                        <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepSixMinDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepSixMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                    <TextBlock Text="Max. Damage" Foreground="Orange"
+                        <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepSixMaxDam" Foreground="Orange"
+                        <TextBlock Name="tb_wepSixMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Shield" Foreground="Orange"
+                        <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepSixVsShield" Foreground="Orange"
+                        <TextBlock Name="tb_wepSixVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                    <TextBlock Text="Vs. Armour" Foreground="Orange"
+                        <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepSixVsArmour" Foreground="Orange"
+                        <TextBlock Name="tb_wepSixVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                    <TextBlock Text="EPS" Foreground="Orange"
+                        <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepSixEPS" Foreground="Orange"
+                        <TextBlock Name="tb_wepSixEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                    <TextBlock Text="Refire Rate" Foreground="Orange"
+                        <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                    <TextBlock Name="tb_wepSixRR" Foreground="Orange"
+                        <TextBlock Name="tb_wepSixRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                </Grid>
-
+                    </Grid>
+                </Border>
+                
 
                 <!-- Turrets -->
-                <Grid Grid.Row="8" Name="gd_turrets" Grid.ColumnSpan="6">
+                <Grid Grid.Row="5" Name="gd_turrets" Grid.ColumnSpan="6">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -1308,444 +1353,467 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <!-- Turret One -->
-                    <Grid Name="gd_turretOne" Grid.Column="0" Margin="5" VerticalAlignment="Top">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
+                    <Border Name="gd_turretOne" Grid.Column="0" Margin="5" VerticalAlignment="Top"
+                            BorderBrush="Orange" BorderThickness="1" Height="240">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBlock Text = "Turret 1" HorizontalAlignment="Center" Foreground="Orange"
+                            <TextBlock Text = "Turret 1" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_turretOne"  Height="20"
+                            <ComboBox Name="cb_turretOne"  Height="20"
                               SelectionChanged="TurretOneChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                        <TextBlock Text="Armour" Foreground="Orange"
+                            <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretOneArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretOneArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                        <TextBlock Text="Drain" Foreground="Orange"
+                            <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretOneDrain" Foreground="Orange"
+                            <TextBlock Name="tb_turretOneDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                        <TextBlock Text="Mass" Foreground="Orange"
+                            <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretOneMass" Foreground="Orange"
+                            <TextBlock Name="tb_turretOneMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                        <TextBlock Text="Min. Damage" Foreground="Orange"
+                            <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretOneMinDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretOneMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                        <TextBlock Text="Max. Damage" Foreground="Orange"
+                            <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretOneMaxDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretOneMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Shield" Foreground="Orange"
+                            <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretOneVsShield" Foreground="Orange"
+                            <TextBlock Name="tb_turretOneVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Armour" Foreground="Orange"
+                            <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretOneVsArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretOneVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                        <TextBlock Text="EPS" Foreground="Orange"
+                            <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretOneEPS" Foreground="Orange"
+                            <TextBlock Name="tb_turretOneEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                        <TextBlock Text="Refire Rate" Foreground="Orange"
+                            <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretOneRR" Foreground="Orange"
+                            <TextBlock Name="tb_turretOneRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                    </Grid>
+                        </Grid>
+                    </Border>
+                    
 
                     <!-- Turret Two -->
-                    <Grid Name="gd_turretTwo" Grid.Column="1" Margin="5" VerticalAlignment="Top">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
+                    <Border Name="gd_turretTwo" Grid.Column="1" Margin="5" VerticalAlignment="Top"
+                            BorderBrush="Orange" BorderThickness="1" Height="240">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBlock Text = "Turret 2" HorizontalAlignment="Center" Foreground="Orange"
+                            <TextBlock Text = "Turret 2" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_turretTwo"  Height="20"
+                            <ComboBox Name="cb_turretTwo"  Height="20"
                               SelectionChanged="TurretTwoChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                        <TextBlock Text="Armour" Foreground="Orange"
+                            <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretTwoArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretTwoArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                        <TextBlock Text="Drain" Foreground="Orange"
+                            <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretTwoDrain" Foreground="Orange"
+                            <TextBlock Name="tb_turretTwoDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                        <TextBlock Text="Mass" Foreground="Orange"
+                            <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretTwoMass" Foreground="Orange"
+                            <TextBlock Name="tb_turretTwoMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                        <TextBlock Text="Min. Damage" Foreground="Orange"
+                            <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretTwoMinDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretTwoMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                        <TextBlock Text="Max. Damage" Foreground="Orange"
+                            <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretTwoMaxDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretTwoMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Shield" Foreground="Orange"
+                            <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretTwoVsShield" Foreground="Orange"
+                            <TextBlock Name="tb_turretTwoVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Armour" Foreground="Orange"
+                            <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretTwoVsArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretTwoVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                        <TextBlock Text="EPS" Foreground="Orange"
+                            <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretTwoEPS" Foreground="Orange"
+                            <TextBlock Name="tb_turretTwoEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                        <TextBlock Text="Refire Rate" Foreground="Orange"
+                            <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretTwoRR" Foreground="Orange"
+                            <TextBlock Name="tb_turretTwoRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                    </Grid>
+                        </Grid>
+                    </Border>
+                    
 
                     <!-- Turret Three -->
-                    <Grid Name="gd_turretThree" Grid.Column="2" Margin="5" VerticalAlignment="Top">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
+                    <Border Name="gd_turretThree" Grid.Column="2" Margin="5" VerticalAlignment="Top"
+                            BorderBrush="Orange" BorderThickness="1" Height="240">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBlock Text = "Turret 3" HorizontalAlignment="Center" Foreground="Orange"
+                            <TextBlock Text = "Turret 3" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_turretThree"  Height="20"
+                            <ComboBox Name="cb_turretThree"  Height="20"
                               SelectionChanged="TurretThreeChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                        <TextBlock Text="Armour" Foreground="Orange"
+                            <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretThreeArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretThreeArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                        <TextBlock Text="Drain" Foreground="Orange"
+                            <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretThreeDrain" Foreground="Orange"
+                            <TextBlock Name="tb_turretThreeDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                        <TextBlock Text="Mass" Foreground="Orange"
+                            <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretThreeMass" Foreground="Orange"
+                            <TextBlock Name="tb_turretThreeMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                        <TextBlock Text="Min. Damage" Foreground="Orange"
+                            <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretThreeMinDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretThreeMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                        <TextBlock Text="Max. Damage" Foreground="Orange"
+                            <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretThreeMaxDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretThreeMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Shield" Foreground="Orange"
+                            <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretThreeVsShield" Foreground="Orange"
+                            <TextBlock Name="tb_turretThreeVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Armour" Foreground="Orange"
+                            <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretThreeVsArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretThreeVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                        <TextBlock Text="EPS" Foreground="Orange"
+                            <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretThreeEPS" Foreground="Orange"
+                            <TextBlock Name="tb_turretThreeEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                        <TextBlock Text="Refire Rate" Foreground="Orange"
+                            <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretThreeRR" Foreground="Orange"
+                            <TextBlock Name="tb_turretThreeRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                    </Grid>
+                        </Grid>
+                    </Border>
+                    
 
                     <!-- Turret Four -->
-                    <Grid Name="gd_turretFour" Grid.Column="3" Margin="5" VerticalAlignment="Top">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
+                    <Border Name="gd_turretFour" Grid.Column="3" Margin="5" VerticalAlignment="Top"
+                            BorderBrush="Orange" BorderThickness="1" Height="240">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBlock Text = "Turret 4" HorizontalAlignment="Center" Foreground="Orange"
+                            <TextBlock Text = "Turret 4" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_turretFour"  Height="20"
+                            <ComboBox Name="cb_turretFour"  Height="20"
                               SelectionChanged="TurretFourChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                        <TextBlock Text="Armour" Foreground="Orange"
+                            <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFourArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretFourArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                        <TextBlock Text="Drain" Foreground="Orange"
+                            <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFourDrain" Foreground="Orange"
+                            <TextBlock Name="tb_turretFourDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                        <TextBlock Text="Mass" Foreground="Orange"
+                            <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFourMass" Foreground="Orange"
+                            <TextBlock Name="tb_turretFourMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                        <TextBlock Text="Min. Damage" Foreground="Orange"
+                            <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFourMinDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretFourMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                        <TextBlock Text="Max. Damage" Foreground="Orange"
+                            <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFourMaxDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretFourMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Shield" Foreground="Orange"
+                            <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFourVsShield" Foreground="Orange"
+                            <TextBlock Name="tb_turretFourVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Armour" Foreground="Orange"
+                            <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFourVsArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretFourVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                        <TextBlock Text="EPS" Foreground="Orange"
+                            <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFourEPS" Foreground="Orange"
+                            <TextBlock Name="tb_turretFourEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                        <TextBlock Text="Refire Rate" Foreground="Orange"
+                            <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFourRR" Foreground="Orange"
+                            <TextBlock Name="tb_turretFourRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                    </Grid>
+                        </Grid>
+                    </Border>
+                    
 
                     <!-- Turret Five -->
-                    <Grid Name="gd_turretFive" Grid.Column="4" Margin="5" VerticalAlignment="Top">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
+                    <Border Name="gd_turretFive" Grid.Column="4" Margin="5" VerticalAlignment="Top"
+                            BorderBrush="Orange" BorderThickness="1" Height="240">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBlock Text = "Turret 5" HorizontalAlignment="Center" Foreground="Orange"
+                            <TextBlock Text = "Turret 5" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_turretFive"  Height="20"
+                            <ComboBox Name="cb_turretFive"  Height="20"
                               SelectionChanged="TurretFiveChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                        <TextBlock Text="Armour" Foreground="Orange"
+                            <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFiveArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretFiveArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                        <TextBlock Text="Drain" Foreground="Orange"
+                            <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFiveDrain" Foreground="Orange"
+                            <TextBlock Name="tb_turretFiveDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                        <TextBlock Text="Mass" Foreground="Orange"
+                            <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFiveMass" Foreground="Orange"
+                            <TextBlock Name="tb_turretFiveMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                        <TextBlock Text="Min. Damage" Foreground="Orange"
+                            <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFiveMinDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretFiveMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                        <TextBlock Text="Max. Damage" Foreground="Orange"
+                            <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFiveMaxDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretFiveMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Shield" Foreground="Orange"
+                            <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFiveVsShield" Foreground="Orange"
+                            <TextBlock Name="tb_turretFiveVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Armour" Foreground="Orange"
+                            <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFiveVsArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretFiveVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                        <TextBlock Text="EPS" Foreground="Orange"
+                            <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFiveEPS" Foreground="Orange"
+                            <TextBlock Name="tb_turretFiveEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                        <TextBlock Text="Refire Rate" Foreground="Orange"
+                            <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretFiveRR" Foreground="Orange"
+                            <TextBlock Name="tb_turretFiveRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                    </Grid>
+                        </Grid>
+                    </Border>
+                    
 
                     <!-- Turret Six -->
-                    <Grid Name="gd_turretSix" Grid.Column="5" Margin="5" VerticalAlignment="Top">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
+                    <Border Name="gd_turretSix" Grid.Column="5" Margin="5" VerticalAlignment="Top"
+                            BorderBrush="Orange" BorderThickness="1" Height="240">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBlock Text = "Turret 6" HorizontalAlignment="Center" Foreground="Orange"
+                            <TextBlock Text = "Turret 6" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_turretSix"  Height="20"
+                            <ComboBox Name="cb_turretSix"  Height="20"
                               SelectionChanged="TurretSixChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                        <TextBlock Text="Armour" Foreground="Orange"
+                            <TextBlock Text="Armour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretSixArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretSixArmour" Foreground="Orange"
                                Grid.Row="2" Grid.Column="1"/>
 
-                        <TextBlock Text="Drain" Foreground="Orange"
+                            <TextBlock Text="Drain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretSixDrain" Foreground="Orange"
+                            <TextBlock Name="tb_turretSixDrain" Foreground="Orange"
                                Grid.Row="3" Grid.Column="1"/>
 
-                        <TextBlock Text="Mass" Foreground="Orange"
+                            <TextBlock Text="Mass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretSixMass" Foreground="Orange"
+                            <TextBlock Name="tb_turretSixMass" Foreground="Orange"
                                Grid.Row="4" Grid.Column="1"/>
 
-                        <TextBlock Text="Min. Damage" Foreground="Orange"
+                            <TextBlock Text="Min. Damage" Foreground="Orange"
                                Grid.Row="5" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretSixMinDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretSixMinDam" Foreground="Orange"
                                Grid.Row="5" Grid.Column="1"/>
 
-                        <TextBlock Text="Max. Damage" Foreground="Orange"
+                            <TextBlock Text="Max. Damage" Foreground="Orange"
                                Grid.Row="6" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretSixMaxDam" Foreground="Orange"
+                            <TextBlock Name="tb_turretSixMaxDam" Foreground="Orange"
                                Grid.Row="6" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Shield" Foreground="Orange"
+                            <TextBlock Text="Vs. Shield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretSixVsShield" Foreground="Orange"
+                            <TextBlock Name="tb_turretSixVsShield" Foreground="Orange"
                                Grid.Row="7" Grid.Column="1"/>
 
-                        <TextBlock Text="Vs. Armour" Foreground="Orange"
+                            <TextBlock Text="Vs. Armour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretSixVsArmour" Foreground="Orange"
+                            <TextBlock Name="tb_turretSixVsArmour" Foreground="Orange"
                                Grid.Row="8" Grid.Column="1"/>
 
-                        <TextBlock Text="EPS" Foreground="Orange"
+                            <TextBlock Text="EPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretSixEPS" Foreground="Orange"
+                            <TextBlock Name="tb_turretSixEPS" Foreground="Orange"
                                Grid.Row="9" Grid.Column="1"/>
 
-                        <TextBlock Text="Refire Rate" Foreground="Orange"
+                            <TextBlock Text="Refire Rate" Foreground="Orange"
                                Grid.Row="10" Grid.Column="0"/>
-                        <TextBlock Name="tb_turretSixRR" Foreground="Orange"
+                            <TextBlock Name="tb_turretSixRR" Foreground="Orange"
                                Grid.Row="10" Grid.Column="1"/>
-                    </Grid>
+                        </Grid>
+                    </Border>
                 </Grid>
             </Grid>
         </ScrollViewer>
