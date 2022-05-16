@@ -4,13 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d" 
-      d:DesignHeight="1500" d:DesignWidth="800"
+      d:DesignHeight="1500" d:DesignWidth="1200"
       Title="DisplayLoadout">
 
     <Grid>
         <ScrollViewer>
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -94,7 +95,7 @@
 
                             <TextBlock Text="Max Mass" Foreground="Orange"
                                        Grid.Row="1" Grid.Column="0" />
-                            <TextBox Name="tb_maxMass" Text="0" LostFocus="Tb_maxMass_OnLostFocus"
+                            <TextBox Name="tb_maxMass" Text="0" LostFocus="Tb_maxMass_OnLostFocus" VerticalAlignment="Top"
                                      Grid.Row="1" Grid.Column="1" Height="20"/>
 
                             <TextBlock Text="Remaining Mass" Foreground="Orange"
@@ -109,7 +110,6 @@
                     <Border BorderBrush="Orange" BorderThickness="1" Grid.Column="4">
                         <Grid Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="30" />
                                 <RowDefinition Height="30" />
                                 <RowDefinition Height="30" />
                                 <RowDefinition Height="30" />
@@ -130,19 +130,11 @@
                             <TextBlock Name="tb_currentDrain" Text="0" Foreground="Orange"
                                        Grid.Row="1" Grid.Column="1" Margin="0 0 10 10" />
 
-                            <!-- 
-                            <TextBlock Text="Max Drain" Foreground="Orange"
-                                       Grid.Row="2" Grid.Column="0" />
-                            <TextBlock Name="tb_maxDrain" Text="0" Foreground="Orange"
-                                       LostFocus="Tb_givenName_OnLostFocus"
-                                       Grid.Row="2" Grid.Column="1" />
-                            -->
-
                             <TextBlock Text="Remaining Drain" Foreground="Orange"
-                                       Grid.Row="3" Grid.Column="0" />
+                                       Grid.Row="2" Grid.Column="0" />
                             <TextBlock Name="tb_remainingDrain" Text="0" Foreground="Orange"
                                        LostFocus="Tb_givenName_OnLostFocus"
-                                       Grid.Row="3" Grid.Column="1" Margin="0 0 10 10" />
+                                       Grid.Row="2" Grid.Column="1" Margin="0 0 10 10" />
                         </Grid>
                     </Border>
 
@@ -258,11 +250,11 @@
 
                 <!-- Reactor -->
                 <Border Grid.Row="2" Grid.Column="0" Margin="5,5,5,0" VerticalAlignment="Top" 
-                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                        BorderBrush="Orange" BorderThickness="1" Height="205">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -297,12 +289,12 @@
                 </Border>
 
                 <!-- Engine -->
-                <Border Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Top"
-                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                <Border Name="border_engine" Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="205">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -319,7 +311,7 @@
 
                         <TextBlock Text = "Engine" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_engine"  Height="20"
+                        <ComboBox Name="cb_engine"  Height="25"
                               SelectionChanged="EngineSelectionChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -361,12 +353,12 @@
                 </Border>
 
                 <!-- Booster -->
-                <Border Grid.Row="2" Grid.Column="2" Margin="5" VerticalAlignment="Top"
-                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                <Border Name="border_booster" Grid.Row="2" Grid.Column="2" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="205">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -378,13 +370,13 @@
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text = "Booster" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_booster"  Height="20"
+                        <ComboBox Name="cb_booster"  Height="25"
                               SelectionChanged="BoosterSelectionChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -431,12 +423,12 @@
                 </Border>
 
                 <!-- Shield -->
-                <Border Grid.Row="2" Grid.Column="3" Margin="5" VerticalAlignment="Top"
-                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                <Border Name="border_shield" Grid.Row="2" Grid.Column="3" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="205">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -453,7 +445,7 @@
 
                         <TextBlock Text = "Shield" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_shield"  Height="20"
+                        <ComboBox Name="cb_shield"  Height="25"
                               SelectionChanged="ShieldSelectionChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -495,13 +487,13 @@
                 </Border>
 
                 <!-- Front Armour -->
-                <Border Grid.Row="2" Grid.Column="4" Margin="5" VerticalAlignment="Top"
-                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                <Border Name="border_frontArmour" Grid.Row="2" Grid.Column="4" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="205">
                     <Grid Margin="10">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="25"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
                             </Grid.RowDefinitions>
@@ -513,7 +505,7 @@
 
                             <TextBlock Text = "Front Armour" HorizontalAlignment="Center" Foreground="Orange"
                                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                            <ComboBox Name="cb_armourFront"  Height="20"
+                            <ComboBox Name="cb_armourFront"  Height="25"
                                       SelectionChanged="FrontArmourChanged" DisplayMemberPath="Name"
                                       Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -533,12 +525,12 @@
                 </Border>
 
                 <!-- Rear Armour -->
-                <Border Grid.Row="2" Grid.Column="5" Margin="5" VerticalAlignment="Top"
-                        BorderBrush="Orange" BorderThickness="1" Height="200">
+                <Border Name="border_rearArmour" Grid.Row="2" Grid.Column="5" Margin="5" VerticalAlignment="Top"
+                        BorderBrush="Orange" BorderThickness="1" Height="205">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
@@ -550,7 +542,7 @@
 
                         <TextBlock Text = "Rear Armour" HorizontalAlignment="Center" Foreground="Orange"
                                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_armourRear"  Height="20"
+                        <ComboBox Name="cb_armourRear"  Height="25"
                                   SelectionChanged="RearArmourChanged" DisplayMemberPath="Name"
                                   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -568,12 +560,12 @@
                 
 
                 <!-- Droid Interface -->
-                <Border Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Top"
+                <Border Name="border_di" Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Top"
                         BorderBrush="Orange" BorderThickness="1" Height="220">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -587,7 +579,7 @@
 
                         <TextBlock Text = "Droid Interface" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_droidInterface"  Height="20"
+                        <ComboBox Name="cb_droidInterface"  Height="25"
                               SelectionChanged="DISelectionChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -614,12 +606,12 @@
                 </Border>
 
                 <!-- Capacitor -->
-                <Border Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Top"
+                <Border Name="border_capacitor" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Top"
                         BorderBrush="Orange" BorderThickness="1" Height="220">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -634,7 +626,7 @@
 
                         <TextBlock Text = "Capacitor" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_capacitor"  Height="20"
+                        <ComboBox Name="cb_capacitor"  Height="25"
                               SelectionChanged="CapacitorSelectionChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -671,7 +663,7 @@
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -683,13 +675,13 @@
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text = "Ordinance 1" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_ordOne"  Height="20"
+                        <ComboBox Name="cb_ordOne"  Height="25"
                               SelectionChanged="OrdinanceOneChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -741,7 +733,7 @@
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -753,13 +745,13 @@
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text = "Ordinance 2" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_ordTwo"  Height="20"
+                        <ComboBox Name="cb_ordTwo"  Height="25"
                               SelectionChanged="OrdinanceTwoChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -811,7 +803,7 @@
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -824,7 +816,7 @@
 
                         <TextBlock Text = "Countermeasure 1" HorizontalAlignment="Center" Foreground="Orange"
                                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_cmOne"  Height="20"
+                        <ComboBox Name="cb_cmOne"  Height="25"
                                   SelectionChanged="CMOneChanged" DisplayMemberPath="Name"
                                   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -851,7 +843,7 @@
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -864,7 +856,7 @@
 
                         <TextBlock Text = "Countermeasure 2" HorizontalAlignment="Center" Foreground="Orange"
                                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_cmTwo"  Height="20"
+                        <ComboBox Name="cb_cmTwo"  Height="25"
                                   SelectionChanged="CMTwoChanged" DisplayMemberPath="Name"
                                   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -887,12 +879,12 @@
 
 
                 <!-- Weapon One -->
-                <Border  Name="gd_WepOne" Grid.Row="4" Grid.Column="0" Margin="5" VerticalAlignment="Top"
+                <Border Name="gd_WepOne" Grid.Row="4" Grid.Column="0" Margin="5" VerticalAlignment="Top"
                          BorderBrush="Orange" BorderThickness="1" Height="240">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -905,13 +897,13 @@
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text = "Weapon 1" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_wepOne"  Height="20"
+                        <ComboBox Name="cb_wepOne"  Height="25"
                               SelectionChanged="WeaponOneChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -968,7 +960,7 @@
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -981,13 +973,13 @@
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text = "Weapon 2" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_wepTwo"  Height="20"
+                        <ComboBox Name="cb_wepTwo"  Height="25"
                               SelectionChanged="WeaponTwoChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1044,7 +1036,7 @@
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -1057,13 +1049,13 @@
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text = "Weapon 3" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_wepThree"  Height="20"
+                        <ComboBox Name="cb_wepThree"  Height="25"
                               SelectionChanged="WeaponThreeChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1120,7 +1112,7 @@
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -1133,13 +1125,13 @@
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text = "Weapon 4" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_wepFour"  Height="20"
+                        <ComboBox Name="cb_wepFour"  Height="25"
                               SelectionChanged="WeaponFourChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1196,7 +1188,7 @@
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -1209,13 +1201,13 @@
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text = "Weapon 5" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_wepFive"  Height="20"
+                        <ComboBox Name="cb_wepFive"  Height="25"
                               SelectionChanged="WeaponFiveChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1272,7 +1264,7 @@
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
@@ -1285,13 +1277,13 @@
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text = "Weapon 6" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <ComboBox Name="cb_wepSix"  Height="20"
+                        <ComboBox Name="cb_wepSix"  Height="25"
                               SelectionChanged="WeaponSixChanged" DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1360,7 +1352,7 @@
                         <Grid Margin="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="25"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
@@ -1373,13 +1365,13 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text = "Turret 1" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                            <ComboBox Name="cb_turretOne"  Height="20"
+                            <ComboBox Name="cb_turretOne"  Height="25"
                               SelectionChanged="TurretOneChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1429,7 +1421,6 @@
                                Grid.Row="10" Grid.Column="1"/>
                         </Grid>
                     </Border>
-                    
 
                     <!-- Turret Two -->
                     <Border Name="gd_turretTwo" Grid.Column="1" Margin="5" VerticalAlignment="Top"
@@ -1437,7 +1428,7 @@
                         <Grid Margin="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="25"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
@@ -1450,13 +1441,13 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text = "Turret 2" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                            <ComboBox Name="cb_turretTwo"  Height="20"
+                            <ComboBox Name="cb_turretTwo"  Height="25"
                               SelectionChanged="TurretTwoChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1506,7 +1497,6 @@
                                Grid.Row="10" Grid.Column="1"/>
                         </Grid>
                     </Border>
-                    
 
                     <!-- Turret Three -->
                     <Border Name="gd_turretThree" Grid.Column="2" Margin="5" VerticalAlignment="Top"
@@ -1514,7 +1504,7 @@
                         <Grid Margin="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="25"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
@@ -1527,13 +1517,13 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text = "Turret 3" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                            <ComboBox Name="cb_turretThree"  Height="20"
+                            <ComboBox Name="cb_turretThree"  Height="25"
                               SelectionChanged="TurretThreeChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1583,7 +1573,6 @@
                                Grid.Row="10" Grid.Column="1"/>
                         </Grid>
                     </Border>
-                    
 
                     <!-- Turret Four -->
                     <Border Name="gd_turretFour" Grid.Column="3" Margin="5" VerticalAlignment="Top"
@@ -1591,7 +1580,7 @@
                         <Grid Margin="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="25"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
@@ -1604,13 +1593,13 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text = "Turret 4" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                            <ComboBox Name="cb_turretFour"  Height="20"
+                            <ComboBox Name="cb_turretFour"  Height="25"
                               SelectionChanged="TurretFourChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1660,7 +1649,6 @@
                                Grid.Row="10" Grid.Column="1"/>
                         </Grid>
                     </Border>
-                    
 
                     <!-- Turret Five -->
                     <Border Name="gd_turretFive" Grid.Column="4" Margin="5" VerticalAlignment="Top"
@@ -1668,7 +1656,7 @@
                         <Grid Margin="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="25"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
@@ -1681,13 +1669,13 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text = "Turret 5" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                            <ComboBox Name="cb_turretFive"  Height="20"
+                            <ComboBox Name="cb_turretFive"  Height="25"
                               SelectionChanged="TurretFiveChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1737,7 +1725,6 @@
                                Grid.Row="10" Grid.Column="1"/>
                         </Grid>
                     </Border>
-                    
 
                     <!-- Turret Six -->
                     <Border Name="gd_turretSix" Grid.Column="5" Margin="5" VerticalAlignment="Top"
@@ -1745,7 +1732,7 @@
                         <Grid Margin="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="25"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
@@ -1764,7 +1751,7 @@
 
                             <TextBlock Text = "Turret 6" HorizontalAlignment="Center" Foreground="Orange"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                            <ComboBox Name="cb_turretSix"  Height="20"
+                            <ComboBox Name="cb_turretSix"  Height="25"
                               SelectionChanged="TurretSixChanged"  DisplayMemberPath="Name"
                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
@@ -1815,6 +1802,42 @@
                         </Grid>
                     </Border>
                 </Grid>
+
+                <!-- Cargo Bay -->
+                <Border Name="border_cargoBay" 
+                        Grid.Row="6" Grid.Column="0" Margin="5" VerticalAlignment="Top"
+                            BorderBrush="Orange" BorderThickness="1" Height="100">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text = "Cargo Bay" HorizontalAlignment="Center" Foreground="Orange"
+                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <ComboBox Name="cb_cargobays"  Height="25"
+                              SelectionChanged="CargobayChanged"  DisplayMemberPath="Name"
+                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+                        <TextBlock Text="Armour" Foreground="Orange"
+                               Grid.Row="2" Grid.Column="0"/>
+                        <TextBlock Name="tb_cargobayArmour" Foreground="Orange"
+                               Grid.Row="2" Grid.Column="1"/>
+
+                        <TextBlock Text="Mass" Foreground="Orange"
+                                   Grid.Row="3" Grid.Column="0"/>
+                        <TextBlock Name="tb_cargobayMass" Foreground="Orange"
+                                   Grid.Row="3" Grid.Column="1"/>
+                    </Grid>
+                </Border>
             </Grid>
         </ScrollViewer>
     </Grid>

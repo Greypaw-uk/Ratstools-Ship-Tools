@@ -50,7 +50,7 @@ namespace Ship_Loadout.ShipEditor
 
                 cb_faction.SelectedIndex = ship.Faction;
 
-                tb_name.Text = ship.Name;
+                tb_name.Text = ship.ChassisName;
                 tb_mass.Text = ship.Mass.ToString();
                 tb_acceleration.Text = ship.Acceleration.ToString();
                 tb_deceleration.Text = ship.Deceleration.ToString();
@@ -78,7 +78,7 @@ namespace Ship_Loadout.ShipEditor
             {
                 Faction = cb_faction.SelectedIndex,
 
-                Name = tb_name.Text,
+                ChassisName = tb_name.Text,
                 Mass = int.Parse(tb_mass.Text),
                 Acceleration = int.Parse(tb_acceleration.Text),
                 Deceleration = int.Parse(tb_deceleration.Text),

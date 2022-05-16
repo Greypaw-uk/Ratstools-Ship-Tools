@@ -110,7 +110,7 @@ namespace Ship_Loadout.Components
 
         private void OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
+            Regex regex = new Regex(@"/^\d*\.?\d*$/");
             e.Handled = regex.IsMatch(e.Text);
         }
 

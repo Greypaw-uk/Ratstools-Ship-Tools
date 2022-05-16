@@ -36,7 +36,7 @@
                 </DataGrid.CellStyle>
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}" Width="*"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Path = ChassisName}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 

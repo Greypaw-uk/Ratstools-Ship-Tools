@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Ship_Loadout.Components;
@@ -33,6 +35,8 @@ namespace Ship_Loadout.LoadoutEditor
 
             InitialiseTurrets();
 
+            InitialiseCargobay();
+
             InitialiseShipDetails();
 
             InitialiseOverloads();
@@ -45,8 +49,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseReactor()
         {
-            //Add Reactors to Combolist
-            cb_reactor.ItemsSource = Components.Components.Reactors;
+            var reactors = Components.Components.Reactors;
+            if (reactors.Count > 0 && (!string.IsNullOrEmpty(reactors.FirstOrDefault().Name)))
+                reactors.Insert(0, new Reactor());
+            cb_reactor.ItemsSource = reactors;
 
             //Load existing component (if any)
             if (ship.Reactor != null)
@@ -69,35 +75,26 @@ namespace Ship_Loadout.LoadoutEditor
             {
                 tb_reactorArmour.Text = reactor.Armour.ToString();
                 tb_reactorMass.Text = reactor.Mass.ToString();
+                tb_reactorGeneration.Text = reactor.Generation.ToString();
 
                 ship.Reactor = reactor;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
             else
             {
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
+        // Updates reactor stats text colour
+        // Updates reactor stats text box text
         private void ChangeReactorStats()
         {
             if (ship == null)
                 return; 
-
-            ship.CurrentEnergyDrain = CalculateCurrentDrain();
-            ship.OverridenGeneration = ReactorOverloadCalculation();
-
-
-            if (ship.Reactor != null)
-                ship.RemainingDrain = ship.OverridenGeneration - ship.CurrentEnergyDrain;
-            else
-            {
-                ship.RemainingDrain = 0 - ship.CurrentEnergyDrain;
-                //tb_maxDrain.Text = "0";
-            }
 
             // Set text colours
             if (ship.RemainingDrain < 0)
@@ -105,7 +102,7 @@ namespace Ship_Loadout.LoadoutEditor
             else
                 tb_remainingDrain.Foreground = Brushes.Orange;
 
-
+            // Update textboxes
             tb_currentDrain.Text = ship.CurrentEnergyDrain.ToString();
             tb_remainingDrain.Text = ship.RemainingDrain.ToString();
             tb_currentGeneration.Text = ship.OverridenGeneration.ToString();
@@ -115,8 +112,26 @@ namespace Ship_Loadout.LoadoutEditor
         {
             if (ship != null)
                 ship.ReactorOverride = cb_reactorOverload.SelectedIndex;
-            
-            ChangeReactorStats();
+
+            PerformReactorFunctions();
+        }
+
+        private void PerformReactorFunctions()
+        {
+            if (ship != null)
+            {
+                ship.CurrentEnergyDrain = CalculateCurrentDrain();
+                ship.OverridenGeneration = ReactorOverloadCalculation();
+
+
+                if (ship.Reactor != null)
+                    ship.RemainingDrain = ship.OverridenGeneration - ship.CurrentEnergyDrain;
+                else
+                    ship.RemainingDrain = 0 - ship.CurrentEnergyDrain;
+
+                ChangeReactorStats();
+                HighlightDisabledComponents();
+            }
         }
 
         private float ReactorOverloadCalculation()
@@ -149,12 +164,7 @@ namespace Ship_Loadout.LoadoutEditor
             float drain = 0f;
 
             if (ship.Engine != null)
-            {
-                drain += ship.Engine.Drain;
-
-                //if (drain > ship.RemainingDrain)
-
-            }
+                drain += UpdateEngineDrain(ship.Engine.Drain);
 
             if (ship.Booster != null)
                 drain += ship.Booster.Drain;
@@ -219,13 +229,149 @@ namespace Ship_Loadout.LoadoutEditor
             return drain;
         }
 
+        private void HighlightDisabledComponents()
+        {
+            float drain = 0f;
+
+            if (ship.Engine != null)
+            {
+                drain += ship.Engine.Drain;
+
+                border_engine.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Shield != null)
+            {
+                drain += ship.Shield.Drain;
+                border_shield.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Capacitor != null)
+            {
+                drain += ship.Capacitor.Drain;
+                border_capacitor.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Booster != null)
+            {
+                drain += ship.Booster.Drain;
+                border_booster.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.DroidInterface != null)
+            {
+                drain += ship.DroidInterface.Drain;
+                border_di.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Weapon1 != null)
+            {
+                drain += ship.Weapon1.Drain;
+                gd_WepOne.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Weapon2 != null)
+            {
+                drain += ship.Weapon2.Drain;
+                gd_WepTwo.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Weapon3 != null)
+            {
+                drain += ship.Weapon3.Drain;
+                gd_WepThree.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Weapon4 != null)
+            {
+                drain += ship.Weapon4.Drain;
+                gd_WepFour.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Weapon5 != null)
+            {
+                drain += ship.Weapon5.Drain;
+                gd_WepFive.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Weapon6 != null)
+            {
+                drain += ship.Weapon6.Drain;
+                gd_WepSix.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Turret1 != null)
+            {
+                drain += ship.Turret1.Drain;
+                gd_turretOne.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Turret2 != null)
+            {
+                drain += ship.Turret2.Drain;
+                gd_turretTwo.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Turret3 != null)
+            {
+                drain += ship.Turret3.Drain;
+                gd_turretThree.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Turret4 != null)
+            {
+                drain += ship.Turret4.Drain;
+                gd_turretFour.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Turret5 != null)
+            {
+                drain += ship.Turret5.Drain;
+                gd_turretFive.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Turret6 != null)
+            {
+                drain += ship.Turret6.Drain;
+                gd_turretSix.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Ord1 != null)
+            {
+                drain += ship.Ord1.Drain;
+                gd_ordOne.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.Ord2 != null)
+            {
+                drain += ship.Ord2.Drain;
+                gd_ordTwo.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.CM1 != null)
+            {
+                drain += ship.CM1.Drain;
+                gd_cmOne.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+
+            if (ship.CM2 != null)
+            {
+                drain += ship.CM2.Drain;
+                gd_cmTwo.BorderBrush = drain > ship?.OverridenGeneration ? Brushes.Red : Brushes.Orange;
+            }
+        }
+
         #endregion
 
         #region Engine
 
         private void InitialiseEngine()
         {
-            cb_engine.ItemsSource = Components.Components.Engines;
+            var engines = Components.Components.Engines;
+            if (engines.Count > 0 && !string.IsNullOrEmpty(engines.FirstOrDefault().Name))
+                engines.Insert(0, new Engine());
+
+            cb_engine.ItemsSource = engines;
 
             //Load existing component (if any)
             if (ship.Engine != null)
@@ -259,16 +405,72 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Engine = engine;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
+                UpdateShipManoeuvreStats();
             }
         }
 
         private void EngineOverloadChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ship != null)
+            {
                 ship.EngineOverride = cb_engineOverload.SelectedIndex;
+                UpdateShipManoeuvreStats();
+            }
+
+            PerformReactorFunctions();
+        }
+
+        private void UpdateShipManoeuvreStats()
+        {
+            var _pitch = ship?.Pitch ?? 0f;
+            var _yaw = ship?.Yaw ?? 0f;
+            var _roll = ship?.Roll ?? 0f;
+            var _speedLow = ship?.SpeedLow ?? 0f;
+            var _speedTop = ship?.SpeedTop ?? 0f;
             
-            CalculateCurrentDrain();
+            var _engineSpeed = ship?.Engine?.Speed ?? 0f;
+
+            var overload = GetEngineOverload(cb_engineOverload.SelectedIndex);
+
+            tb_shipPitch.Text = $"{Math.Round( _pitch * overload, 1)}";
+            tb_shipYaw.Text = $"{Math.Round(_yaw * overload, 1)}";
+            tb_shipRoll.Text = $"{Math.Round(_roll * overload, 1)}";
+            tb_shipSpeed.Text = $"{Math.Round(10 * _engineSpeed * _speedLow * overload, 0)}" +
+                                $"/{Math.Round(10 * _engineSpeed * _speedTop * overload), 0}";
+        }
+
+        private float UpdateEngineDrain(float drain)
+        {
+            //float drain = 0f;
+            int overload = cb_engineOverload.SelectedIndex;
+
+            switch (overload)
+            {
+                case 0: drain = drain * 1; break;
+                case 1: drain = drain * 1.25f; break;
+                case 2: drain = drain * 1.67f; break;
+                case 3: drain = drain * 3.33f; break;
+                case 4: drain = drain * 10f; break;
+            }
+
+            return drain;
+        }
+
+        private float GetEngineOverload(int overloadLevel)
+        {
+            var modifier = 0f; 
+
+            switch (overloadLevel)
+            {
+                case 0: { modifier = 1; } break;
+                case 1: { modifier = 1.1f; } break;
+                case 2: { modifier = 1.2f; } break;
+                case 3: { modifier = 1.3f; } break;
+                case 4: { modifier = 1.4f; } break;
+            }
+
+            return modifier;
         }
 
         #endregion
@@ -277,7 +479,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseBooster()
         {
-            cb_booster.ItemsSource = Components.Components.Boosters;
+            var boosters = Components.Components.Boosters;
+            if (boosters.Count > 0 && !string.IsNullOrEmpty(boosters.FirstOrDefault().Name))
+                boosters.Insert(0, new Booster());
+            cb_booster.ItemsSource = boosters;
 
             //Load existing component (if any)
             if (ship.Booster != null)
@@ -313,7 +518,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Booster = booster;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -323,7 +528,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseShield()
         {
-            cb_shield.ItemsSource = Components.Components.Shields;
+            var shields = Components.Components.Shields;
+            if (shields.Count > 0 && !string.IsNullOrEmpty(shields.FirstOrDefault().Name))
+                shields.Insert(0, new Shield());
+            cb_shield.ItemsSource = shields;
 
             //Load existing component (if any)
             if (ship.Shield != null)
@@ -357,7 +565,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Shield = shield;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -367,9 +575,11 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseArmour()
         {
-            cb_armourFront.ItemsSource = Components.Components.Armours;
-
-            cb_armourRear.ItemsSource = Components.Components.Armours;
+            var armour = Components.Components.Armours;
+            if (armour.Count > 0 && !string.IsNullOrEmpty(armour.FirstOrDefault().Name))
+                armour.Insert(0, new Armour());
+            cb_armourFront.ItemsSource = armour;
+            cb_armourRear.ItemsSource = armour;
 
             //Load existing component (if any)
             if (ship.FrontArmour != null)
@@ -425,7 +635,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseDI()
         {
-            cb_droidInterface.ItemsSource = Components.Components.DroidInterfaces;
+            var dI = Components.Components.DroidInterfaces;
+            if (dI.Count > 0 && !string.IsNullOrEmpty(dI.FirstOrDefault().Name))
+                dI.Insert(0, new DroidInterface());
+            cb_droidInterface.ItemsSource = dI;
 
             //Load existing component (if any)
             if (ship.DroidInterface != null)
@@ -453,7 +666,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.DroidInterface = di;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -463,7 +676,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseCapacitor()
         {
-            cb_capacitor.ItemsSource = Components.Components.Capacitors;
+            var capacitors = Components.Components.Capacitors;
+            if (capacitors.Count > 0 && !string.IsNullOrEmpty(capacitors.FirstOrDefault().Name))
+                capacitors.Insert(0, new Capacitor());
+            cb_capacitor.ItemsSource = capacitors;
 
             //Load existing component (if any)
             if (ship.Capacitor != null)
@@ -493,7 +709,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Capacitor = cap;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -510,6 +726,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseOrdinance()
         {
+            var ordinance = Components.Components.Ordinances;
+            if (ordinance.Count > 0 && !string.IsNullOrEmpty(ordinance.FirstOrDefault().Name))
+                ordinance.Insert(0, new Ordinance());
+
             switch (ship.Ordinance)
             {
                 case 0:
@@ -527,7 +747,7 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_ordOne.Visibility = Visibility.Visible;
                     gd_ordTwo.Visibility = Visibility.Collapsed;
 
-                    cb_ordOne.ItemsSource = Components.Components.Ordinances;
+                    cb_ordOne.ItemsSource = ordinance;
                     cb_ordTwo.ItemsSource = null;
                 }
                     break;
@@ -537,8 +757,8 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_ordOne.Visibility = Visibility.Visible;
                     gd_ordTwo.Visibility = Visibility.Visible;
 
-                    cb_ordOne.ItemsSource = Components.Components.Ordinances;
-                    cb_ordTwo.ItemsSource = Components.Components.Ordinances;
+                    cb_ordOne.ItemsSource = ordinance;
+                    cb_ordTwo.ItemsSource = ordinance;
                 }
                     break;
             }
@@ -591,7 +811,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Ord1 = ord;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -613,7 +833,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Ord2 = ord;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -623,6 +843,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseWeapons()
         {
+            var weapons = Components.Components.Weapons;
+            if (weapons.Count > 0 && !string.IsNullOrEmpty(weapons.FirstOrDefault().Name))
+                weapons.Insert(0, new Weapon());
+
             switch (ship.Weapons)
             {
                 case 0:
@@ -652,7 +876,7 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_WepFive.Visibility = Visibility.Collapsed;
                         gd_WepSix.Visibility = Visibility.Collapsed;
 
-                        cb_wepOne.ItemsSource = Components.Components.Weapons;
+                        cb_wepOne.ItemsSource = weapons;
                         cb_wepTwo.ItemsSource = null;
                         cb_wepThree.ItemsSource = null;
                         cb_wepFour.ItemsSource = null;
@@ -670,8 +894,8 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_WepFive.Visibility = Visibility.Collapsed;
                         gd_WepSix.Visibility = Visibility.Collapsed;
 
-                        cb_wepOne.ItemsSource = Components.Components.Weapons;
-                        cb_wepTwo.ItemsSource = Components.Components.Weapons;
+                        cb_wepOne.ItemsSource = weapons;
+                        cb_wepTwo.ItemsSource = weapons;
                         cb_wepThree.ItemsSource = null;
                         cb_wepFour.ItemsSource = null;
                         cb_wepFive.ItemsSource = null;
@@ -687,9 +911,9 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_WepFive.Visibility = Visibility.Collapsed;
                         gd_WepSix.Visibility = Visibility.Collapsed;
 
-                        cb_wepOne.ItemsSource = Components.Components.Weapons;
-                        cb_wepTwo.ItemsSource = Components.Components.Weapons;
-                        cb_wepThree.ItemsSource = Components.Components.Weapons;
+                        cb_wepOne.ItemsSource = weapons;
+                        cb_wepTwo.ItemsSource = weapons;
+                        cb_wepThree.ItemsSource = weapons;
                         cb_wepFour.ItemsSource = null;
                         cb_wepFive.ItemsSource = null;
                         cb_wepSix.ItemsSource = null;
@@ -704,10 +928,10 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_WepFive.Visibility = Visibility.Collapsed;
                     gd_WepSix.Visibility = Visibility.Collapsed;
 
-                    cb_wepOne.ItemsSource = Components.Components.Weapons;
-                    cb_wepTwo.ItemsSource = Components.Components.Weapons;
-                    cb_wepThree.ItemsSource = Components.Components.Weapons;
-                    cb_wepFour.ItemsSource = Components.Components.Weapons;
+                    cb_wepOne.ItemsSource = weapons;
+                    cb_wepTwo.ItemsSource = weapons;
+                    cb_wepThree.ItemsSource = weapons;
+                    cb_wepFour.ItemsSource = weapons;
                     cb_wepFive.ItemsSource = null;
                     cb_wepSix.ItemsSource = null;
                 }
@@ -721,11 +945,11 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_WepFive.Visibility = Visibility.Visible;
                     gd_WepSix.Visibility = Visibility.Collapsed;
 
-                    cb_wepOne.ItemsSource = Components.Components.Weapons;
-                    cb_wepTwo.ItemsSource = Components.Components.Weapons;
-                    cb_wepThree.ItemsSource = Components.Components.Weapons;
-                    cb_wepFour.ItemsSource = Components.Components.Weapons;
-                    cb_wepFive.ItemsSource = Components.Components.Weapons;
+                    cb_wepOne.ItemsSource = weapons;
+                    cb_wepTwo.ItemsSource = weapons;
+                    cb_wepThree.ItemsSource = weapons;
+                    cb_wepFour.ItemsSource = weapons;
+                    cb_wepFive.ItemsSource = weapons;
                     cb_wepSix.ItemsSource = null;
                 }
                     break;
@@ -738,12 +962,12 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_WepFive.Visibility = Visibility.Visible;
                     gd_WepSix.Visibility = Visibility.Visible;
 
-                    cb_wepOne.ItemsSource = Components.Components.Weapons;
-                    cb_wepTwo.ItemsSource = Components.Components.Weapons;
-                    cb_wepThree.ItemsSource = Components.Components.Weapons;
-                    cb_wepFour.ItemsSource = Components.Components.Weapons;
-                    cb_wepFive.ItemsSource = Components.Components.Weapons;
-                    cb_wepSix.ItemsSource = Components.Components.Weapons;
+                    cb_wepOne.ItemsSource = weapons;
+                    cb_wepTwo.ItemsSource = weapons;
+                    cb_wepThree.ItemsSource = weapons;
+                    cb_wepFour.ItemsSource = weapons;
+                    cb_wepFive.ItemsSource = weapons;
+                    cb_wepSix.ItemsSource = weapons;
                 }
                     break;
             }
@@ -859,7 +1083,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Weapon1 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -882,7 +1106,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Weapon2 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -905,7 +1129,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Weapon3 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -928,7 +1152,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Weapon4 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -951,7 +1175,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Weapon5 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -974,7 +1198,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Weapon5 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -992,6 +1216,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseCountermeasures()
         {
+            var countermeasures = Components.Components.CounterMeasures;
+            if (countermeasures.Count > 0 && !string.IsNullOrEmpty(countermeasures.FirstOrDefault().Name))
+                countermeasures.Insert(0, new CounterMeasure());
+
             switch (ship.Countermeasures)
             {
                 case 0:
@@ -1009,7 +1237,7 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_cmOne.Visibility = Visibility.Visible;
                     gd_cmTwo.Visibility = Visibility.Collapsed;
 
-                    cb_cmOne.ItemsSource = Components.Components.CounterMeasures;
+                    cb_cmOne.ItemsSource = countermeasures;
                     cb_cmTwo.ItemsSource = null;
                 }
                     break;
@@ -1018,8 +1246,8 @@ namespace Ship_Loadout.LoadoutEditor
                     gd_cmOne.Visibility = Visibility.Visible;
                     gd_cmTwo.Visibility = Visibility.Visible;
 
-                    cb_cmOne.ItemsSource = Components.Components.CounterMeasures;
-                    cb_cmTwo.ItemsSource = Components.Components.CounterMeasures;
+                    cb_cmOne.ItemsSource = countermeasures;
+                    cb_cmTwo.ItemsSource = countermeasures;
                 }
                     break;
             }
@@ -1057,7 +1285,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.CM1 = cm;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -1074,7 +1302,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.CM2 = cm;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -1084,6 +1312,10 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseTurrets()
         {
+            var turrets = Components.Components.Weapons;
+            if (turrets.Count > 0 && !string.IsNullOrEmpty(turrets.FirstOrDefault().Name))
+                turrets.Insert(0, new Weapon());
+
             if (ship.Turrets > 0)
             {
                 gd_turrets.Visibility = Visibility.Visible;
@@ -1099,7 +1331,7 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_turretFive.Visibility = Visibility.Collapsed;
                         gd_turretSix.Visibility = Visibility.Collapsed;
 
-                        cb_turretOne.ItemsSource = Components.Components.Weapons;
+                        cb_turretOne.ItemsSource = turrets;
                         cb_turretTwo.ItemsSource = null;
                         cb_turretThree.ItemsSource = null;
                         cb_turretFour.ItemsSource = null;
@@ -1117,8 +1349,8 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_turretFive.Visibility = Visibility.Collapsed;
                         gd_turretSix.Visibility = Visibility.Collapsed;
 
-                        cb_turretOne.ItemsSource = Components.Components.Weapons;
-                        cb_turretTwo.ItemsSource = Components.Components.Weapons;
+                        cb_turretOne.ItemsSource = turrets;
+                        cb_turretTwo.ItemsSource = turrets;
                         cb_turretThree.ItemsSource = null;
                         cb_turretFour.ItemsSource = null;
                         cb_turretFive.ItemsSource = null;
@@ -1134,9 +1366,9 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_turretFive.Visibility = Visibility.Collapsed;
                         gd_turretSix.Visibility = Visibility.Collapsed;
 
-                        cb_turretOne.ItemsSource = Components.Components.Weapons;
-                        cb_turretTwo.ItemsSource = Components.Components.Weapons;
-                        cb_turretThree.ItemsSource = Components.Components.Weapons;
+                        cb_turretOne.ItemsSource = turrets;
+                        cb_turretTwo.ItemsSource = turrets;
+                        cb_turretThree.ItemsSource = turrets;
                         cb_turretFour.ItemsSource = null;
                         cb_turretFive.ItemsSource = null;
                         cb_turretSix.ItemsSource = null;
@@ -1151,10 +1383,10 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_turretFive.Visibility = Visibility.Collapsed;
                         gd_turretSix.Visibility = Visibility.Collapsed;
 
-                        cb_turretOne.ItemsSource = Components.Components.Weapons;
-                        cb_turretTwo.ItemsSource = Components.Components.Weapons;
-                        cb_turretThree.ItemsSource = Components.Components.Weapons;
-                        cb_turretFour.ItemsSource = Components.Components.Weapons;
+                        cb_turretOne.ItemsSource = turrets;
+                        cb_turretTwo.ItemsSource = turrets;
+                        cb_turretThree.ItemsSource = turrets;
+                        cb_turretFour.ItemsSource = turrets;
                         cb_turretFive.ItemsSource = null;
                         cb_turretSix.ItemsSource = null;
                     }
@@ -1168,11 +1400,11 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_turretFive.Visibility = Visibility.Visible;
                         gd_turretSix.Visibility = Visibility.Collapsed;
 
-                        cb_turretOne.ItemsSource = Components.Components.Weapons;
-                        cb_turretTwo.ItemsSource = Components.Components.Weapons;
-                        cb_turretThree.ItemsSource = Components.Components.Weapons;
-                        cb_turretFour.ItemsSource = Components.Components.Weapons;
-                        cb_turretFive.ItemsSource = Components.Components.Weapons;
+                        cb_turretOne.ItemsSource = turrets;
+                        cb_turretTwo.ItemsSource = turrets;
+                        cb_turretThree.ItemsSource = turrets;
+                        cb_turretFour.ItemsSource = turrets;
+                        cb_turretFive.ItemsSource = turrets;
                         cb_turretSix.ItemsSource = null;
                     }
                         break;
@@ -1185,12 +1417,12 @@ namespace Ship_Loadout.LoadoutEditor
                         gd_turretFive.Visibility = Visibility.Visible;
                         gd_turretSix.Visibility = Visibility.Visible;
 
-                        cb_turretOne.ItemsSource = Components.Components.Weapons;
-                        cb_turretTwo.ItemsSource = Components.Components.Weapons;
-                        cb_turretThree.ItemsSource = Components.Components.Weapons;
-                        cb_turretFour.ItemsSource = Components.Components.Weapons;
-                        cb_turretFive.ItemsSource = Components.Components.Weapons;
-                        cb_turretSix.ItemsSource = Components.Components.Weapons;
+                        cb_turretOne.ItemsSource = turrets;
+                        cb_turretTwo.ItemsSource = turrets;
+                        cb_turretThree.ItemsSource = turrets;
+                        cb_turretFour.ItemsSource = turrets;
+                        cb_turretFive.ItemsSource = turrets;
+                        cb_turretSix.ItemsSource = turrets;
                     }
                         break;
                 }
@@ -1311,7 +1543,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Turret1 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -1334,7 +1566,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Turret2 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -1357,7 +1589,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Turret3 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -1380,7 +1612,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Turret4 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -1403,7 +1635,7 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Turret5 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
             }
         }
 
@@ -1426,7 +1658,45 @@ namespace Ship_Loadout.LoadoutEditor
                 ship.Turret6 = weapon;
 
                 CalculateCurrentMass();
-                ChangeReactorStats();
+                PerformReactorFunctions();
+            }
+        }
+
+        #endregion
+
+        #region Cargobay
+
+        private void InitialiseCargobay()
+        {
+            var cargobays = Components.Components.CargoBays;
+
+            if (cargobays.Count > 0 && !string.IsNullOrEmpty(cargobays.FirstOrDefault().Name))
+                cargobays.Insert(0, new CargoBay());
+
+            cb_cargobays.ItemsSource = cargobays;
+
+            //Load existing component (if any)
+            if (ship.Cargobay != null)
+            {
+                cb_cargobays.Text = ship.Cargobay.Name;
+
+                tb_cargobayArmour.Text = ship.Cargobay.Armour.ToString();
+                tb_cargobayMass.Text = ship.Cargobay.Mass.ToString();
+            }
+        }
+
+        private void CargobayChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CargoBay cBay = (CargoBay)cb_cargobays.SelectedItem;
+
+            if (cBay != null)
+            {
+                tb_cargobayArmour.Text = cBay.Armour.ToString();
+                tb_cargobayMass.Text = cBay.Mass.ToString();
+
+                ship.Cargobay = cBay;
+
+                CalculateCurrentMass();
             }
         }
 
@@ -1436,7 +1706,7 @@ namespace Ship_Loadout.LoadoutEditor
 
         private void InitialiseShipDetails()
         {
-            tb_ChassisName.Text = ship.Name;
+            tb_ChassisName.Text = ship.ChassisName;
             tb_givenName.Text = ship.GivenName;
 
             switch (ship.Faction)
@@ -1453,10 +1723,7 @@ namespace Ship_Loadout.LoadoutEditor
             tb_currentDrain.Text = ship.CurrentEnergyDrain.ToString();
 
             // Maneuverability
-            tb_shipPitch.Text = ship.Pitch.ToString();
-            tb_shipYaw.Text = ship.Yaw.ToString();
-            tb_shipRoll.Text = ship.Roll.ToString();
-            tb_shipSpeed.Text = $"{ship.SpeedLow}/{ship.SpeedTop}";
+            UpdateShipManoeuvreStats();
         }
 
         private void InitialiseOverloads()
@@ -1573,7 +1840,7 @@ namespace Ship_Loadout.LoadoutEditor
                 tb_remainingMass.Foreground = Brushes.Orange;
 
             tb_currentMass.Text = mass.ToString();
-            tb_remainingMass.Text = ship.RemainingMass.ToString();
+            tb_remainingMass.Text = Math.Round(ship.RemainingMass, 2).ToString();
         }
 
         #endregion

@@ -42,32 +42,35 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0" Foreground="Orange"/>
-            <TextBox Name="tb_armourName" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="1"/>
+            <TextBlock Text="Name" Height="24" Grid.Row="0" Grid.Column="0" Foreground="Orange" />
+            <TextBox Name="tb_armourName" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"
+                     Grid.Row="0" Grid.Column="1"/>
 
-            <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0"  Foreground="Orange"/>
-            <TextBox Name="tb_armourArmour" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="1"
+            <TextBlock Text="Armour" Height="24" Grid.Row="1" Grid.Column="0" Foreground="Orange" />
+            <TextBox Name="tb_armourArmour" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"
+                     Grid.Row="1" Grid.Column="1"
                      PreviewTextInput="OnPreviewTextInput"/>
 
-            <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="0"  Foreground="Orange"/>
-            <TextBox Name="tb_armourMass" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="1"
+            <TextBlock Text="Mass" Height="24" Grid.Row="2" Grid.Column="0" Foreground="Orange" />
+            <TextBox Name="tb_armourMass" Style="{DynamicResource tb_input}" Width="190" HorizontalAlignment="Left"
+                     Grid.Row="2" Grid.Column="1" 
                      PreviewTextInput="OnPreviewTextInput"/>
         </Grid>
 
         <Grid Grid.Row="2" VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <Button Name="btn_add" Content="Add" Click="Btn_addOnClick" Width="60"
-                        HorizontalAlignment="Left" Margin="10" 
-                        Style="{DynamicResource btn_orange}"/>
+                        HorizontalAlignment="Left" Margin="10"
+                        Style="{DynamicResource btn_orange}" />
 
                 <Button Name="btn_delete" Content="Delete" Height="24" Click="Btn_delete_OnClick" Width="60"
                         HorizontalAlignment="Left"
-                        Style="{DynamicResource btn_orange}"/>
+                        Style="{DynamicResource btn_orange}" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="btn_save" Content="Save" Click="Btn_save_OnClick" Height="24" Width="60" Margin="10" 
-                        Style="{DynamicResource btn_orange}"/>
+                <Button Name="btn_save" Content="Save" Click="Btn_save_OnClick" Height="24" Width="60" Margin="10"
+                        Style="{DynamicResource btn_orange}" />
             </StackPanel>
         </Grid>
     </Grid>

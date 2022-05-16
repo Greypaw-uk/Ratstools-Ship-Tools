@@ -8,7 +8,7 @@ namespace Ship_Loadout.ShipEditor
         public string ID { get; set; }
         public int Faction { get; set; }
 
-        public string Name { get; set; }
+        public string ChassisName { get; set; }
         public string GivenName { get; set; }
 
         public float CurrentMass { get; set; }
@@ -21,6 +21,7 @@ namespace Ship_Loadout.ShipEditor
         public int ReactorOverride { get; set; }
         public float OverridenGeneration { get; set; }
         public int EngineOverride { get; set; }
+        public float EngineOverrideDrain { get; set; }
         public int CapacitorOverride { get; set; }
         public int WeaponOverride { get; set; }
 
@@ -65,5 +66,7 @@ namespace Ship_Loadout.ShipEditor
         public int Countermeasures { get; set; }
         public CounterMeasure CM1 { get; set; }
         public CounterMeasure CM2 { get; set; }
+
+        public CargoBay Cargobay { get; set; }
     }
 }

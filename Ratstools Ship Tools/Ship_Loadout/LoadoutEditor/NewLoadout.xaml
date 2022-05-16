@@ -36,7 +36,7 @@
                   SelectionMode="Single" Style="{DynamicResource dg_global}" SelectionChanged="Dg_ships_OnSelectionChanged">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Path = Name}" Width="*"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path = ChassisName}" Width="*"/>
             </DataGrid.Columns>
 
             <DataGrid.CellStyle>

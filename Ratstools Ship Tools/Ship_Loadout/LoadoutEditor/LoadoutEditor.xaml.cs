@@ -86,7 +86,10 @@ namespace Ship_Loadout.LoadoutEditor
                     serializer.Serialize(file, tempSavedShips);
                 }
 
-                MessageBox.Show("Ship saved");
+                if (ShipCache != null && !string.IsNullOrEmpty(ShipCache.GivenName))
+                    MessageBox.Show($"'{ShipCache.GivenName}' saved");
+                else
+                    MessageBox.Show("Ship saved");
             }
             catch (Exception exception)
             {
